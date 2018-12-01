@@ -1,0 +1,2 @@
+btn.onclick=()=>{alert('BTN')}
+
