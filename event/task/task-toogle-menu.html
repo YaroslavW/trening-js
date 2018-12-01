@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Toogle Menu</title>
+	<style>
+		.hidden {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="caption">Menu</div>
+	<ul id="hidden_menu">
+		<li>Home</li>
+		<li>About</li>
+		<li>Goods</li>
+		<li>Contact</li>
+	</ul>
+
+	<script>
+		var caption = document.getElementById('caption')
+		var hidden_menu = document.getElementById('hidden_menu')
+		function HiddenMenu(){
+			hidden_menu.classList.toggle('hidden')
+		}
+		caption.addEventListener('click', HiddenMenu)
+	</script>
+</body>
+</html>
