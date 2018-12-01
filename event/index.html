@@ -3,11 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		.button {
+			transition: width 1s;
+			width: 100px;
+		}
+
+		.large {
+			width: 300px;
+		}
+	</style>
 </head>
 <body>
 	<button id="btn">click me- btn</button>
 	<button id="button" onclick="alert('Click Button')">Click Button</button>
 	<button id="with_this">This</button>
+	<button id="eL" onclick="alert('click')">event listener</button>
+<hr/>
+	<button id="trans" class="button" onclick="this.classList.toggle('large')">Transitioned</button>
+
 	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
