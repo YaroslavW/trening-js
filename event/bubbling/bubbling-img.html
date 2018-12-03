@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="example.css">
+  <style>
+form {
+  background-color: green;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  cursor: pointer;
+}
+
+div {
+  background-color: blue;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 100px;
+  height: 100px;
+}
+
+p {
+  background-color: red;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0;
+}
+
+body {
+  line-height: 25px;
+  font-size: 16px;
+}
+  </style>
+</head>
+
+<body>
+  Клик выведет <code>event.target</code> и <code>this</code>:
+
+  <form id="form">FORM
+    <div>DIV
+      <p>P</p>
+    </div>
+  </form>
+
+  <script>
+  	var form = document.querySelector('form');
+
+  	form.onclick = function(event) {
+  		event.target.style.backgroundColor = 'yellow';
+
+  		alert("target = " + event.target.tagName + ", this=" + this.tagName);
+
+  		event.target.style.backgroundColor = '';
+  	};
+  </script>
+</body>
+
+</html>

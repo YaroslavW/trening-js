@@ -11,18 +11,18 @@
 	</style>
 </head>
 <body>
-	<div id="big">
-		<div id="medium">
-			<form >
-				<div class="form">
-					<p class="tip">Text</p>
+	<div id="big">Big
+		<div id="medium">Medium
+			<form id="form">Form
+				<div id="form">Div class Form
+					<p id="tip">Text</p>
 				</div>
 			</form>
 		</div>
 	</div>
 	<script>
 		function handleClick(){
-			alert('current target = '+ event.currentTarget + "Target = "+ event.target);
+			alert('current target = '+ event.currentTarget.id + "\nTarget = "+ event.target.id);
 		}
 		big.addEventListener("click", handleClick)
 	</script>
