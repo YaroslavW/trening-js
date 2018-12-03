@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Buubling</title>
+	<style>
+		body *{
+			margin: 50px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div id="big">
+		<div id="medium">
+			<form >
+				<div class="form">
+					<p class="tip">Text</p>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script>
+		function handleClick(){
+			alert('current target = '+ event.currentTarget + "Target = "+ event.target);
+		}
+		big.addEventListener("click", handleClick)
+	</script>
+</body>
+</html>
