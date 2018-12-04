@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button data-toggle-id="subscribe-email">Show form for subscribe</button>
+	<form id="subscribe-email" hidden>
+		Your email: <input type="email">
+	</form>
+	<script>
+		document.onclick = function(event) {
+			var target = event.target;
+			var id = target.getAttribute('data-toggle-id');
+			if(!id) return;
+			var element = document.getElementById(id);
+			element.hidden = !element.hidden;
+		}
+	</script>
+</body>
+</html>
