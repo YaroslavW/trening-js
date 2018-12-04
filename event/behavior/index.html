@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button data-counter>1</button>
+	<button data-counter>3</button>
+
+	<script>
+		document.onclick= function(event){
+			if(!event.target.hasAttribute('data-counter')) return;
+			var counter = event.target;
+			counter.innerHTML++;
+		}
+	</script>
+</body>
+</html>
