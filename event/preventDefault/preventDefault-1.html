@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="meny" class="menu">
+        <li><a href="/About">About</a></li>
+        <li><a href="/Home">Home</a></li>
+        <li><a href="/Goods">Goods</a></li>
+        <li><a href="/Conacts">Conacts</a></li>
+        <li><a href="/Blog">Blog</a></li>
+    </ul>
+</body>
+<script>
+    menu.onclick = function(event){
+        if (event.target.nodeName != 'A') return;
+        var href = event.target.getAttribute('href');
+        return false;
+    }
+</script>
+</html>
