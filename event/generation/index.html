@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Generation</title>
+</head>
+<body>
+	<button id="elem" onclick="alert('Клик');">Автоклик</button>
+
+<script>
+  var event = new Event("click");
+  elem.dispatchEvent(event);
+</script>
+</body>
+</html>
