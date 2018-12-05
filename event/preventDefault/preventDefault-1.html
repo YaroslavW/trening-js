@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <ul id="meny" class="menu">
+    <ul id="menu" class="menu">
         <li><a href="/About">About</a></li>
         <li><a href="/Home">Home</a></li>
         <li><a href="/Goods">Goods</a></li>
@@ -16,10 +16,13 @@
     </ul>
 </body>
 <script>
-    menu.onclick = function(event){
-        if (event.target.nodeName != 'A') return;
-        var href = event.target.getAttribute('href');
-        return false;
-    }
+menu.onclick = function(event) {
+  if (event.target.nodeName != 'A') return;
+
+  var href = event.target.getAttribute('href');
+  alert( href ); // может быть подгрузка с сервера, генерация интерфейса и т.п.
+
+  return false; // отменить переход по url
+};
 </script>
 </html>
