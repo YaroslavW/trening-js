@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	Stop event</title>
+</head>
+<body>
+	<pre id="rabbit">
+  |\   /|
+   \|_|/
+   /. .\
+  =\_Y_/=
+   {>o<}
+</pre>
+
+<script>
+
+  function hide() {
+    var event = new Event("hide", {
+      cancelable: true
+    });
+    if (!rabbit.dispatchEvent(event)) {
+      alert( 'действие отменено обработчиком' );
+    } else {
+      rabbit.hidden = true;
+    }
+  }
+
+  rabbit.addEventListener('hide', function(event) {
+    if (confirm("Вызвать preventDefault?")) {
+      event.preventDefault();
+    }
+  });
+
+  // прячемся через 2 секунды
+  setTimeout(hide, 2000);
+
+</script>
+</body>
+</html>
