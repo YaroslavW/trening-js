@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        b {
+          -webkit-user-select: none;
+          /* user-select -- это нестандартное свойство */
+      
+          -moz-user-select: none;
+          /* поэтому нужны префиксы */
+      
+          -ms-user-select: none;
+        }
+      </style>
+</head>
+
+<body>
+    String to ..
+    <div ondblclick="alert('Тест')">
+        <b>This text cannot be selected (except IE9-)</b>
+    </div>
+    .. string after
+</body>
+
+</html>
