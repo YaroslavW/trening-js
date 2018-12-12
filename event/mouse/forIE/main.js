@@ -6,6 +6,13 @@ elem.onclick = function(event) {
     event = event || fixEvent.call(this, window.event);
     ...
   }
+//   Она добавит объекту события в IE8- следующие стандартные свойства:
+
+//   target
+//   currentTarget – если обработчик назначен не через attachEvent.
+//   relatedTarget – для mouseover/mouseout и mouseenter/mouseleave.
+//   pageX/pageY
+//   which
 
   function fixEvent(e) {
 
