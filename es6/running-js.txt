@@ -1,0 +1,8 @@
+1. Install extension - Code Runner -
+ https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner
+
+ 2.Open the JavaScript code file in a text editor,
+  then use the shortcut Ctrl + Alt + N or press F1,
+   then select / enter the Run Code, 
+   the code will be launched and the output will be displayed
+    in the output window.
