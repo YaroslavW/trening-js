@@ -16,3 +16,14 @@ let [lastName, firstName, ...rest] = "Brendan Eich  is creator of the JavaScript
 console.log(firstName);
 console.log(lastName);
 console.log(rest);
+
+// Eich
+// Brendan
+// [ '',
+//   'is',
+//   'creator',
+//   'of',
+//   'the',
+//   'JavaScript',
+//   'programming',
+//   'language.' ]
