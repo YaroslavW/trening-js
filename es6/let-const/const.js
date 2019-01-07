@@ -12,4 +12,5 @@ const user = {
   console.log(user.name); 
 //   Sarah
 user = 5;
-console.log(user); 
+console.log(user);
+// TypeError: Assignment to constant variable. 
