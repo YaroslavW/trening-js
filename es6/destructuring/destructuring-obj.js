@@ -16,6 +16,12 @@ let options = {
 
 // destructuring object and default property values
 
-let { title, width: w, color:c ='red'} = options;
-console.log(` title = ${title}; w = ${w}; c = ${c};`);
+// let { title, width: w, color:c ='red'} = options;
+// console.log(` title = ${title}; w = ${w}; c = ${c};`);
 // title = menu; w = 100; color = red;
+
+
+// New standart
+let { title, ...size } = options;
+
+console.log(` title = ${title}; size = ${size}; `);
