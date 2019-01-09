@@ -25,3 +25,4 @@ let options = {
 let { title, ...size } = options;
 
 console.log(` title = ${title}; size = ${size}; `);
+// title = menu; size = [object Object]; 
