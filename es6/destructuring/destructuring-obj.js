@@ -14,7 +14,8 @@ let options = {
 // let {title: name, width: w, height: h} = options;
 // console.log(` name = ${name}; w = ${w}; h = ${h};`);
 
-// destructuring and default property values
+// destructuring object and default property values
 
-let { title, width: w, color='red'} = options;
-console.log(` title = ${title}; w = ${w}; color = ${color};`);
+let { title, width: w, color:c ='red'} = options;
+console.log(` title = ${title}; w = ${w}; c = ${c};`);
+// title = menu; w = 100; color = red;
