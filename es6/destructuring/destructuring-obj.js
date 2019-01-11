@@ -28,7 +28,7 @@
 // title = menu; size = [object Object]; 
 
 
-// 
+// Destructuring without announcement
 
 // let a, b;
 // {a, b} = {a:5, b:6}; 
