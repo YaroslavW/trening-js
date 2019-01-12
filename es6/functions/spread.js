@@ -8,3 +8,6 @@
 let arrayNumbers = [3, 9, 1, 35];
 let maxNumber = Math.max(...arrayNumbers);
 console.log(maxNumber); //35
+
+Math.max(...numbers);
+Math.max.apply(Math, numbers);
