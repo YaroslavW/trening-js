@@ -14,3 +14,8 @@ console.log(width);
 console.log(height);
 console.log(item1);
 console.log(item2);
+// Menu
+// 100
+// 200
+// goods
+// services
