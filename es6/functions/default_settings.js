@@ -7,6 +7,7 @@ function getName(){
 }
 showMenu();
 // Title = Menu; Width = 300; Height = 200
-
+// Title = Menu; Width = null; Height = 200 Who = YAROSLAV
 showMenu(undefined, null);
 // Title = Menu; Width = null; Height = 200
+// Title = Menu; Width = null; Height = 200 Who = YAROSLAV
