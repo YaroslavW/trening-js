@@ -20,3 +20,10 @@ let getTime = () => {
     return hour + ' : ' + min;
 }
 console.log(getTime()); // current time
+
+// for callback
+let arr = [5, 8, 3];
+
+let sorted = arr.sort( (a,b) => a - b );
+
+console.log(sorted); // 3, 5, 8
