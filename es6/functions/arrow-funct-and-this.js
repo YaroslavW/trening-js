@@ -28,3 +28,4 @@ let group = {
 group.showList();
 // Errror
 // this внутри forEach будет undefined.
+// TypeError: Cannot read property 'title' of undefined
