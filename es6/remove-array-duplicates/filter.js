@@ -17,5 +17,6 @@ const array = ['dog', 1, 1, 2, 'dog', 3];
 // 3 5 5 true
 
 // return NOT unique
-const notUnique  = array.filter( (item, index) => array.indexOf(item) !== index);
-console.log(notUnique);
+const notUnique  = array.filter( (item, index) => array.indexOf(item) === index);
+console.log(notUnique); 
+// [ 1, 'dog' ]
