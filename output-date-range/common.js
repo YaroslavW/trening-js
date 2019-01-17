@@ -1,9 +1,7 @@
-const btn = document.querySelector('button');
-const start = document.getElementById('start-date');
-const end = document.getElementById('end-date');
 
-btn.addEventListener('click',function(){
-    let startDate = start.value;
-    let endDate = end.value;
+
+document.querySelector('button').addEventListener('click',function(){
+    let startDate = document.getElementById('start-date').value;
+    let endDate = document.getElementById('end-date').value;
     console.log(startDate, endDate);
 })
