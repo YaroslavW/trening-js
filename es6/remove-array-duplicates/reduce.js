@@ -17,3 +17,4 @@ const uniq = array.reduce( (unique, item) => {
 // 3 [ 'dog', 1, 2 ] false [ 'dog', 1, 2, 3 ]
 
 console.log(uniq);
+[ 'dog', 1, 2, 3 ];
