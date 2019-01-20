@@ -12,4 +12,5 @@
     position: fixed;
     left: -230px;
     top: 0;
+    transition: all ease 1s;
 }
