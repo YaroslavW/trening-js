@@ -2,9 +2,10 @@ window.onload = function(){
     document.querySelector('#menu').onmouseover = menuShow;
     document.querySelector('#menu').onmouseout = menuHide;
 
-    document.onkeypress = function (event) {
+    document.onkeydown = function (event) {
         console.log( event );
         if ( event.code == "KeyM")  menuShow();
+        if ( event.code == "Escape") menuHide();
     }
 
     function menuShow(){
