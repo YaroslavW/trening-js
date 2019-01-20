@@ -1,0 +1,15 @@
+/* reset standard browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /*===for padding not change size el-ts==*/
+}
+
+#menu {
+    width: 250px;
+    height: 100vh; 
+    background: #000;
+    position: fixed;
+    left: -230px;
+    top: 0;
+}
