@@ -1,6 +1,7 @@
 window.onload = function(){
-    document.querySelector('#menu').onmouseover = menuShow;
-    document.querySelector('#menu').onmouseout = menuHide;
+    const menu = document.querySelector('#menu');
+    menu.onmouseover = menuShow;
+    menu.onmouseout = menuHide;
 
     document.onkeydown = function (event) {
         console.log( event );
@@ -9,9 +10,9 @@ window.onload = function(){
     }
 
     function menuShow(){
-        document.querySelector('#menu').style.left = 0;
+        menu.style.left = 0;
     }
     function menuHide(){
-        document.querySelector('#menu').style.left = '-230px';
+        menu.style.left = '-230px';
     }
 }
