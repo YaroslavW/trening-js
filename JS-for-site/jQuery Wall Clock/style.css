@@ -1,0 +1,66 @@
+body {
+    background-color: #2E3F50;
+  }
+  
+  .clock {
+      width: 200px;
+      height: 200px;
+      background: -webkit-radial-gradient(#3b3b3b, #000);
+      background: radial-gradient(#2E3F50, #0E1B29);
+      box-shadow: inset 0px 0px 30px #131313, 0px 2px 18px rgba(0,0,0,0.5);
+      border: 6px solid #172839;
+      border-radius: 106px;
+      margin: auto;
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+  }
+  
+  .hour-hand {
+      width: 4px;
+      height: 55px;
+      background: #fff;
+      box-shadow: 0px 0px 7px #000;
+      position: absolute;
+      top: 45px;
+      left: 98px;
+  }
+  
+  .minute-hand {
+      width: 4px;
+      height: 80px;
+      background: #fff;
+      box-shadow: 0px 0px 4px #000;
+      position: absolute;
+      top: 20px;
+      left: 98px;
+  }
+  
+  .second-hand {
+      width: 2px;
+      height: 80px;
+      background: #bbb;
+      box-shadow: 0px 0px 7px #000;
+      position: absolute;
+      top: 20px;
+      left: 99px;
+  }
+  
+  .pin {
+      width: 10px;
+      height: 10px;
+      background: #222;
+      border-radius: 10px;
+      margin: auto;
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+  }
+  
+  .hour-hand,
+  .minute-hand,
+  .second-hand {
+      -webkit-transform-origin: 50% 100%;
+      -moz-transform-origin: 50% 100%;
+      -o-transform-origin: 50% 100%;
+      -ms-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+  }
