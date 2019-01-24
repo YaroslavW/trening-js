@@ -5,6 +5,7 @@
     margin: 0 auto;
     position: relative;
     font-family: sans-serif;
+    overflow: hidden;
 }
 
 .slide-single {
