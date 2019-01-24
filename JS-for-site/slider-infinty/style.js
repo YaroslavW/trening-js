@@ -36,7 +36,9 @@ function left() {
         imgVisible[i].style.left = offsetImg * 400 - 400 + 'px';
         offsetImg++;
     }
-
+    setTimeout(function(){
+        imgVisible[0].remove();
+    }, 1000);
 }
 draw(); draw();
 document.onclick = left;
