@@ -17,6 +17,26 @@ function draw(){
     img.classList.add('slide-single');
     img.style.left = offset * 400 + 'px';
     document.getElementById('slider').appendChild(img);
+    
+    if ( step + 1 === slider.length ) {
+        step = 0;
+    } else {
+        step++;
+    }
+    offset = 1;
 }
+function left() {
+    // let imgVisible - collection of visible elements
+    let imgVisible = document.querySelectorAll('.slide-single');
+    // let offsetImg - image offset
+    let offsetImg = 0;
 
-draw();
+    for ( let i = 0; i < imgVisible.length; i++ ) {
+        // offset img left
+        imgVisible[i].style.left = offsetImg * 400 - 400 + 'px';
+        offsetImg++;
+    }
+
+}
+draw(); draw();
+document.onclick = left;
