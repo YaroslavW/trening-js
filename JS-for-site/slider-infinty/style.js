@@ -26,6 +26,9 @@ function draw(){
     offset = 1;
 }
 function left() {
+    // correct overlay effect
+    document.onclick = null; //disable the event before the function ends 
+    
     // let imgVisible - collection of visible elements
     let imgVisible = document.querySelectorAll('.slide-single');
     // let offsetImg - image offset
@@ -38,6 +41,8 @@ function left() {
     }
     setTimeout(function(){
         imgVisible[0].remove();
+        draw(); //add image to the right.
+        document.onclick = left; // on events for correct overlay effect
     }, 1000);
 }
 draw(); draw();
