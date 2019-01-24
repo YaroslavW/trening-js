@@ -1,0 +1,20 @@
+#slider {
+    width: 400px;
+    height: 400px;
+    border: 2px solid black;
+    margin: 0 auto;
+    position: relative;
+    font-family: sans-serif;
+}
+
+.slide-single {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    transition: all ease 1s;
+    top: 0;
+    left: 0;
+}
+h1 {
+    text-align: center;
+}
