@@ -5,7 +5,6 @@ console.log(sum()); //5
 
 // ES6
 var calculateArea = function(height = 50, width = 80) {  
-<<<<<<< HEAD
     // write logic   
 }
 
@@ -15,10 +14,6 @@ var calculateArea = function(height, width) {
     width = width || 80;
     // write logic 
  }
-=======
-    // write logic
-    ...
-}
+
 
 // ES5
->>>>>>> 717bbcee754b95e6d2db512d22c74e999589106b
