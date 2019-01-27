@@ -17,3 +17,6 @@ console.log(arrNumMult) // [1, 4, 9]
 
 let arrKey = Array.from({ length: 4 }, (val, key) => key);
 console.log(arrKey); // [0, 1, 2, 3]
+
+let dublItem = Array.from({ length: 2 }, () => 'jack'); 
+console.log(dublItem); // ['jack', 'jack']
