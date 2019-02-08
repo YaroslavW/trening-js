@@ -12,3 +12,7 @@ function foo() {
   foo();
 
 //   const
+const foo = {};
+foo.bar = 42;
+console.log(foo.bar);
+// → 42
