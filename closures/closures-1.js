@@ -34,3 +34,9 @@ close();
 a = 'Other string';
 close();
 close();
+
+// 1
+// 2
+// 3
+// 4
+// 5
