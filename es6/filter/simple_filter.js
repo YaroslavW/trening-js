@@ -112,3 +112,13 @@ const negate = predicate => function() {
   console.log(isNotPizza); //[Function]
   const burgerNotJoints = restaurants.filter(isNotPizza);
 console.log( burgerNotJoints );
+// [ { name: 'Dan\'s Hamburgers', price: 'Cheap', cuisine: 'Burger' },
+//   { name: 'P. Terry\'s', price: 'Cheap', cuisine: 'Burger' },
+//   { name: 'Hopdoddy', price: 'Expensive', cuisine: 'Burger' },
+//   { name: 'Whataburger', price: 'Moderate', cuisine: 'Burger' },
+//   { name: 'Chuy\'s', cuisine: 'Tex-Mex', price: 'Moderate' },
+//   { name: 'Taquerias Arandina',
+//     cuisine: 'Tex-Mex',
+//     price: 'Cheap' },
+//   { name: 'El Alma', cuisine: 'Tex-Mex', price: 'Expensive' },
+//   { name: 'Maudie\'s', cuisine: 'Tex-Mex', price: 'Moderate' } ]
