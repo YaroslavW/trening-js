@@ -1,5 +1,5 @@
 // ===>>>> HTML
-<h2>All Restaurants</h2>
+{/* <h2>All Restaurants</h2>
 <ul id='restaurants'></ul>
 
 <h2>Burger Joints</h2>
@@ -18,7 +18,7 @@
 <ul id='moderateJoints'></ul>
   
 <h2>Expensive Joints</h2>
-<ul id='expensiveJoints'></ul>
+<ul id='expensiveJoints'></ul> */}
 
 
 
