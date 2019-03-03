@@ -13,8 +13,3 @@ console.log(forEachArrResult); // undefined
 
 console.log(exampleArray); //[ 2, 3, 4, 5, 6, 7, 8 ]
 
-const mewArray = [];
-forEachArrResult = exampleArray.forEach(num => {
-    return newArray.push(num * 2);
-});
-console.log(newArray);
