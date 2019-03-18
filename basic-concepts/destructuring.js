@@ -16,4 +16,8 @@ const obj_1 = {
 
 const { name: myName, food: myFood } = obj_1;
 
+<<<<<<< HEAD
 console.log(myName, myFood); // 'Bob' 'Bread'
+=======
+console.log(myName, myFood); // 'Joe' 'cake'
+>>>>>>> 6ba9127aca13c62277457a56fa7796ace0a0b6ff
