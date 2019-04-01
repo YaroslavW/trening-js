@@ -10,10 +10,11 @@ console.log(b); // 3
 console.log(a); // Error
 
 
-
+// Douglas Crockford
 (function () {
-    // код функции 
+    // code func 
 }());
+
 
 
 // Dog Balls
