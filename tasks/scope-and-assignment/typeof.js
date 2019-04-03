@@ -21,3 +21,10 @@ console.log(a); // Error
 (function() {
   //body 
 })();
+
+
+// ES6  IIFE
+// () => {
+//     // code goes here...
+// }();
+
