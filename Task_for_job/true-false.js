@@ -15,4 +15,13 @@ console.log('Empty obj = ' + Boolean({})); //Empty obj = true
 //--->> 4
 // Вопрос: Что можете сказать о[] ?
 //   Ответ : Это выражение также истинно, т.к.это объект массива.
-console.log('Empty array = ' + Boolean([]));
+console.log('Empty array = ' + Boolean([])); //Empty array = true
+
+
+// ====>> 5
+// Вопрос: Если вы утверждаете, что » (пустая строка) является ложным утверждением, тогда что насчёт
+//  newString(' ') ? // newString(пустая строка)
+  // Ответ : Несмотря на то, что вы передаёте пустую строку в string constructor, конструктор создаёт
+  //  объект string.Точнее, экземпляр объекта string.Он становится объектом.Следовательно, это не ложь.
+let newStr = newString(' ')
+console.log("newString = " + Boolean(newStr));
