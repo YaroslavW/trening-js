@@ -36,8 +36,11 @@ const items = {
 
 
 function getName(obj) {
-  const mySet = Object.setPrototypeOf(obj, null);
-  for (let item of mySet) console.log(item);
+  // const mySet = Object.setPrototypeOf(obj, null);
+  // for (let item of mySet) console.log(item);
+  var itemKeys = Object.keys(obj);
+  console.log(itemKeys)
+  // [ '11111', '22222', '33333', '44444' ]
 }
 getName(items);
 
