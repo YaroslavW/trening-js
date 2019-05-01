@@ -21,22 +21,29 @@ const items = {
 }
 }
 
-function getName(obj) {
-Object.keys(obj).map((key) => {
-  let newKey = '+' + key;
-  return { [newKey] : obj[key] }
-})
-  console.log(obj);
-}
-getName(items);
+// function getName(obj) {
+// Object.keys(obj).map((key) => {
+//   let newKey = '+' + key;
+//   return { [newKey] : obj[key] }
+// })
+//   console.log(obj);
+// }
+// getName(items);
 // { '11111': { name: 'Mice', price: '650,00' },
 //   '22222': { name: 'Monitor', price: '1500,00' },
 //   '33333': { name: 'Printer', price: '3000,00' },
 //   '44444': { name: 'Memory', price: '1000,00' } }
 
 
+function getName(obj) {
+  const mySet = Object.setPrototypeOf(obj, null);
+  for (let item of mySet) console.log(item);
+}
+getName(items);
+
 // function getName(obj){
 //   let res = ' ';
+  
 // for(var key in obj){
 //   key = +key;
 //   let name = obj[key]['name'];
@@ -46,7 +53,7 @@ getName(items);
 //  console.log(res);
 // }
 // getName(items);
-
+//  Mice Monitor Printer Memory 
 
 
 
