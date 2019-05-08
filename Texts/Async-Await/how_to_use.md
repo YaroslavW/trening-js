@@ -1,5 +1,5 @@
 # Как использовать Async / Await в JavaScript? #
-![alt-текст](https://github.com/YaroslavW/trening-js/blob/master/Texts/Async-Await/img/async-await.jpg "Текст заголовка логотипа 1")
+![Logo-Asinc-Await](https://github.com/YaroslavW/trening-js/blob/master/Texts/Async-Await/img/async-await.jpg "Текст заголовка логотипа 1")
 Асинхронный код, часто трудно представить нашему разуму.  Новое дополнение к ES8, которое существует уже некоторое время, - это функции `async / await`. До внедрения `async / await` мы использовали обратные вызовы и обещания.<br/>
 
 Если вы новичок в JavaScript, вы можете узнать, что такое обещания, и сразу перейти к async / await. Если вы все еще используете обещания, настало время изучить async / await.<br/>
