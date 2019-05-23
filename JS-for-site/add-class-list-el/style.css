@@ -12,8 +12,14 @@ body {
   padding: 10px 20px;
   list-style-type: none;
   font-size: 1.4rem;
+  border-bottom: 2px solid red;
 }
 
 .active {
   color: red;
+  border-right:2px solid red;
+  border-top:2px solid red;
+  border-left: 2px solid red;
+  border-bottom: none;
+  background-color: lightgray;
 }
