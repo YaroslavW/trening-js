@@ -1,6 +1,6 @@
+
 // pure js
 // for country test - js/file with social buttons
-
 var count=0;
 var block = "block";
 var id = '#press';
@@ -19,8 +19,7 @@ function checking(val){
     $(id).find('.allright').addClass('right');
     $(ind).addClass('wrong');
   }
-
-
+}
 function getChecked(){
   count++;
   block +=count;
@@ -31,7 +30,6 @@ function getChecked(){
 var val = ($('input[name='+block+']:checked', id).val());
  checking(val);
  
-
 }
 
 
@@ -59,7 +57,7 @@ $(document.body).on('load', function () {
     setTimeout(function(){
         window.scrollTo(0, 0);
     }, 1);
-});
+})
 });
 
 
