@@ -6,6 +6,6 @@ document.onkeydown = function(event) {
   if (event.code == "KeyY" && flag) {
     flag = false;
     console.log("work");
-    y.style.visibility = "hidden";
+    y.style.visibility = "visible";
   }
 };
