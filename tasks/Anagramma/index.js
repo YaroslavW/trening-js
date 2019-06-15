@@ -23,8 +23,7 @@ function checkingAnagramm(userString, anagramm) {
         // delete userArray[j];
         useArray = userArray.splice(j, 1);
         // anagrammArray = anagrammArray.splice(i, 1);
-        // j++;
-        // i--;
+       
       }
     }
   }
