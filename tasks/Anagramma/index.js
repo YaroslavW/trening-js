@@ -22,7 +22,9 @@ function checkingAnagramm(userString, anagramm) {
       if (anagrammArray[i] == userArray[j]) {
         // delete userArray[j];
         useArray = userArray.splice(j, 1);
-        j++;
+        // anagrammArray = anagrammArray.splice(i, 1);
+        // j++;
+        // i--;
       }
     }
   }
@@ -34,3 +36,4 @@ function checkingAnagramm(userString, anagramm) {
 // checkingAnagramm("Hello", "el o ");
 // UserArra = п,р,и,в,е,т ;  AnagrammArray = h,e,l,l,o
 checkingAnagramm("Говно с дымом", "С новым годом");
+// UserArra =  ;  AnagrammArray = с,н,о,в,ы,м,г,о,д,о,м
