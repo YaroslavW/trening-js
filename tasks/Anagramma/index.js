@@ -23,3 +23,4 @@ function checkingAnagramm(userString, anagramm) {
 }
 
 checkingAnagramm("  П Р ивет", " Hel l o ");
+// UserArra = п,р,и,в,е,т ;  AnagrammArray = h,e,l,l,o
