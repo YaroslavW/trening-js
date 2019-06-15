@@ -17,10 +17,20 @@ function checkingAnagramm(userString, anagramm) {
   }
   let userArray = toArray(userString);
   let anagrammArray = toArray(anagramm);
+  for (var i = 0; i < anagrammArray.length; i++) {
+    for (var j = 0; j < userArray.length; j++) {
+      if (anagrammArray[i] == userArray[j]) {
+        // delete userArray[j];
+        useArray = userArray.splice(j, 1);
+        j++;
+      }
+    }
+  }
   return console.log(
     "UserArra = " + userArray + " ; " + " AnagrammArray = " + anagrammArray
   );
 }
 
-checkingAnagramm("  П Р ивет", " Hel l o ");
+// checkingAnagramm("Hello", "el o ");
 // UserArra = п,р,и,в,е,т ;  AnagrammArray = h,e,l,l,o
+checkingAnagramm("Говно с дымом", "С новым годом");
