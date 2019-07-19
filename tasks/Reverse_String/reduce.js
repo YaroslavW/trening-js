@@ -17,3 +17,4 @@ console.log(reverString("JavaScript"));
 const revString = string =>
   string.split("").reduce((rev, char) => char + rev, "");
 console.log(revString("React"));
+// tcaeR
