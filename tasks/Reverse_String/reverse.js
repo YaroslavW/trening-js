@@ -13,3 +13,4 @@ const revStr = string_1 =>
     .reverse()
     .join("");
 console.log(revStr("JavaScript"));
+// tpircSavaJ
