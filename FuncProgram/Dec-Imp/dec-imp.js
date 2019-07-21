@@ -2,7 +2,10 @@
 function ReactComponent({ counter }) {
   return <span>{counter}</span>;
 }
-
+// Ex
+function getFileMapById(files) {
+  return lodash.keyBy(files, "id");
+}
 // Императивный код описывает, как он это делает:
 function UpdateCounter({ counter }) {
   document.getElementById("counter").innerHTML(`<span>${counter}<span>`);
