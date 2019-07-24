@@ -9,4 +9,3 @@ function getPdfFiles(files) {
 function getFileNames(files) {
   return lodash.map(files, "name");
 }
-// https://proglib.io/p/functional-coding/?fbclid=IwAR2rUGQ0YwZEdgXvOc00r97DEYal0roHKFmhd4qF9kkWcpiDZ6gGBVhfMzk
