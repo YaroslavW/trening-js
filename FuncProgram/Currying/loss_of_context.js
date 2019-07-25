@@ -28,4 +28,4 @@ var user_1 = {
 
 setTimeout(function() {
   user_1.sayHy("Day");
-}, 5000);
+}, 5000); //Good Day Sarah
