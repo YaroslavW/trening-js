@@ -17,3 +17,15 @@ setTimeout(user.sayHello, 1000); //Hello undefined
 setTimeout(function() {
   user.sayHello();
 }, 3000);
+// Hello Jhon
+
+var user_1 = {
+  name: "Sarah",
+  sayHy: function(time) {
+    console.log(`Good ${time} ${this.name}`);
+  }
+};
+
+setTimeout(function() {
+  user_1.sayHy("Day");
+}, 5000);
