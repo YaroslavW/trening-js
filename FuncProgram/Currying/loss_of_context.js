@@ -11,3 +11,9 @@ var user = {
 user.sayHello(); //Hello Jhon
 
 setTimeout(user.sayHello, 1000); //Hello undefined
+
+// ==========>>> 1 <<<=========
+
+setTimeout(function() {
+  user.sayHello();
+}, 3000);
