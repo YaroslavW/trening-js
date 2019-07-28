@@ -1,3 +1,4 @@
+"use strict";
 function mul(a, b) {
   return console.log(a * b);
 }
