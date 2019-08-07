@@ -6,3 +6,10 @@ console.log(`Obect without "" =  ${object[0]}`);
 const result = object["0"] + object[0];
 console.log(result);
 // 4
+
+const obj = { a: 1 };
+console.log(obj);
+// { a: 1 }
+obj["a"] = 2;
+console.log(obj);
+// { a: 2 }
