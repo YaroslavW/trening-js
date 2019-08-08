@@ -13,3 +13,6 @@ console.log(obj);
 obj["a"] = 2;
 console.log(obj);
 // { a: 2 }
+
+// All keys with square brackets are converted to a String type, because objects in JavaScript can only have a String type as a key. Thus, we rewrite the property to the value that was declared last. And this is the number 2.
+// result = 4
