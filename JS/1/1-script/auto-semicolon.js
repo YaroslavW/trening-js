@@ -7,3 +7,4 @@ console.log("OK");
 // OK
 // 1 0 [ 1, 2 ]
 // 2 1 [ 1, 2 ]
+https://learn.javascript.ru/structure
