@@ -1,0 +1,11 @@
+var a = 5;
+var b = ++a;
+var c = b++;
+console.log(`a = ${a}`);
+console.log(`b = ${b}`);
+console.log(`c = ${c}`);
+console.log(a + b + c);
+// a = 6;
+// b = 7;
+// c = 6;
+// 19;

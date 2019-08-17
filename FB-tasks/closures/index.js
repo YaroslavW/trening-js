@@ -6,3 +6,4 @@ let func = {
   }
 };
 console.log(func.add(2));
+// 3
