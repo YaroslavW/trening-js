@@ -7,11 +7,11 @@ ES6 настолько полезен, потому что все функции
 Содержание:
 
 - Let and const
-- Arrow functions
-- Modules (Exports & Imports)
-- Classes
+- Arrow functions (Стрелочные функции)
+- Modules (Exports & Imports) - Модули (экспорт импорт)
+- Classes - Классы.
 - The threeDots ...
-- Destructuring
+- Destructuring - Деструктуризация.
 
 ### Let and const
 
@@ -56,3 +56,89 @@ console.log(myName);
 myName = "Kolesnikov"; //ERROR
 console.log(myName);
 ```
+
+### Arrow functions -Стрелочные функции.
+
+Функции со стрелками - это другой синтаксис для создания функций Javascript.
+Обычная функция JavaScript, конечно, выглядит следующим образом.
+
+```javascript
+function printName(name) {
+  console.log(name);
+}
+
+printName(); //undefined
+printName("Yaroslav"); //Yaroslav
+```
+
+Стрелочная так:
+
+```javascript
+const printName = name => {
+  console.log(name);
+};
+
+printName();
+printName("Yaroslav");
+```
+
+Есть несколько альтернатив этому синтаксису
+Если у нас есть один аргумент
+
+```javascript
+const printName = name => {
+  console.log(name);
+};
+
+printName();
+printName("Yaroslav");
+```
+
+Если у нас есть функция, которая не получает аргументов, нам нужно передать пустую пару скобок
+
+```javascript
+const printName = () => {
+  console.log("Yaroslav");
+};
+
+printName();
+```
+
+Если у нас есть функция, которая получает более одного аргумента, нам нужны скобки
+
+```javascript
+const printName = (name1, name2, age) => {
+  console.log(name1, name2, age);
+};
+
+printName("Yaroslav", "Kolesnikov", 48);
+//Yaroslav
+//Kolesnikov
+//48
+```
+
+Также мы можем обновить наше тело функции
+
+```javascript
+const mul = number => {
+  return number * 5;
+};
+
+console.log(mul(3)); //15
+```
+
+Мы можем обновить эту функцию и удалить фигурные скобки и ключевое слово `return`.
+
+```javascript
+const mul = number => number * 5;
+console.log(mul(3));
+```
+
+Мы также можем обновить
+
+```javascript
+const mul = number => number * 5;
+console.log(mul(3)); //15
+```
+
+### Modules (Exports & Imports) - Модули (экспорт импорт).
