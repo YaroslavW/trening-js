@@ -457,3 +457,119 @@ import {baseData},{printMohamed} from './utility.js'
 ```
 
 ### Classes
+Классы - это чертежи объектов, класс может иметь как свойства, так и методы.
+
+Здесь мы создали класс `Person`, который имеет свойство `name` и метод `mul`. Затем мы создали объект из этого класса.
+
+```javascript
+//Create class
+class Person{
+    name = 'Yaroslav';
+        mul = number => number * 5;
+}
+
+//Use class, use new keyword
+const myPerson = new Person();
+
+console.log(myPerson.name); //"Yaroslav"
+console.log(myPerson.mul(3));   //15
+```
+Другой пример: мы создали класс, который имеет конструктор и метод `print`. Затем мы создали объект из этого класса
+
+```javascript
+//Create class
+class Person{
+    //Default function method
+    constructor(){
+        this.name = 'Yaroslav';
+    }
+
+    printMyName(){
+        console.log(this.name);
+    }
+}
+
+//Create an instance or object
+const person = new Person1();
+person.printMyName();   //"Yaroslav"
+```
+Что если мы хотим сделать наследование? Здесь мы используем `super` - ключевое слово.
+Это ключевое слово, и оно просто выполняет родительский конструктор.
+
+```javascript
+//Create Human class
+class Human{
+    constructor(){
+        this.gender = 'male';
+    }
+
+    printGender(){
+        console.log(this.gender);
+    }
+}
+
+//Create Person class
+class Person extends Human2{
+    constructor(){
+            super();    
+            this.name = 'Yaroslav';
+    }
+
+    printMyName(){
+            console.log(this.name);
+    }
+}
+
+//Create an instance or object
+const person = new Person();
+person.printMyName();   //"Yaroslav"
+person.printGender();   //"male"
+```
+***Обратите внимание на следующий важный случай:***
+
+Здесь наш класс `person` расширяется от класса `Human`, но класс `person` имеет свои собственные свойства и методы.
+
+```javascript
+class Human{
+    //Default function method
+    constructor(){
+        this.gender = 'male';
+        this.age = 23;
+
+    }
+
+    printGender(){
+        console.log(this.gender);
+    }
+    printAge(){
+        console.log(this.age);
+    }  
+}
+
+
+class Person extends Human3{
+    constructor(){
+        super();
+        this.name = 'John';
+        this.gender = 'Female';
+        this.age = 35;
+    }
+
+    printMyName(){
+        console.log(this.name);
+    }
+}
+
+
+const person = new Person();
+person.printMyName();   //"John"
+person.printGender();   //"Female"
+person.printAge();  //35
+```
+### Важные замечания о классах, свойствах и методах
+
+
+
+
+
+
