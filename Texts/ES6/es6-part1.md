@@ -631,3 +631,57 @@ person.printGender();   //"Female"
 
 ### Три точки ...
 
+* Spread и Rest операторы называются еще  операторы три точки.
+* Оператор всего три точки ...
+* Оператор распространения - Spread оператор используется для разделения элементов массива или свойств объекта. Другими словами, для копирования массивов или добавления свойств к объекту при безопасном копировании этого старого объекта. Оператор распространения  - Spread оператор вынимает все элементы, все свойства и распределяет их в новом массиве или объекте или там, где вы его используете.
+
+Пример-1 ... с массивом
+
+```javascript
+const numbers = [1,2,3];
+const newNumbers = [numbers,4,5];
+console.log(newNumbers);    //[[1, 2, 3], 4, 5]
+
+const spreadNumbers =[...numbers,4,5];
+console.log(spreadNumbers); //[1, 2, 3, 4, 5]
+```
+Пример-2 .. с объектом
+```javascript
+const oldPerson = {
+  name : 'Yaroslav'
+
+};
+
+const newPerson = {
+  ...oldPerson,
+  age: 48
+}
+
+console.log(newPerson);
+
+// Output
+// [object Object] {
+// age: 48,
+// name: "Yaroslav"
+// }
+
+```
+* Оператор rest используется для объединения списка аргументов функции в массив, и мы используем его в списке аргументов функции.
+
+```javascript
+const filterFunc1 = (...args) => {
+  return args.filter(el => el === 1);
+}
+
+console.log(filterFunc1(1,2,7,1,3,8,9,1,2));    //[1, 1, 1]
+```
+Пример-3
+```javascript
+const filterFunc2 = (...args) => {
+  return args.filter(el => el === 1 || el ===2);
+}
+
+console.log(filterFunc2(1,2,7,1,3,8,9,1,2));    //[1, 2, 1, 1, 2]
+```
+
+###  Деструктуризация 
