@@ -684,4 +684,61 @@ const filterFunc2 = (...args) => {
 console.log(filterFunc2(1,2,7,1,3,8,9,1,2));    //[1, 2, 1, 1, 2]
 ```
 
-###  Деструктуризация 
+###  Деструктуризация.
+
+* Деструктуризация отличается от того, что делает оператор распространения.
+
+* Деструктуризация позволяет вытащить отдельный элемент или свойства и сохранить их в переменных для массивов и объектов.
+
+* Деструктуризация позволяет легко извлекать элементы массива или свойства объекта и сохранять их в переменных.
+
+Пример с массивом:
+
+```javascript
+[a,b] = ['Yaroslav','Kolesnikov']
+console.log(a); //Yaroslav
+console.log(b); //Kolesnikov
+```
+Пример с объектом:
+
+```javascript
+myInfo1 = {name:'Yaroslav'};
+console.log(myInfo1.name);  //Yaroslav
+console.log(myInfo1.age);   //undefined
+
+myInfo2 = {name:'Yaroslav', age: 48};
+console.log(myInfo2.name);  //Yaroslav
+console.log(myInfo2.age);   //48
+```
+Пример-1:
+```javascript
+const numbers = [1,2,3];
+[num1,num2] = numbers;
+
+console.log(num1,num2);
+//1
+//2
+```
+Пример-2:
+```javascript
+const numbers = [1,2,3];
+[num1, ,num3] = numbers;
+
+console.log(num1,num3);
+//1
+//3
+```
+Пример-3:
+```javascript
+const {name} = {name:'Jaroslav', age:48}
+console.log(name);  //Jaroslav
+console.log(age);   //undefined
+```
+Пример-4:
+```javascript
+const {name,age} = {name:'Yaroslav', age:48}
+console.log(name);  //Yaroslav
+console.log(age);   //48
+```
+Полезная информаци в официальной документации [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) и [ ES6 Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+
