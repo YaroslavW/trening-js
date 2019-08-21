@@ -186,3 +186,115 @@ console.log(myName);
 // 2. Kolesnikov
 // 3. Yousef
 ```
+
+## Сокращение литералов объекта.
+
+Одной из функций ES6 является удаление повторений, чтобы сделать синтаксис более легким для чтения и более кратким.
+
+Например, когда мы пишем объект и присваиваем имена свойств в качестве имен переменных, например `first: first`, `second: second`.
+
+```javascript
+//Normal JS Object
+let first = "Yaroslav";
+let second = "Kolesnikov";
+let third = "Yousef";
+
+const myName = {
+  first: first,
+  second: second,
+  third: third
+};
+
+console.log(myName);
+// {first: "Yaroslav", second: "Kolesnikov", third: "Yousef"}
+```
+
+##### Сокращение литерала объекта для инициализации свойств
+
+На самом деле нам не нужно это повторение, поэтому мы можем удалить повторяющиеся имена переменных из свойств объекта
+
+```javascript
+//Normal JS Object
+let first = "Yaroslav";
+let second = "Kolesnikov";
+let third = "Yousef";
+
+const myName = {
+  first,
+  second,
+  third
+};
+
+console.log(myName);
+// {first: "Yaroslav", second: "Kolesnikov", third: "Yousef"}
+```
+
+То же самое в обычном JS, когда мы создаем методы в объекте.
+
+В следующем примере мы создаем анонимную функцию в нашем объекте и назначаем ее свойству `writeMyName` и то же самое с функцией `mul`.
+
+```javascript
+let first = "Yaroslav";
+let second = "Kolesnikov";
+let third = "Yousef";
+
+let fs = 5,
+  sec = 7;
+
+const myName = {
+  first: first,
+  second: second,
+  third: third,
+
+  fs: fs,
+  sec: sec,
+
+  writeMyName: function(x, y, z) {
+    return first.concat(second, third);
+  },
+
+  mul: function(a, b) {
+    return fs * sec;
+  }
+};
+
+console.log(myName.writeMyName());
+// YaroslavKolesnikovYousef
+console.log(myName.mul());
+// 35
+```
+
+##### Сокращение литерала объекта для написания методов.
+
+В ES6 нам не нужно ключевое слово `function`, чтобы определить метод
+
+```javascript
+let first = "Yaroslav";
+let second = "Kolesnikov";
+let third = "Yousef";
+
+let fs = 5,
+  sec = 7;
+const myName = {
+  first: first,
+  second: second,
+  third: third,
+
+  fs: fs,
+  sec: sec,
+  writeMyName(x, y, z) {
+    return first.concat(second, third);
+  },
+
+  mul(a, b) {
+    return fs * sec;
+  }
+};
+
+console.log(myName.writeMyName());
+// YaroslavKolesnikovYousef
+console.log(myName.mul());
+// 35
+```
+
+## The for...of loop
