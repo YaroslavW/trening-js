@@ -297,4 +297,106 @@ console.log(myName.mul());
 // 35
 ```
 
-## The for...of loop
+## The for...of loop.
+
+Цикл `for ... of` - это один из типов цикла, который используется для итерации.
+
+Типы циклов `for`, такие как цикл `for`, цикл `for..in`, цикл `forEach` и цикл `for..of`.
+
+Напомним все типы циклов:
+
+##### for loop.
+
+Проблема в том, что JS должен искать длину массива на каждой итерации. Это означает, что Js должен продолжать считать длину массива и условие выхода.
+
+В этом примере мы используем переменную `i` в качестве счетчика, чтобы отслеживать цикл и получать доступ к значениям в массиве. Мы также используем `numbers.length` для определения условия выхода из цикла.
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+for (let i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]);
+}
+```
+
+##### for...in.
+
+Цикл `for ... in` улучшает проблему цикла `for`, устраняя логику подсчета и условие выхода.
+Но вам все еще приходится иметь дело с проблемой использования индекса для доступа к значениям массива.
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+for (const index in numbers) {
+  console.log(numbers[index]);
+}
+```
+
+##### forEach.
+
+На самом деле это метод массива, поэтому он может использоваться только с массивами.
+
+```javascript
+const numbers = ["One", "Two", "Three", "Four"];
+numbers.forEach(function(num) {
+  console.log(num);
+});
+```
+
+##### For...of.
+
+Теперь, что насчет `For ... of`
+`For ... of` - это самая краткая версия всех циклов `for`, поскольку она используется для циклического перебора любого типа данных, являющихся итеративными объектами.
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+for (const num of numbers) {
+  console.log(num);
+}
+```
+
+Кроме того, вы можете в любой момент остановить или прервать цикл `for..of`.
+В следующем примере мы печатаем четные числа.
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+for (const num of numbers) {
+  if (num % 2 === 1) {
+    continue;
+  }
+  console.log(num);
+}
+```
+
+Наконец, давайте используем цикл `for ... of`, который проходит через каждый день в массиве `days` и делает заглавной первую букву каждого названия дня недели.
+
+```javascript
+const days = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday"
+];
+
+const capitalize = st =>
+  st
+    .charAt(0)
+    .toUpperCase()
+    .concat(st.slice(1));
+
+for (const day of days) {
+  console.log(capitalize(day));
+}
+// Sunday
+//  Monday
+//  Tuesday
+//  Wednesday
+//  Thursday
+//  Friday
+//  Saturday
+```
