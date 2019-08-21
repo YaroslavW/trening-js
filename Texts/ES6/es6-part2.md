@@ -73,3 +73,116 @@ console.log(names);
 [Узнать больше](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array# "developer.mozilla.org")
 
 ## Template literals - Шаблонные литералы.
+
+Прежде чем мы определим, что такое литералы шаблона, давайте вспомним, что в обычном JS для объединения строк это было сделано с помощью оператора конкатенации строк (`+`). Также вы можете использовать метод `concat ()` строки.
+
+```javascript
+const my_name = "Yaroslav";
+const message0 = "My name is " + my_name;
+console.log(message0);
+// My name is Yaroslav
+```
+
+На самом деле не рекомендуется использовать оператор `+` для объединения строк, потому что он становится более сложным, когда вам нужно создавать многострочные строки.
+
+```javascript
+const fstName1 = "Yaroslav",
+  lastName1 = "Kolesnikov";
+const message1 =
+  "My name is " + fstName1 + ".\n\n" + "My last name is " + lastName1;
+console.log(message1);
+// My name is Yaroslav.
+//
+// My last name is Kolesnikov
+```
+
+Таким образом, литералы шаблона решают проблему многострочных строк.
+
+Шаблонные литералы - это строковые литералы, которые включают в себя встроенные выражения.
+Обозначается с помощью backticks ( _``_) вместо одинарных кавычек (`''`) или двойных кавычек (`""`). Шаблонные литералы могут содержать заполнители, которые представлены с помощью `$ {expression}`. Это значительно упрощает построение строк.
+
+Используя литералы шаблона, вы можете удалить кавычки вместе с оператором конкатенации строк. В общем, Template Literals используется для более простой интерполяции строк.
+
+```javascript
+const my_Name = "Yaroslav";
+const message1 = `My name is ${my_Name}`;
+console.log(message1);
+// My name is Yaroslav
+```
+
+Также вы можете ссылаться на свойства объекта внутри выражений.
+
+```javascript
+const myName = {
+  name: "Yaroslav",
+  age: 48
+};
+
+const myFather = {
+  name: "Kolesnikov"
+};
+
+let message2 =
+  "My name is " +
+  myName.name +
+  ". I am " +
+  myName.age +
+  " years old" +
+  " and my father name is " +
+  myFather.name;
+console.log(message2);
+// My name is Yaroslav. I am 48 years old and my father name is Kolesnikov
+let message3 = `My name is ${myName.name}. I am ${
+  myName.age
+} years old and my father name is ${myFather.name}`;
+console.log(message3);
+// My name is Yaroslav. I am 48 years old and my father name is Kolesnikov
+```
+
+Как насчет многострочного примера?
+
+```javascript
+const fstName = "Yaroslav",
+  lastName = "Kolesnikov";
+const message0 = `My name is ${fstName}, 
+
+My last name is ${lastName}`;
+console.log(message0);
+// My name is Yaroslav,
+//
+// My last name is Kolesnikov
+```
+
+##### Destructuring Arrays and Template Literals
+
+Деструктуризация и шаблонные литералы.
+Круто, я думаю, вы помните деструктуризацию массива из [первой части](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part1.md).
+Здесь я печатаю свое имя в одну строку и многострочно.
+
+```javascript
+const names = [
+  "Adrian",
+  "Yaroslav",
+  "Jain",
+  "Sarah",
+  "Kolesnikov",
+  "John",
+  "Adel",
+  "Yousef"
+];
+
+const [, First, , , Second, , , Third] = names;
+
+let myName = `My name is ${First} ${Second} ${Third}`;
+console.log(myName);
+// My name is Yaroslav Kolesnikov Yousef
+myName = `My name is
+1. ${First}
+2. ${Second}
+3. ${Third}`;
+console.log(myName);
+// My name is
+// 1. Yaroslav
+// 2. Kolesnikov
+// 3. Yousef
+```
