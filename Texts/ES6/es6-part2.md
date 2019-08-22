@@ -242,12 +242,12 @@ let fs = 5,
   sec = 7;
 
 const myName = {
-  first: first,
-  second: second,
-  third: third,
+  first,
+  second,
+  third,
 
-  fs: fs,
-  sec: sec,
+  fs,
+  sec,
 
   writeMyName: function(x, y, z) {
     return first.concat(second, third);
