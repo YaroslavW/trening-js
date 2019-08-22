@@ -220,3 +220,5 @@ getStudent(student => {
 
 console.log("This is executed first");
 ```
+
+## Promises - Обещания.
