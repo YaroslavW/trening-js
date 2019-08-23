@@ -556,3 +556,10 @@ fetchStudent()
 
 console.log("This is executed first")
 ```
+hr
+
+[Знаете ли вы ES6 - часть 1.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part1.md)
+
+[Знаете ли вы ES6 - часть 2.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part2.md)
+
+[]()
