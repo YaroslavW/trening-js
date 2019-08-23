@@ -1,5 +1,11 @@
 # Знаете ли вы ES6 - часть 1.
 
+[Знаете ли вы ES6 - часть 1.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part1.md)
+
+[Знаете ли вы ES6 - часть 2.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part2.md)
+
+[Знаете ли вы ES6 - часть 3.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part3.md)
+
 ## ES6 - это JS, ES6 - это следующее поколение Javascript.
 
 ES6 настолько полезен, потому что все функции ES6 обычно используют приложения React, Angular и Vue. В общем, ES6 позволяет нам писать чистые и надежные react - приложения, и это помогает нам делать более мощные вещи.
@@ -742,3 +748,8 @@ console.log(age);   //48
 ```
 Полезная информаци в официальной документации [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) и [ ES6 Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
+[Знаете ли вы ES6 - часть 1.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part1.md)
+
+[Знаете ли вы ES6 - часть 2.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part2.md)
+
+[Знаете ли вы ES6 - часть 3.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part3.md)
