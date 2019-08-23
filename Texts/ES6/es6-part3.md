@@ -430,3 +430,129 @@ isName().catch(msg => console.log(msg));
 ```
 
 ### Await
+
+`await` означает, что вам нужно дождаться выполнения этой строки. `await` действителен только в асинхронной функции.
+
+В следующем примере у нас есть обещание `p` и асинхронная функция `myName`. Мы заметим, что `This is executed first` - «Это выполнено первым» - это первая строка, но затем мы должны дождаться окончания нашего обещания `p`. Наконец, после выполнения обещания, остальное выполняется, поэтому последняя строка - «I am Yaroslav».
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("promise done");
+    resolve("Done");
+  }, 2000);
+});
+
+async function myName() {
+  console.log("This is executed first");
+  await p;
+  //p
+  console.log("I am Yaroslav");
+}
+
+myName();
+```
+
+Вы знаете, обещание принять решение или отклонить - resolve or reject. Теперь, результат ожидания является результатом - resolve or reject (решения или отклонения).
+
+Если обещание `resolve`
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("promise done");
+    resolve("Done");
+  }, 2000);
+});
+
+async function myName() {
+  let result = await p;
+  console.log("The result of await is : " + result);
+}
+myName();
+```
+Если обещание  `reject` - отвергнуть, оно автоматически сгенерирует ошибку. Поэтому мы должны избегать цепочки обещаний и использовать этот способ.
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('promise done')
+    //resolve('Done')
+    reject('error 404')
+  }, 2000)
+})
+
+async function myName(){
+   let result = await p
+   return result
+}
+
+myName()
+  .then( res => console.log('The result of await is : ' + res))
+  .catch( err => console.log('Error: ' + err))
+  ```
+  Наконец, вы помните наш пример обратного вызова. Мы сделали это двумя способами, используя обратный вызов и обещание.
+
+Теперь я собираюсь сделать это с помощью `async/await` с тем же выводом. Попробуй еще раз понять это сам по себе :) LOL :(
+
+```javascript
+let p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve({ name: 'Yaroslav', age: 48 })
+        //reject('error 404')
+    }, 2000)
+
+})
+
+const getStudent = () => {
+    return p
+}
+
+async function fetchStudent () {
+    let student = await getStudent()
+    return student
+}
+fetchStudent()
+  .then(student => console.log(student.name + " " + student.age))
+  .catch((err) => console.log("Error: " + err))
+
+console.log("This is executed first")
+```
+* Также мы можем использовать `try` и `catch` для обработки ошибок.
+
+```javascript
+let p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let error = false;
+        if(error)
+        {
+            console.log("This is executed second, Done")
+            resolve({ name: 'Yaroslav', age: 48 })
+        }
+        else
+        {
+            console.log("This is executed second, Error")
+            reject()
+        }
+    }, 2000)
+})
+
+const getStudent = () => {
+    return p
+}
+
+async function fetchStudent () {
+    try { 
+        const student = await getStudent()
+        return student
+    } catch (error) {
+        console.log("Error")
+    }
+}
+
+fetchStudent()
+  .then(student => console.log(student.name + " " + student.age))
+  .catch(() => console.log("error 404"))
+
+console.log("This is executed first")
+```
