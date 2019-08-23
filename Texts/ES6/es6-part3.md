@@ -397,3 +397,36 @@ console.log("This is executed first");
 ```
 
 ## Async vs Await.
+
+### Async
+
+`Async` - ключевое слово, `Await` - оператор. Они были добавлены в ES8.
+
+`Async` vs `Await` заставляет нас справляться с обещанием лучше, чем использование цепочки обещаний, поэтому наше обещание стало проще.
+
+`Async` используется с функцией, которая означает, что это асинхронная функция, но она возвращает обещание.
+
+- Return == Resolve
+
+- Throw == Reject
+
+В этом примере Наше обещание разрешить или вернуть `myName` «I am Yaroslav»
+
+```javascript
+async function myName() {
+  return "I am Yaroslav";
+}
+
+myName().then(msg => console.log(msg));
+```
+
+В этом примере Наше обещание будет отклонено `- reject` или `throw` и веренет `isName` «Is not Yaroslav»
+
+```javascript
+async function isName() {
+  throw "Is not Yaroslav";
+}
+isName().catch(msg => console.log(msg));
+```
+
+### Await
