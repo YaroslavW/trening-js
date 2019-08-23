@@ -222,3 +222,178 @@ console.log("This is executed first");
 ```
 
 ## Promises - Обещания.
+
+### Что такое обещание?
+
+`Promise` - это встроенная асинхронная функция в JS, которая упрощает обработку асинхронного кода.
+
+Обещание - это асинхронное действие, которое может завершиться в какой-то момент и привести к значению. Так что с `Promise`, мы пытаемся выполнить некоторые операции. Если операции удалось выполнить, мы обещаем нечто, что называется `resolve` - решением. Если произойдет сбой, мы сделаем `reject` - отказ. Так что обещание имеет дело с асинхронными операциями.
+
+### Как создать обещание?
+
+Мы используем конструктор с именем `Promise`, который принимает функцию исполнителя. Эта функция пытается выполнить операции и `resolve` - разрешить или `reject` - отклонить обещание.
+
+Это первое обещание
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("promise done");
+    resolve("done");
+  }, 2000);
+});
+```
+
+### Как узнать, работает ли обещание или нет?
+
+Узнать результат обещания - `resolve` - решить или `reject`- отклонить. Мы используем `then` и - `catch` - ловим, чтобы получить результат.
+
+- `then` функция принимает успешно выполняется, когда происходит `resolve` для обещания. Это означает, что действие успешно завершено. Также `then` возвращает еще одно обещание.
+
+* `Catch` принимает функцию, которая успешно выполняется, когда происходит `reject` - отклонение для обещания или сбой.
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("promise done");
+    resolve("done");
+    //reject('Is not done. Error')
+  }, 2000);
+});
+
+p.then(() => console.log("promise resolved")).catch(() =>
+  console.log("promise rejected")
+);
+```
+
+### Значение для `resolve` - разрешения или `reject`- отклонения.
+
+Теперь, каким бы ни был результат, решите или отклоните. Что делать, если нам нужно значение этого `resolve` или `reject`.
+
+Вот наше значение для `resolve` - «сделано», а наша значение для `reject` - «Не сделано». `Error`. Таким образом, чтобы получить его, наша функция `then` или `catch` принимает параметр.
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("promise done");
+    resolve("Done");
+    reject("Is not done. Error");
+  }, 2000);
+});
+
+p.then(res => console.log("promise resolved", res)).catch(err =>
+  console.log("promise rejected", err)
+);
+```
+
+### Вложенное обещание.
+
+Что делать, если наше обещание закончилось, и мы хотим выполнить другое обещание. Это называется вложенным обещанием.
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("promise done");
+    resolve("Done");
+  }, 2000);
+});
+
+//Nested promise
+p.then(res => {
+  p.then(res2 => console.log(res2));
+});
+```
+
+### Цепочка обещаний.
+
+Я хочу сказать вам, что вложенное обещание не является хорошей практикой. Так что цепочки обещаний...
+
+Вот наша функция, возвращающая наше обещание `p`, и результатом функции `then` является наше обещание `p`. Наконец, мы можем использовать `then`, чтобы сделать цепочку обещаний.
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("promise done");
+    resolve("Done");
+  }, 2000);
+});
+
+//Chaining promise
+p.then(res => {
+  return p;
+}).then(res2 => console.log(res2));
+//p.then((res) => p).then(res2 => console.log(res2))
+```
+
+Вот окончательный код
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("promise done");
+    resolve("Done");
+  }, 2000);
+});
+
+//Nested promise
+p.then(res => {
+  p.then(res2 => console.log(res2));
+});
+
+//Chaining promise
+p.then(res => {
+  return p;
+}).then(res2 => console.log(res2));
+
+//Chaining promise
+p.then(res => p).then(res2 => console.log(res2));
+
+//Chaining promise .. Best practice and more readable
+p.then(res => p).then(res2 => console.log(res2));
+```
+
+Когда у меня есть цепочка обещаний и Если какое-либо обещание будет `rejected` отклонено, оно выполнит первый `catch` и проигнорирует остальные.
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("promise done");
+    reject("Is not done. Error");
+  }, 2000);
+});
+
+//Chaining promise
+p.then(res => p)
+  .then(res2 => console.log(res2))
+  .catch(err1 => console.log("promise rejected 1", err1))
+  .catch(err2 => console.log("promise rejected 2", err2));
+```
+
+Наконец, вы помните наш пример обратного вызова. Я собираюсь сделать это с обещанием с тем же выходом. Попробуй это понять LOL :)
+
+```javascript
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    let error = false;
+    if (!error) {
+      console.log("This is executed second, Done");
+      resolve({ name: "Yaroslav", age: 48 });
+    } else {
+      console.log("This is executed second, Error");
+      reject();
+    }
+  }, 2000);
+});
+
+const getStudent = () => {
+  return p;
+};
+
+getStudent().then(student => {
+  console.log(student.name, student.age);
+});
+
+console.log("This is executed first");
+```
+
+## Async vs Await.
