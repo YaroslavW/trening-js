@@ -5,7 +5,7 @@
 [Знаете ли вы ES6 - часть 2.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part2.md)
 
 [Знаете ли вы ES6 - часть 3.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part3.md)
-
+<hr>
 Содержание:
 
 - IIFE Immediately Invoked Function Expression - Немедленно вызванное функциональное выражение.
@@ -558,7 +558,7 @@ fetchStudent()
 
 console.log("This is executed first")
 ```
-hr
+<hr>
 
 [Знаете ли вы ES6 - часть 1.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part1.md)
 

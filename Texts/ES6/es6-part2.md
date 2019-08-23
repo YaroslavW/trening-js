@@ -5,7 +5,7 @@
 [Знаете ли вы ES6 - часть 2.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part2.md)
 
 [Знаете ли вы ES6 - часть 3.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part3.md)
-
+<hr>
 Прежде чем вы начнете читать эту часть, мы обсудили некоторые функции ES6 [здесь](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part1.md)
 
 Как мы уже говорили, ES6 - это JS.
@@ -406,7 +406,7 @@ for (const day of days) {
 //  Friday
 //  Saturday
 ```
-hr
+<hr>
 
 [Знаете ли вы ES6 - часть 1.](https://github.com/YaroslavW/trening-js/blob/master/Texts/ES6/es6-part1.md)
 
