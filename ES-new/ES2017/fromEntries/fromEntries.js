@@ -39,3 +39,21 @@ for (let [name, age] of overTwentyOne) {
   drinkingAgeStudents[name] = age;
 }
 // { beatrice: 22, eloise: 21 }
+
+// NEW
+let students = {
+  amelia: 20,
+  beatrice: 22,
+  cece: 20,
+  deirdre: 19,
+  eloise: 21
+};
+
+// преобразуем объект в массив для того чтобы воспользоваться методом .filter()
+let overTwentyOne = Object.entries(students).filter(([name, age]) => {
+  return age >= 21;
+}); // [ [ 'beatrice', 22 ], [ 'eloise', 21 ] ]
+
+// преобразуем многомерный массив обратно в объект
+let drinkingAgeStudents = Object.fromEntries(overTwentyOne);
+// { beatrice: 22, eloise: 21 }
