@@ -57,3 +57,19 @@ let overTwentyOne = Object.entries(students).filter(([name, age]) => {
 // преобразуем многомерный массив обратно в объект
 let drinkingAgeStudents = Object.fromEntries(overTwentyOne);
 // { beatrice: 22, eloise: 21 }
+
+// NOTE!!!
+// Важно отметить, что массивы и объекты недаром являются различными структурами данных.
+//  В некоторых случаях преобразование одной в другую ведёт к потере данных.
+// В следующем примере можно видеть, как при преобразовании массива в объект теряются
+//  те элементы массива, которые оказываются дублирующимися ключами объекта.
+let students = [
+  ["amelia", 22],
+  ["beatrice", 22],
+  ["eloise", 21],
+  ["beatrice", 20]
+];
+
+let studentObj = Object.fromEntries(students);
+// { amelia: 22, beatrice: 20, eloise: 21 }
+// пропала первая запись beatrice!
