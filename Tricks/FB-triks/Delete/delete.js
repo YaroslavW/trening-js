@@ -8,3 +8,7 @@ console.log(abverb_result);
 // false
 console.log(name_result);
 //  true
+
+// Output:
+// false - because the delete statement ONLY affects the properties of the object.
+// true - because creates an name property in a global object
