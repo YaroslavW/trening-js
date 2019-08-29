@@ -63,3 +63,29 @@ console.log(flattenTwoLevels);
 //   'Jacob',   'Peter',
 //   'Betty'
 // ]
+
+// Обратите внимание на то, что если этому методу не передавать аргументов,
+//  то он будет поднимать элементы массива на один уровень.
+// Это очень важно, так как в нашем случае нужно преобразовать массив
+// в полностью плоскую структуру данных. Вот что получается
+// при использовании этого метода без параметров:
+let courseStudents = [
+  ["Janet", "Martha", "Bob", ["Phil", "Candace"]],
+  ["Wilson", "Taylor"],
+  ["Edith", "Jacob", "Peter", "Betty"]
+];
+
+let defaultFlattened = courseStudents.flat();
+console.log(defaultFlattened);
+// [
+//   'Janet',
+//   'Martha',
+//   'Bob',
+//   [ 'Phil', 'Candace' ],
+//   'Wilson',
+//   'Taylor',
+//   'Edith',
+//   'Jacob',
+//   'Peter',
+//   'Betty'
+// ]
