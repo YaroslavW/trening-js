@@ -28,3 +28,38 @@ let courseStudents = courses.map(course => course.students);
 // ]
 
 // тут мы могли бы попытаться воспользоваться чем-то вроде [].concat.apply([], courseStudents)
+
+// Теперь в нашем распоряжении имеется метод Array.prototype.flat,
+// который принимает необязательный аргумент, указывающий то,
+// на какой уровень надо «поднять» элементы массива.
+let courseStudents = [
+  ["Janet", "Martha", "Bob", ["Phil", "Candace"]],
+  ["Wilson", "Taylor"],
+  ["Edith", "Jacob", "Peter", "Betty"]
+];
+
+let flattenOneLevel = courseStudents.flat(1);
+console.log(flattenOneLevel);
+// [
+//   'Janet',
+//   'Martha',
+//   'Bob',
+//   [ 'Phil', 'Candace' ],
+//   'Wilson',
+//   'Taylor',
+//   'Edith',
+//   'Jacob',
+//   'Peter',
+//   'Betty'
+// ]
+
+let flattenTwoLevels = courseStudents.flat(2);
+console.log(flattenTwoLevels);
+// [
+//   'Janet',   'Martha',
+//   'Bob',     'Phil',
+//   'Candace', 'Wilson',
+//   'Taylor',  'Edith',
+//   'Jacob',   'Peter',
+//   'Betty'
+// ]
