@@ -89,3 +89,22 @@ console.log(defaultFlattened);
 //   'Peter',
 //   'Betty'
 // ]
+
+// Если в одномерный массив нужно преобразовать массив,
+// точные параметры которого неизвестны, методу flat можно передать значение Infinity.
+let courseStudents = [
+  ["Janet", "Martha", "Bob", ["Phil", "Candace"]],
+  ["Wilson", "Taylor"],
+  ["Edith", "Jacob", "Peter", "Betty"]
+];
+
+let alwaysFlattened = courseStudents.flat(Infinity);
+console.log(alwaysFlattened);
+// [
+//   'Janet',   'Martha',
+//   'Bob',     'Phil',
+//   'Candace', 'Wilson',
+//   'Taylor',  'Edith',
+//   'Jacob',   'Peter',
+//   'Betty'
+// ]
