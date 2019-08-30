@@ -26,3 +26,32 @@ console.log(0 || null); // Result: null
 return (foo || []).length;
 // If the variable foo is truthy, it will be returned.
 // Otherwise, the length of the empty array will be returned: 0 .
+
+// Example 2
+// Let’s say we wanted to access a property called data within this.state ,
+// but data is undefined until our program has successfully returned a fetch request.
+if (this.state.data) {
+  return this.state.data;
+} else {
+  return "Fetching Data";
+}
+// But that seems pretty repetitive. The ‘or’ operator provides a more concise solution:
+return this.state.data || "Fetching Data";
+// We can’t refactor the code above to use && .
+// The statement 'Fetching Data' && this.state.data will return this.state.data
+// whether it is undefined or not. This is because 'Fetching Data' is ‘truthy’,
+// and so the && will always pass over it when it is listed first.
+
+// A New Proposed Feature: Optional Chaining
+// There is currently a proposal to allow ‘optional chaining’
+// when attempting to return a property deep in a tree-like structure.
+//  Under the proposal, the question mark symbol ? could be used to extract a
+//  property only if it is not null .
+
+// For example, we could refactor our example above to this.state.data?.() ,
+// thus only returning data if it is not null .
+
+// Or, if we were mainly concerned about whether state was defined or not,
+// we could return this.state?.data .
+
+// The proposal is currently at Stage 1, as an experimental feature.
