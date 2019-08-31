@@ -5,3 +5,8 @@ console.log(uniqueArray);
 // This trick works for arrays containing primitive types: undefined, null, boolean,
 //  string and number . (If you had an array containing objects, functions or additional
 //  arrays, you’d need a different approach!)
+
+tem = {};
+[1, 2, 3, 2, 3, 1, 5].forEach(e => (tem[e] = e));
+var newArray = Object.values(tem);
+console.log("New" + newArray);
