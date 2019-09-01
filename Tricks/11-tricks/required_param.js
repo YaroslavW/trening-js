@@ -9,4 +9,4 @@ function multiplay(a = required_param(), b = required_param()) {
 // multiplay(5); //Error("Missed required param(s)"))
 // multiplay(5, undefined); //Error("Missed required param(s)"))
 // multiplay(undefined, 4); //Error("Missed required param(s)"))
-multiplay(5, 4);
+multiplay(5, 4); // 20
