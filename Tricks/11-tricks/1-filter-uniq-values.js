@@ -10,3 +10,4 @@ tem = {};
 [1, 2, 3, 2, 3, 1, 5].forEach(e => (tem[e] = e));
 var newArray = Object.values(tem);
 console.log("New" + newArray);
+// New1,2,3,5
