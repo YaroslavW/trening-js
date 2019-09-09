@@ -6,3 +6,8 @@ Result: "number";
 
 console.log(+true); // Return: 1
 console.log(+false); // Return: 0
+
+const int = ~~"15";
+console.log(int); // Result: 15
+console.log(typeof int);
+// Result: "number";
