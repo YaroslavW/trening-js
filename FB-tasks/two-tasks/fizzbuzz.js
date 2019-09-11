@@ -5,7 +5,7 @@
 
 function fizzbuzz(arr_1, arr_2) {
   let com_arr = [...arr_1, ...arr_2];
-  console.log(com_arr);
+
   let Fizz = [];
   let Buzz = [];
   let fizzbuzz = [];
