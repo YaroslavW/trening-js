@@ -57,5 +57,22 @@ const findVowels = str => {
   result.push(count);
   return result;
 };
-console.log(findVowels("Wodofonetresae helloi pice"));
+// console.log(findVowels("Wodofonetresae helloi pice"));
 // ["oeai", 8];
+
+findV = str => {
+  const counter = 0;
+  let result = [];
+  const matched = str.match(/[aeoui]/gi);
+  matched ? result.push(matched) : 0;
+  return result;
+};
+console.log(findV("Wodofonetresae helloi pice"));
+// [
+//   [
+//     'o', 'o', 'o',
+//     'e', 'e', 'a',
+//     'e', 'e', 'o',
+//     'i', 'i', 'e'
+//   ]
+// ]
