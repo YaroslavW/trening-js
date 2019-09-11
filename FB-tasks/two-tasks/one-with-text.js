@@ -38,5 +38,24 @@ function separateVowels(str) {
   //Add a counter to the result array as an element
   return console.log(result);
 }
-separateVowels("Wodofonetresae helloi pice");
+// separateVowels("Wodofonetresae helloi pice");
 // [ 'oeai', 8 ]
+
+const findVowels = str => {
+  let result = [];
+  let res_str = [];
+  let count = 0;
+  const vowels = ["a", "o", "e", "i", "u"];
+  for (let char of str.toLowerCase()) {
+    if (vowels.includes(char) && !res_str.includes(char)) {
+      res_str.push(char);
+    } else if (vowels.includes(char) && res_str.includes(char)) {
+      count++;
+    }
+  }
+  result.push(res_str.join(""));
+  result.push(count);
+  return result;
+};
+console.log(findVowels("Wodofonetresae helloi pice"));
+// ["oeai", 8];
