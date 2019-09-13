@@ -9,3 +9,6 @@ for (var i = 0; i < randomAmountOfArrayItems; i++) {
 
 // ES6 way
 const arr_2 = Array.from(new Array(randomAmountOfArrayItems), (i, items) => "");
+
+//  ES6 way - less memory usage
+const arr_3 = Array.from({ length: randomAmountOfArrayItems }, () => "");
