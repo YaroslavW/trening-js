@@ -6,3 +6,6 @@ var arr_1 = [];
 for (var i = 0; i < randomAmountOfArrayItems; i++) {
   arr_1.push("");
 }
+
+// ES6 way
+const arr_2 = Array.from(new Array(randomAmountOfArrayItems), (i, items) => "");
