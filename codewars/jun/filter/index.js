@@ -7,6 +7,6 @@
 
 const arr = ["Ryan", "Kieran", "Jason", "Yous"];
 
-const friends = arr.filter(item => item.length < 5);
+const friends = arr.filter(item => item.length === 4);
 console.log(friends);
 // [ 'Ryan', 'Yous' ]
