@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.block .key {
+  width: 300px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
