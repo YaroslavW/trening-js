@@ -94,3 +94,27 @@ Object.entries(obj).forEach(([key, value]) => {
 // name : gowtham
 // active : true
 ```
+
+## Object.getOwnPropertyNames
+
+Метод `Object.getOwnPropertyNames` также возвращает массив с заданными свойствами объекта или ключами (включая не перечисляемые свойства).
+
+Пример:
+
+```javascript
+const obj = {
+  id: 1,
+  name: "gowtham",
+  active: true
+};
+
+Object.getOwnPropertyNames(obj).forEach(key => {
+  console.log(`${key}:${obj[key]}`);
+});
+// id : 1
+// name : gowtham
+// active : true
+```
+
+Оригинал публикации [Reacto](https://reactgo.com/javascript-loop-through-object/)
+Автор перевода [Yaroslav Kolesnikov]()
