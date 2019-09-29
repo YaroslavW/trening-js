@@ -49,3 +49,29 @@ Object.keys(obj).forEach(key => {
 // name : gowtham
 // active : true
 ```
+
+## Object.values
+
+Метод `Object.values()` принимает объект в качестве аргумента и возвращает массив с заданными значениями объекта.
+
+Используя этот метод, мы можем получить доступ **только к значениям объекта**.
+
+Пример:
+
+```javascript
+const obj = {
+  id: 1,
+  name: "gowtham",
+  active: true
+};
+
+Object.values(obj).forEach(value => {
+  console.log(value);
+});
+
+// 1
+// gowtham
+// true
+```
+
+## Object.entries
