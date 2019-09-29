@@ -26,3 +26,26 @@ for (let key in obj) {
 ```
 
 > Примечание: мы использовали метод `obj.hasOwnProperty (key)`, чтобы убедиться, что свойство принадлежит этому объекту, потому что цикл `for in` также выполняет итерации по цепочке прототипов объекта.
+
+## Object.keys
+
+Метод `Object.keys()` принимает объект в качестве аргумента и возвращает массив с заданными ключами объекта.
+
+Объединяя метод `Object.keys` с методом `forEach`, мы можем получить доступ к парам ключ-значение объекта.
+
+Пример:
+
+```javascript
+const obj = {
+  id: 1,
+  name: "gowtham",
+  active: true
+};
+
+Object.keys(obj).forEach(key => {
+  console.log(`${key} : ${obj[key]}`);
+});
+// id : 1
+// name : gowtham
+// active : true
+```
