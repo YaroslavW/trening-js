@@ -75,3 +75,22 @@ Object.values(obj).forEach(value => {
 ```
 
 ## Object.entries
+
+Метод `Object.entries()` возвращает массив с массивами, которые являются парами `[ключ, значение]` данного объекта.
+
+Пример:
+
+```javascript
+const obj = {
+  id: 1,
+  name: "gowtham",
+  active: true
+};
+
+Object.entries(obj).forEach(([key, value]) => {
+  console.log(`${key}:${value}`);
+});
+// id : 1
+// name : gowtham
+// active : true
+```
