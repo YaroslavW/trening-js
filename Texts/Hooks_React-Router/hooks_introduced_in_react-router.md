@@ -9,3 +9,68 @@ React-router команда добавила к текущим хукам React,
 Я расскажу, как работают эти хуки и как они меняют способ написания наших маршрутов.
 
 ## useParams.
+
+Этот хук дает нам доступ к параметрам этого конкретного маршрута. `params` - это параметры, значения которых динамически устанавливаются в URL. Обычно способ, которым мы обращаемся к параметрам в предыдущих версиях react-router, был через соответствующие реквизиты- `props`, переданные компоненту.
+
+```javascript
+// <= V5.0
+
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+
+const Portfolio = props => {
+  const { match } = props;
+
+  let id = match.params;
+  return (
+    <div>
+      Portfolio component
+      <p>Url params: {id}</p>
+    </div>
+  );
+};
+
+function App() {
+  return (
+    <div className="App">
+      <Router>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/portfolio/6">Portfolio</Link>
+          </li>
+        </ul>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/portfolio/:id" component={Portfolio} />
+          <Route path="/contact" component={Contact} />
+        </Switch>
+      </Router>
+    </div>
+  );
+}
+```
+
+Выше представлен подход, который мы использовали для доступа к параметрам URL в предыдущих версиях react-router. Но с введением хука `useParams` все пользователи могут получить доступ к параметрам из хука.
+
+```javascript
+// > V5.1
+import { useParams } from "react-router";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+const Portfolio = () => {
+  let { id } = useParams();
+  return (
+    <div>
+      Portfolio component
+      <p>Topic: {id}</p>
+    </div>
+  );
+};
+```
+
+## useLocation.
