@@ -77,7 +77,7 @@ const Portfolio = () => {
 
 Это еще один хук, выпущенный в v5.1. Если вы часто используете react-router, я предполагаю, что вы использовали объект `location` либо для получения свойства `pathname`, либо для свойства `state`. Я обычно пропускаю состояние через ссылку react-router, поэтому думаю, что я буду делать рефакторинг своих компонентов, чтобы использовать ловушку `useLocation`. Это, вероятно, будет моей первой react hook в продакшене.
 
-> Примечание. Передача состояния через <Link> react-router не является новой функцией, она существует с тех пор, как я начал использовать React.
+> Примечание. Передача состояния через `<Link>` react-router не является новой функцией, она существует с тех пор, как я начал использовать React.
 
 ```javascript
 // > V5.1
@@ -160,3 +160,53 @@ export const Profile = () => {
 `history object` также возвращает объект `location object` как одно из его свойств, но рекомендуется не использовать возвращаемое им местоположение, потому что `history` является изменяемой [ history is mutable](https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/history.md#history-is-mutable), поэтому используйте для этого хук `useLocation`.
 
 ## useRouteMatch.
+
+Это последний хук, добавленный в этот выпуск, `useRouteMatch` дает вам доступ к свойству `match` без рендеринга компонента `<Route>`. Он совпадает с URL-адресом точно так же, как и Route, и принимает `exact`, `strict`, `path` and `sensitive`, как `<Route>`. До V5.1 способы доступа к объекту `match` были следующими:
+
+- Route component как `this.props.match`
+- Route render как `({ match }) => ()`
+- Route children как `({ match }) => ()`
+- withRouter как `this.props.match`
+- matchPath как `return value`
+
+```javascript
+// <= V5.0
+function App() {
+  return (
+    <div className="App">
+      <Router>
+        <Route
+          path="'/Movies/:id/'"
+          strict
+          sensitive
+          render={({ match }) => {
+            return match && <Movies match={match} />;
+          }}
+        />
+      </Router>
+    </div>
+  );
+}
+
+// > V5.1
+import { useRouteMatch } from "react-router";
+
+function App() {
+  let match = useRouteMatch({
+    path: "/Movies/:id/",
+    strict: true,
+    sensitive: true
+  });
+
+  return <div>{match && <Movies match={match} />}</div>;
+}
+```
+
+`useRouteMatch` дает нам новый способ доступа к объекту match, и если у вас есть `<Route>`, который не находится внутри `Switch`, имеет смысл использовать `useRouteMatch`. Я имею в виду эти хуки.
+
+## Заключение
+
+Мне очень нравятся эти хуки, добавленные в API react-router. Они дают нам возможность составлять состояние маршрутизатора, что открывает новые возможности в плане построения приложения. В восторге от того, какие другие новые функции и API будут представлены в будущих выпусках, также команда react-router надеется выпустить `версию 6` в начале следующего года.
+
+Оригинал статьи [Nedo Adaware](https://dev.to/finallynero/hooks-introduced-in-react-router-v5-1-7g8?fbclid=IwAR1qmljwEkTs9Pw22SZvVeFviRxbhffEQJLTxty0UllwiI8vNM---vHYFAc)
+Автор перевода: [Yaroslav Kolesnikov](http://abcinblog.blogspot.com/)
