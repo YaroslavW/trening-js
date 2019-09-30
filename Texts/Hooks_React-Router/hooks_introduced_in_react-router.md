@@ -136,3 +136,27 @@ function App() {
 Хук `useLocation` возвращает объект местоположения, который содержит `pathname`, `search`, `hash`, `key` и свойства состояния `state` текущей локации.
 
 ## useHistory.
+
+`useHistory` дает нам доступ к объекту истории - `history object`, который помогает нам программно перемещаться или изменять маршруты.
+
+```javascript
+// > V5.1
+import { useHistory } from "react-router-dom";
+
+export const Profile = () => {
+  let history = useHistory();
+  return (
+    <div>
+      <button onClick={() => history.goBack()}>Back</button>
+      <button onClick={() => history.push("/")}>Home</button>
+      <section>
+        <p>profile page</p>
+      </section>
+    </div>
+  );
+};
+```
+
+`history object` также возвращает объект `location object` как одно из его свойств, но рекомендуется не использовать возвращаемое им местоположение, потому что `history` является изменяемой [ history is mutable](https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/history.md#history-is-mutable), поэтому используйте для этого хук `useLocation`.
+
+## useRouteMatch.
