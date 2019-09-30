@@ -74,3 +74,65 @@ const Portfolio = () => {
 ```
 
 ## useLocation.
+
+Это еще один хук, выпущенный в v5.1. Если вы часто используете react-router, я предполагаю, что вы использовали объект `location` либо для получения свойства `pathname`, либо для свойства `state`. Я обычно пропускаю состояние через ссылку react-router, поэтому думаю, что я буду делать рефакторинг своих компонентов, чтобы использовать ловушку `useLocation`. Это, вероятно, будет моей первой react hook в продакшене.
+
+> Примечание. Передача состояния через <Link> react-router не является новой функцией, она существует с тех пор, как я начал использовать React.
+
+```javascript
+// > V5.1
+import { useLocation } from "react-router";
+
+const Settings = () => {
+  let location = useLocation();
+  console.log(location);
+  return <div>settings component</div>;
+};
+
+function App() {
+  return (
+    <div className="App">
+      <Router>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+
+          <li>
+            <Link
+              to={{
+                pathname: "/settings",
+                state: {
+                  fromNavBar: true
+                }
+              }}
+            >
+              Settings
+            </Link>
+          </li>
+        </ul>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          //
+          <Route path="/settings" component={Settings} />
+        </Switch>
+      </Router>
+    </div>
+  );
+}
+
+// console
+// {
+//   "pathname": "/settings",
+//   "state": {
+//     "fromNavBar": true
+//   },
+//   "search": "",
+//   "hash": "",
+//   "key": "x8vmq3"
+// }
+```
+
+Хук `useLocation` возвращает объект местоположения, который содержит `pathname`, `search`, `hash`, `key` и свойства состояния `state` текущей локации.
+
+## useHistory.
