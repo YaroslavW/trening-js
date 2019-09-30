@@ -169,6 +169,8 @@ export const Profile = () => {
 - withRouter как `this.props.match`
 - matchPath как `return value`
 
+Пример:
+
 ```javascript
 // <= V5.0
 function App() {
@@ -208,5 +210,6 @@ function App() {
 
 Мне очень нравятся эти хуки, добавленные в API react-router. Они дают нам возможность составлять состояние маршрутизатора, что открывает новые возможности в плане построения приложения. В восторге от того, какие другие новые функции и API будут представлены в будущих выпусках, также команда react-router надеется выпустить `версию 6` в начале следующего года.
 
-Оригинал статьи [Nedo Adaware](https://dev.to/finallynero/hooks-introduced-in-react-router-v5-1-7g8?fbclid=IwAR1qmljwEkTs9Pw22SZvVeFviRxbhffEQJLTxty0UllwiI8vNM---vHYFAc)
+Оригинал статьи автора - [Nero Adaware](https://dev.to/finallynero/hooks-introduced-in-react-router-v5-1-7g8?fbclid=IwAR1qmljwEkTs9Pw22SZvVeFviRxbhffEQJLTxty0UllwiI8vNM---vHYFAc)
+
 Автор перевода: [Yaroslav Kolesnikov](http://abcinblog.blogspot.com/)
