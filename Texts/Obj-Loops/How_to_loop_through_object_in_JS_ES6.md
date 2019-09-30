@@ -117,4 +117,5 @@ Object.getOwnPropertyNames(obj).forEach(key => {
 ```
 
 Оригинал публикации [Reacto](https://reactgo.com/javascript-loop-through-object/)
-Автор перевода [Yaroslav Kolesnikov]()
+
+Автор перевода [Yaroslav Kolesnikov](http://abcinblog.blogspot.com/)
