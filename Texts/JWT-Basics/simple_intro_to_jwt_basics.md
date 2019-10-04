@@ -207,3 +207,7 @@ const jwtString =
 1. [Wikipedia page - surprisingly dev focused](https://en.wikipedia.org/wiki/JSON_Web_Token)
 2. [RFC spec from IETF](https://tools.ietf.org/html/rfc7519)
 3. [JWT Debugger, Libraries, & More](https://jwt.io/)
+
+Оригинал статьи автора - [Joshua Tzucker](https://dev.to/joshuatz/simple-intro-to-jwt-basics-2kd8?fbclid=IwAR140hlsiUeVc7a7bTr745ULO5AwCQKfv17GXs2dFNgkEVqxP-rwKgxaEfI)
+
+Автор перевода: [Yaroslav Kolesnikov](http://abcinblog.blogspot.com/)
