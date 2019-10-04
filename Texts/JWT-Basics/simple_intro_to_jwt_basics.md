@@ -203,3 +203,7 @@ const jwtString =
 В JWT есть еще много чего, что я не полностью осветил в этом посте (в моем оправдании это вступление). Реальность такова, что многие разработчики используют стороннюю службу (также называемую службой федеративного управления идентификацией - _Federated Identity Management service_), такую как [Auth0](https://auth0.com/blog/why-identity-federation-matters/), для управления большей частью стека JWT. Это волшебным образом не решит многие из проблем, которые я изложил в JWT, но облегчит работу с ними и отвлечет некоторые сложности и проблемы безопасности.
 
 ## Дополнительные ресурсы:
+
+1. [Wikipedia page - surprisingly dev focused](https://en.wikipedia.org/wiki/JSON_Web_Token)
+2. [RFC spec from IETF](https://tools.ietf.org/html/rfc7519)
+3. [JWT Debugger, Libraries, & More](https://jwt.io/)
