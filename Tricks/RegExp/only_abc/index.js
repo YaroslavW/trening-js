@@ -4,7 +4,3 @@ function replNumbers(str) {
 
 console.log(replNumbers("Alina cabaeva .65743bbb902"));
 // Alina cabaeva .digitalbbbdigital;
-// replNumbers()
-// replNumbers()
-// replNumbers()
-// replNumbers()
