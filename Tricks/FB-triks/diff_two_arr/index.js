@@ -11,12 +11,22 @@ const arr_2 = [1, 2, 3, 4, 5];
 // [3, 4, 8]; unicum num;
 
 // As functiom
-function arr_diff(a, b) {
-  return [
-    ...a.filter(x => b.indexOf(x) === -1),
-    ...b.filter(x => a.indexOf(x) === -1)
-  ];
-}
+// function arr_diff(a, b) {
+//   return [
+//     ...a.filter(x => b.indexOf(x) === -1),
+//     ...b.filter(x => a.indexOf(x) === -1)
+//   ];
+// }
 
-console.log(arr_diff(arr_1, arr_2));
+// console.log(arr_diff(arr_1, arr_2));
+// [ 8, 3, 4 ]
+
+const diff = (a, b) => {
+  const setA = new Set(a);
+  const setB = new Set(b);
+
+  return [...a.filter(x => !setB.has(x)), ...b.filter(x => !setA.has(x))];
+};
+
+console.log(diff(arr_1, arr_2));
 // [ 8, 3, 4 ]
