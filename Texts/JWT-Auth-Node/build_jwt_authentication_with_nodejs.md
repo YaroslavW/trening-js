@@ -107,3 +107,42 @@ npm start
 Запустится сервер, вы можете увидеть это на консоли. Так что он готов принять любой запрос, будь то веб или API.
 
 ### Шаг 3: Отправить запрос на Node-Server через Postman.
+
+Сначала мы определяем один маршрут (route) и отправляем JSON ответ клиенту.
+
+```javascript
+// server.js
+
+app.get("/checking", function(req, res) {
+  res.json({
+    Tutorial: "Welcome to the Node express JWT Tutorial"
+  });
+});
+```
+
+Откройте Postman и отправьте `get` - запрос на `http://localhost:3000/checking`
+
+![get-request with Postman](img/image-jwt-node-2.jpg)
+
+### Шаг 4: Настройте базу данных MongoDB.
+
+Напишите следующий код, чтобы подключить приложение Node.js к базе данных MongoDB.
+
+```javascript
+// server.js
+
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/jwtauth");
+```
+
+Кроме того, напишите в приложение промежуточное ПО для `body-parser`.
+
+```javascript
+// server.js
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+```
+
+### Шаг 5: Создайте модель пользователя.
