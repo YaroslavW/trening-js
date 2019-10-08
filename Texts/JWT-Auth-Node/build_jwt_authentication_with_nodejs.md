@@ -299,3 +299,78 @@ router.post("/signin", function(req, res) {
 Если попытка аутентификации не удалась, мы получим следующую ошибку.
 
 ![Ошибка авторизации](img/image-jwt-node-6.jpg)
+
+### Шаг 9: Верните JWT, если попытка авторизации прошла успешно.
+
+Если адрес электронной почты и пароль пользователя верны, то в ответ нам нужно вернуть токен JWT. Итак, давайте сгенерируем токен и вернемся к пользователю.
+
+```javascript
+// user.route.js
+
+const jwt = require("jsonwebtoken");
+
+if (result) {
+  const JWTToken = jwt.sign(
+    {
+      email: user.email,
+      _id: user._id
+    },
+    "secret",
+    {
+      expiresIn: "2h"
+    }
+  );
+  return res.status(200).json({
+    success: "Welcome to the JWT Auth",
+    token: JWTToken
+  });
+}
+```
+
+Формат токена JWT следующий.
+
+### **HEADER: ALGORITHM & TOKEN TYPE**
+
+```javascript
+{
+“alg”: “HS256”,
+“typ”: “JWT”
+}
+```
+
+### **PAYLOAD:DATA**
+
+```javascript
+{
+“email”: “quaytayx3@gmail.com”,
+“_id”: “5a7c9bd8fc3e501c94aa6035”,
+“iat”: 1518120124,
+“exp”: 1518127324
+}
+```
+
+### **VERIFY SIGNATURE**
+
+```javascript
+HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret);
+```
+
+Таким образом, мы предоставляем комбинацию заголовка - `header`, полезной нагрузки - `payload` и секретного ключа -`verify signature`. Помните, вам нужно определить свой секретный ключ в файле переменных среды. Я только что показал здесь для демонстрационной цели. Таким образом, он выдаст следующий токен JWT.
+
+```javascript
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+  .eyJlbWFpbCI6ImtydW5hbGxhdGhpeWExMEBnbWFpbC5jb20iLCJfaWQiOiI1YTdjOWJkOGZjM2U1MDFjOTRhYTYwMzUiLCJpYXQiOjE1MTgxMjAxMjQsImV4cCI6MTUxODEyNzMyNH0
+  ._6qVGQV_KYlonawnaTHG -
+  OhOJLV4tgD -
+  Eob5iRz89AM;
+```
+
+![JWT Token](img/image-jwt-node-7.jpg)
+
+Теперь используйте этот токен для доступа к защищенным ресурсам вашего приложения, и мы закончили. Вот так вы можете сгенерировать токен аутентификации JWT.
+
+Наконец, наш учебник по аутентификации Node js JWT с нуля завершен.
+
+Оригинал статьи автора - [Dylan North](https://morioh.com/p/195af0fa58b8)
+
+Автор перевода: [Yaroslav Kolesnikov](http://abcinblog.blogspot.com/)
