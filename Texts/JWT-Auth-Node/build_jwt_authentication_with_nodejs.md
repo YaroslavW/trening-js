@@ -248,3 +248,54 @@ app.listen(PORT, function() {
 ```
 
 ### Шаг 7: Отправить запрос на почту c Postman.
+
+Откройте Postman, отправьте запрос в формате строки - `string` с типом приложения `json (application / json)`.
+
+![postman запрос](img/image-jwt-node-3.jpg)
+
+Вы можете видеть здесь, я успешно создал пользователя. Теперь я использую Studio 3T для MongoDB. Итак, вот недавно созданный пользователь в базе данных.
+
+![MongoDB созданный пользователь](img/image-jwt-node-4.jpg)
+
+### Вход в систему.
+
+Перейдите в файл `user.route.js` и определите маршрут входа.
+
+```javascript
+// user.route.js
+
+router.post("/signin", function(req, res) {
+  User.findOne({ email: req.body.email })
+    .exec()
+    .then(function(user) {
+      bcrypt.compare(req.body.password, user.password, function(err, result) {
+        if (err) {
+          return res.status(401).json({
+            failed: "Unauthorized Access"
+          });
+        }
+        if (result) {
+          return res.status(200).json({
+            success: "Welcome to the JWT Auth"
+          });
+        }
+        return res.status(401).json({
+          failed: "Unauthorized Access"
+        });
+      });
+    })
+    .catch(error => {
+      res.status(500).json({
+        error: error
+      });
+    });
+});
+```
+
+Сначала я проверил, существует ли электронная почта пользователя или нет. Если нет, верните `401` несанкционированный доступ - `"Unauthorized Access"`. Если есть электронная почта, тогда проверьте пароль с помощью `bcrypted` базы данных, если совпадение найдено, и `Welcome to the JWT Auth`, иначе `401` несанкционированный доступ - `"Unauthorized Access"`.
+
+![Авторизация](img/image-jwt-node-5.jpg)
+
+Если попытка аутентификации не удалась, мы получим следующую ошибку.
+
+![Ошибка авторизации](img/image-jwt-node-6.jpg)
