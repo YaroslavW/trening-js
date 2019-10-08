@@ -146,3 +146,105 @@ app.use(bodyParser.json());
 ```
 
 ### Шаг 5: Создайте модель пользователя.
+
+Создайте одну новую папку внутри корневого каталога с именем `models`. Для этого создайте один файл с именем `user.model.js`
+
+```javascript
+// user.model.js
+
+const mongoose = require("mongoose");
+
+const user = mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
+  email: { type: String, required: true },
+  password: { type: String, required: true }
+});
+
+module.exports = mongoose.model("User", user);
+```
+
+Мы определили схему для коллекции `User`.
+
+### Шаг 6: Создайте маршруты для пользователей.
+
+В корне сделайте одну папку под названием `routes` - маршруты. В этой папке создайте один файл с именем `user.route.js`. Теперь нам нужно зарегистрировать пользователя для нашего приложения. Итак, давайте определим почтовый маршрут для регистрации пользователя. Нам также нужен модуль `bcrypt` для хеширования пароля. Мы не можем хранить простой пароль. Итак, давайте сначала установим модуль `bcrypt`.
+
+```javascript
+npm install bcrypt --save
+```
+
+Затем запишите следующий код в файл `user.route.js`.
+
+```javascript
+// user.route.js
+
+const express = require("express");
+const router = express.Router();
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const User = require("../models/user.model");
+
+router.post("/signup", function(req, res) {
+  bcrypt.hash(req.body.password, 10, function(err, hash) {
+    if (err) {
+      return res.status(500).json({
+        error: err
+      });
+    } else {
+      const user = new User({
+        _id: new mongoose.Types.ObjectId(),
+        email: req.body.email,
+        password: hash
+      });
+      user
+        .save()
+        .then(function(result) {
+          console.log(result);
+          res.status(200).json({
+            success: "New user has been created"
+          });
+        })
+        .catch(error => {
+          res.status(500).json({
+            error: err
+          });
+        });
+    }
+  });
+});
+
+module.exports = router;
+```
+
+Он пытается хэшировать свойство пароля входящего запроса. Если это не удается сделать, возвращает ответ с ошибкой в формате `json`. В случае успеха он создаст нового пользователя и добавит его в базу данных MongoDB. Теперь включите этот файл `user.route.js` в файл `server.js`. Я пишу весь файл сейчас.
+
+```javascript
+// server.js
+
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const user = require("./routes/user.route");
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/jwtauth");
+
+const PORT = 3000;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.get("/checking", function(req, res) {
+  res.json({
+    Tutorial: "Welcome to the Node express JWT Tutorial"
+  });
+});
+
+app.use("/user", user);
+
+app.listen(PORT, function() {
+  console.log("Server is running on Port", PORT);
+});
+```
+
+### Шаг 7: Отправить запрос на почту c Postman.
