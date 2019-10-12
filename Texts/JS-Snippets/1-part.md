@@ -35,3 +35,44 @@ const allEqual = arr => arr.every(val => val === arr[0]);
 allEqual([1, 2, 3, 4, 5, 6]); // false
 allEqual([1, 1, 1, 1]); // true
 ```
+
+## 3. approximatelyEqual
+
+Этот фрагмент проверяет, являются ли два числа приблизительно равными друг другу, с небольшой разницей.
+
+```javascript
+const approximatelyEqual = (v1, v2, epsilon = 0.001) =>
+  Math.abs(v1 - v2) < epsilon;
+
+approximatelyEqual(Math.PI / 2.0, 1.5708); // true
+```
+
+## 4. arrayToCSV
+
+Этот фрагмент преобразует элементы в строки со значениями, разделенными запятыми.
+
+```javascript
+const arrayToCSV = (arr, delimiter = ",") =>
+  arr.map(v => v.map(x => `"${x}"`).join(delimiter)).join("\n");
+
+arrayToCSV([["a", "b"], ["c", "d"]]); // '"a","b"\n"c","d"'
+arrayToCSV([["a", "b"], ["c", "d"]], ";"); // '"a";"b"\n"c";"d"'
+```
+
+## 5. arrayToHtmlList
+
+Этот фрагмент преобразует элементы массива в теги `<li>` и добавляет их в список с указанным идентификатором.
+
+```javascript
+const arrayToHtmlList = (arr, listID) =>
+  (el => (
+    (el = document.querySelector("#" + listID)),
+    (el.innerHTML += arr.map(item => `<li>${item}</li>`).join(""))
+  ))();
+
+arrayToHtmlList(["item 1", "item 2"], "myListID");
+```
+
+## 6. attempt
+
+Этот фрагмент выполняет функцию, возвращающую либо результат, либо объект обнаруженной ошибки.
