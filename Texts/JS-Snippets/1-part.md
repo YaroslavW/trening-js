@@ -76,3 +76,58 @@ arrayToHtmlList(["item 1", "item 2"], "myListID");
 ## 6. attempt
 
 Этот фрагмент выполняет функцию, возвращающую либо результат, либо объект обнаруженной ошибки.
+
+```javascript
+const attempt = (fn, ...args) => {
+  try {
+    return fn(...args);
+  } catch (e) {
+    return e instanceof Error ? e : new Error(e);
+  }
+};
+var elements = attempt(function(selector) {
+  return document.querySelectorAll(selector);
+}, ">_>");
+if (elements instanceof Error) elements = []; // elements = []
+```
+
+## 7. average
+
+Этот фрагмент возвращает среднее из двух или более числовых значений.
+
+```javascript
+const average = (...nums) =>
+  nums.reduce((acc, val) => acc + val, 0) / nums.length;
+average(...[1, 2, 3]); // 2
+average(1, 2, 3); // 2
+```
+
+## 8. averageBy
+
+Этот фрагмент возвращает среднее значение массива после первоначального сопоставления каждого элемента со значением, используя данную функцию.
+
+```javascript
+const averageBy = (arr, fn) =>
+  arr
+    .map(typeof fn === "function" ? fn : val => val[fn])
+    .reduce((acc, val) => acc + val, 0) / arr.length;
+
+averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], o => o.n); // 5
+averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], "n"); // 5
+```
+
+## 9. bifurcate
+
+Этот фрагмент разбивает значения на две группы, а затем помещает истинный элемент фильтра в первую группу, а во вторую - в противном случае.
+
+Вы можете использовать `Array.prototype.reduce()` и `Array.prototype.push()` для добавления элементов в группы на основе фильтра.
+
+```javascript
+const bifurcate = (arr, filter) =>
+  arr.reduce((acc, val, i) => (acc[filter[i] ? 0 : 1].push(val), acc), [
+    [],
+    []
+  ]);
+bifurcate(["beep", "boop", "foo", "bar"], [true, true, false, true]);
+// [ ['beep', 'boop', 'bar'], ['foo'] ]
+```
