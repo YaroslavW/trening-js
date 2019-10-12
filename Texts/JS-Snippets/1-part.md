@@ -25,6 +25,8 @@ all([4, 2, 3], x => x > 1); // true
 all([1, 2, 3]); // true
 ```
 
+---
+
 ## 2. allEqual
 
 Этот фрагмент проверяет, все ли элементы массива равны.
@@ -35,6 +37,8 @@ const allEqual = arr => arr.every(val => val === arr[0]);
 allEqual([1, 2, 3, 4, 5, 6]); // false
 allEqual([1, 1, 1, 1]); // true
 ```
+
+---
 
 ## 3. approximatelyEqual
 
@@ -47,6 +51,8 @@ const approximatelyEqual = (v1, v2, epsilon = 0.001) =>
 approximatelyEqual(Math.PI / 2.0, 1.5708); // true
 ```
 
+---
+
 ## 4. arrayToCSV
 
 Этот фрагмент преобразует элементы в строки со значениями, разделенными запятыми.
@@ -58,6 +64,8 @@ const arrayToCSV = (arr, delimiter = ",") =>
 arrayToCSV([["a", "b"], ["c", "d"]]); // '"a","b"\n"c","d"'
 arrayToCSV([["a", "b"], ["c", "d"]], ";"); // '"a";"b"\n"c";"d"'
 ```
+
+---
 
 ## 5. arrayToHtmlList
 
@@ -72,6 +80,8 @@ const arrayToHtmlList = (arr, listID) =>
 
 arrayToHtmlList(["item 1", "item 2"], "myListID");
 ```
+
+---
 
 ## 6. attempt
 
@@ -91,6 +101,8 @@ var elements = attempt(function(selector) {
 if (elements instanceof Error) elements = []; // elements = []
 ```
 
+---
+
 ## 7. average
 
 Этот фрагмент возвращает среднее из двух или более числовых значений.
@@ -101,6 +113,8 @@ const average = (...nums) =>
 average(...[1, 2, 3]); // 2
 average(1, 2, 3); // 2
 ```
+
+---
 
 ## 8. averageBy
 
@@ -115,6 +129,8 @@ const averageBy = (arr, fn) =>
 averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], o => o.n); // 5
 averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], "n"); // 5
 ```
+
+---
 
 ## 9. bifurcate
 
@@ -131,3 +147,52 @@ const bifurcate = (arr, filter) =>
 bifurcate(["beep", "boop", "foo", "bar"], [true, true, false, true]);
 // [ ['beep', 'boop', 'bar'], ['foo'] ]
 ```
+
+---
+
+## 10. bifurcateBy
+
+Этот фрагмент разбивает значения на две группы на основе функции предиката. Если функция предиката возвращает истинное значение, элемент будет помещен в первую группу. В противном случае он будет помещен во вторую группу.
+
+Вы можете использовать `Array.prototype.reduce()` и `Array.prototype.push()` для добавления элементов в группы на основе значения, возвращаемого `fn` для каждого элемента.
+
+```javascript
+const bifurcateBy = (arr, fn) =>
+  arr.reduce((acc, val, i) => (acc[fn(val, i) ? 0 : 1].push(val), acc), [
+    [],
+    []
+  ]);
+
+bifurcateBy(["beep", "boop", "foo", "bar"], x => x[0] === "b");
+// [ ['beep', 'boop', 'bar'], ['foo'] ]
+```
+
+---
+
+## 11. bottomVisible
+
+Этот фрагмент проверяет, видна ли нижняя часть страницы.
+
+```javascript
+const bottomVisible = () =>
+  document.documentElement.clientHeight + window.scrollY >=
+  (document.documentElement.scrollHeight ||
+    document.documentElement.clientHeight);
+
+bottomVisible(); // true
+```
+
+---
+
+## 12. byteSize
+
+Этот фрагмент возвращает длину строки в байтах.
+
+```javascript
+const byteSize = str => new Blob([str]).size;
+
+byteSize("😀"); // 4
+byteSize("Hello World"); // 11
+```
+
+---
