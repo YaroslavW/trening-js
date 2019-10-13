@@ -196,3 +196,55 @@ byteSize("Hello World"); // 11
 ```
 
 ---
+
+## 13. capitalize
+
+Этот фрагмент кода делает заглавной первую букву строки.
+
+```javascript
+const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join("");
+
+capitalize("fooBar"); // 'FooBar'
+capitalize("fooBar", true); // 'Foobar'
+```
+
+---
+
+## 14. capitalizeEveryWord
+
+Этот фрагмент делает заглавными первые буквы каждого слова в данной строке.
+
+```javascript
+const capitalizeEveryWord = str =>
+  str.replace(/\b[a-z]/g, char => char.toUpperCase());
+
+capitalizeEveryWord("hello world!"); // 'Hello World!'
+```
+
+---
+
+## 15. castArray
+
+Этот фрагмент преобразует не массив значений в массив.
+
+```javascript
+const castArray = val => (Array.isArray(val) ? val : [val]);
+
+castArray("foo"); // ['foo']
+castArray([1]); // [1]
+```
+
+---
+
+## 16. compact
+
+Этот фрагмент удаляет ложные значения из массива.
+
+```javascript
+const compact = arr => arr.filter(Boolean);
+
+compact([0, 1, false, 2, "", 3, "a", "e" * 23, NaN, "s", 34]);
+// [ 1, 2, 3, 'a', 's', 34 ]
+```
+
+---
