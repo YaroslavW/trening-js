@@ -84,3 +84,49 @@ const differenceBy = (a, b, fn) => {
 differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor); // [1.2]
 differenceBy([{ x: 2 }, { x: 1 }], [{ x: 1 }], v => v.x); // [ { x: 2 } ]
 ```
+
+---
+
+## 28. differenceWith
+
+Этот фрагмент удаляет значения, для которых функция сравнения возвращает `false`.
+
+```javascript
+const differenceWith = (arr, val, comp) =>
+  arr.filter(a => val.findIndex(b => comp(a, b)) === -1);
+
+differenceWith(
+  [1, 1.2, 1.5, 3, 0],
+  [1.9, 3, 0],
+  (a, b) => Math.round(a) === Math.round(b)
+);
+// [1, 1.2]
+```
+
+---
+
+## 29. digitize
+
+Этот фрагмент получает число в качестве входных данных и возвращает массив его цифр.
+
+```javascript
+const digitize = n => [...`${n}`].map(i => parseInt(i));
+
+digitize(431); // [4, 3, 1]
+```
+
+---
+
+## 30. distance
+
+Этот фрагмент возвращает расстояние между двумя точками путем вычисления евклидова расстояния.
+
+```javascript
+const distance = (x0, y0, x1, y1) => Math.hypot(x1 - x0, y1 - y0);
+
+distance(1, 1, 2, 3); // 2.23606797749979
+```
+
+---
+
+## 31. Drop Elements
