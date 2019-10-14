@@ -44,4 +44,43 @@ defer(console.log, "a"), console.log("b"); // logs 'b' then 'a'
 
 ---
 
-##
+## 25. degreesToRads
+
+Этот фрагмент кода может быть использован для преобразования значения из градусов в радианы.
+
+```javascript
+const degreesToRads = deg => (deg * Math.PI) / 180.0;
+
+degreesToRads(90.0); // ~1.5708
+```
+
+---
+
+## 26. difference
+
+Этот фрагмент находит разницу между двумя массивами.
+
+```javascript
+const difference = (a, b) => {
+  const s = new Set(b);
+  return a.filter(x => !s.has(x));
+};
+
+difference([1, 2, 3], [1, 2, 4]); // [3]
+```
+
+---
+
+## 27. differenceBy
+
+Этот метод возвращает разницу между двумя массивами после применения данной функции к каждому элементу обоих списков.
+
+```javascript
+const differenceBy = (a, b, fn) => {
+  const s = new Set(b.map(fn));
+  return a.filter(x => !s.has(fn(x)));
+};
+
+differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor); // [1.2]
+differenceBy([{ x: 2 }, { x: 1 }], [{ x: 1 }], v => v.x); // [ { x: 2 } ]
+```
