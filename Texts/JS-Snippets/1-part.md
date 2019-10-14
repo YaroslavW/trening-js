@@ -248,3 +248,67 @@ compact([0, 1, false, 2, "", 3, "a", "e" * 23, NaN, "s", 34]);
 ```
 
 ---
+
+## 17. countOccurrences
+
+Этот фрагмент подсчитывает вхождения значения в массиве.
+
+```javascript
+const countOccurrences = (arr, val) =>
+  arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+countOccurrences([1, 1, 2, 1, 2, 3], 1); // 3
+```
+
+---
+
+## 18. Create Directory
+
+В этом фрагменте используется `existSync()`, чтобы проверить, существует ли каталог, а затем `mkdirSync()`, чтобы создать его, если его нет.
+
+```javascript
+const fs = require("fs");
+const createDirIfNotExists = dir =>
+  !fs.existsSync(dir) ? fs.mkdirSync(dir) : undefined;
+createDirIfNotExists("test");
+// creates the directory 'test', if it doesn't exist
+```
+
+---
+
+## 19. currentURL
+
+Этот фрагмент возвращает текущий URL.
+
+```javascript
+const currentURL = () => window.location.href;
+
+currentURL(); // 'https://medium.com/@fatosmorina'
+```
+
+---
+
+## 20. dayOfYear
+
+Этот фрагмент получает день года от объекта `Date`.
+
+```javascript
+const dayOfYear = date =>
+  Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+
+dayOfYear(new Date()); // 272
+```
+
+---
+
+## 21. decapitalize
+
+Этот фрагмент кода переводит первую букву строки в нижний регистр.
+
+```javascript
+const decapitalize = ([first, ...rest]) => first.toLowerCase() + rest.join("");
+
+decapitalize("FooBar"); // 'fooBar'
+decapitalize("FooBar"); // 'fooBar'
+```
+
+Это первая часть этих коротких фрагментов. Осталось пять других частей.
