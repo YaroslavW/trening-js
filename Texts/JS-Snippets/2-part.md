@@ -144,3 +144,17 @@ drop([1, 2, 3], 42); // []
 ---
 
 ## 32. dropRight
+
+Этот фрагмент возвращает новый массив с n элементами, удаленными справа.
+
+```javascript
+const dropRight = (arr, n = 1) => arr.slice(0, -n);
+
+dropRight([1, 2, 3]); // [1,2]
+dropRight([1, 2, 3], 2); // [1]
+dropRight([1, 2, 3], 42); // []
+```
+
+---
+
+## 33. dropRightWhile
