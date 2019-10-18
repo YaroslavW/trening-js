@@ -204,4 +204,4 @@ elementContains(document.querySelector("body"), document.querySelector("body"));
 
 ---
 
-##
+## 36. Filter Duplicate Elements
