@@ -188,3 +188,20 @@ dropWhile([1, 2, 3, 4], n => n >= 3); // [3,4]
 ---
 
 ## 35. elementContains
+
+Этот фрагмент проверяет, содержит ли родительский элемент дочерний элемент.
+
+```javascript
+const elementContains = (parent, child) =>
+  parent !== child && parent.contains(child);
+
+elementContains(
+  document.querySelector("head"),
+  document.querySelector("title")
+); // true
+elementContains(document.querySelector("body"), document.querySelector("body")); // false
+```
+
+---
+
+##
