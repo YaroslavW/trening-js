@@ -205,3 +205,14 @@ elementContains(document.querySelector("body"), document.querySelector("body"));
 ---
 
 ## 36. Filter Duplicate Elements
+
+Этот фрагмент удаляет повторяющиеся значения в массиве.
+
+```javascript
+const filterNonUnique = arr => [ …new Set(arr)];
+filterNonUnique([1, 2, 2, 3, 4, 4, 5]); // [1, 2, 3, 4, 5]
+```
+
+---
+
+## 37. findKey
