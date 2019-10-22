@@ -266,3 +266,19 @@ flatten([1, [2, [3, [4, 5], 6], 7], 8], 2); // [1, 2, 3, [4, 5], 6, 7, 8]
 ---
 
 ## 40. forEachRight
+
+Этот фрагмент выполняет функцию для каждого элемента массива, начиная с последнего элемента массива.
+
+```javascript
+const forEachRight = (arr, callback) =>
+  arr
+    .slice(0)
+    .reverse()
+    .forEach(callback);
+
+forEachRight([1, 2, 3, 4], val => console.log(val)); // '4', '3', '2', '1'
+```
+
+---
+
+## 41. forOwn
