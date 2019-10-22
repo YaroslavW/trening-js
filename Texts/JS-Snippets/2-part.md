@@ -282,3 +282,15 @@ forEachRight([1, 2, 3, 4], val => console.log(val)); // '4', '3', '2', '1'
 ---
 
 ## 41. forOwn
+
+Этот фрагмент выполняет итерации для каждого свойства объекта и выполняет обратный вызов для каждого из них соответственно.
+
+```javascript
+const forOwn = (obj, fn) =>
+  Object.keys(obj).forEach(key => fn(obj[key], key, obj));
+forOwn({ foo: "bar", a: 1 }, v => console.log(v)); // 'bar', 1
+```
+
+---
+
+## 42. functionName
