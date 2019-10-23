@@ -294,3 +294,15 @@ forOwn({ foo: "bar", a: 1 }, v => console.log(v)); // 'bar', 1
 ---
 
 ## 42. functionName
+
+Этот фрагмент выводит имя функции в консоль.
+
+```javascript
+const functionName = fn => (console.debug(fn.name), fn);
+
+functionName(Math.max); // max (logged in debug channel of console)
+```
+
+---
+
+Это вторая часть этих коротких фрагментов. Осталось еще четыре части.
