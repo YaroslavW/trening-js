@@ -19,3 +19,16 @@ getColonTimeFromDate(new Date()); // "08:38:00"
 ---
 
 ## 44. Get Days Between Dates
+
+Этот фрагмент можно использовать, чтобы найти разницу в днях между двумя датами.
+
+```javascript
+const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
+  (dateFinal - dateInitial) / (1000 * 3600 * 24);
+
+getDaysDiffBetweenDates(new Date("2019-01-13"), new Date("2019-01-15")); // 2
+```
+
+---
+
+## 45. getStyle
