@@ -32,3 +32,15 @@ getDaysDiffBetweenDates(new Date("2019-01-13"), new Date("2019-01-15")); // 2
 ---
 
 ## 45. getStyle
+
+Этот фрагмент можно использовать для получения значения правила CSS для определенного элемента.
+
+```javascript
+const getStyle = (el, ruleName) => getComputedStyle(el)[ruleName];
+
+getStyle(document.querySelector("p"), "font-size"); // '16px'
+```
+
+---
+
+## 46. getType
