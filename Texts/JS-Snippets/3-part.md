@@ -61,3 +61,14 @@ getType(new Set([1, 2, 3])); // 'set'
 ---
 
 ## 47. hasClass
+
+Этот фрагмент проверяет, есть ли у элемента определенный класс.
+
+```javascript
+const hasClass = (el, className) => el.classList.contains(className);
+hasClass(document.querySelector("p.special"), "special"); // true
+```
+
+---
+
+## 48. head
