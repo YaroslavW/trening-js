@@ -44,3 +44,20 @@ getStyle(document.querySelector("p"), "font-size"); // '16px'
 ---
 
 ## 46. getType
+
+Этот фрагмент может быть использован для получения типа значения.
+
+```javascript
+const getType = v =>
+  v === undefined
+    ? "undefined"
+    : v === null
+    ? "null"
+    : v.constructor.name.toLowerCase();
+
+getType(new Set([1, 2, 3])); // 'set'
+```
+
+---
+
+## 47. hasClass
