@@ -151,3 +151,46 @@ insertAfter(document.getElementById("myId"), "<p>after</p>"); // <div id="myId">
 ---
 
 ## 54. insertBefore
+
+Этот фрагмент можно использовать для вставки строки HTML перед определенным элементом.
+
+```javascript
+const insertBefore = (el, htmlString) =>
+  el.insertAdjacentHTML("beforebegin", htmlString);
+
+insertBefore(document.getElementById("myId"), "<p>before</p>"); // <p>before</p> <div id="myId">...</div>
+```
+
+---
+
+## 55. intersection
+
+Этот фрагмент можно использовать для получения массива с элементами, которые включены в два других массива.
+
+```javascript
+const intersection = (a, b) => {
+  const s = new Set(b);
+  return a.filter(x => s.has(x));
+};
+
+intersection([1, 2, 3], [4, 3, 2]); // [2, 3]
+```
+
+---
+
+## 56. intersectionBy
+
+Этот фрагмент можно использовать для возврата списка элементов, которые существуют в обоих массивах, после выполнения определенной функции для каждого элемента обоих массивов.
+
+```javascript
+const intersectionBy = (a, b, fn) => {
+  const s = new Set(b.map(fn));
+  return a.filter(x => s.has(fn(x)));
+};
+
+intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor); // [2.1]
+```
+
+---
+
+## 57. intersectionWith
