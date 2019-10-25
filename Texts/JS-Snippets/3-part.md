@@ -111,3 +111,43 @@ httpsRedirect(); // If you are on http://mydomain.com, you are redirected to htt
 ---
 
 ## 51. indexOfAll
+
+Этот фрагмент можно использовать для получения всех индексов значения в массиве, который возвращает пустой массив в случае, если это значение не включено в него.
+
+```javascript
+const indexOfAll = (arr, val) =>
+  arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
+
+indexOfAll([1, 2, 3, 1, 2, 3], 1); // [0,3]
+indexOfAll([1, 2, 3], 4); // []
+```
+
+---
+
+## 52. initial
+
+Этот фрагмент возвращает все элементы массива, кроме последнего.
+
+```javascript
+const initial = arr => arr.slice(0, -1);
+
+initial([1, 2, 3]); // [1,2]const initial = arr => arr.slice(0, -1);
+initial([1, 2, 3]); // [1,2]
+```
+
+---
+
+## 53. insertAfter
+
+Этот фрагмент можно использовать для вставки строки HTML после конца определенного элемента.
+
+```javascript
+const insertAfter = (el, htmlString) =>
+  el.insertAdjacentHTML("afterend", htmlString);
+
+insertAfter(document.getElementById("myId"), "<p>after</p>"); // <div id="myId">...</div> <p>after</p>
+```
+
+---
+
+## 54. insertBefore
