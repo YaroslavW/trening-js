@@ -72,3 +72,42 @@ hasClass(document.querySelector("p.special"), "special"); // true
 ---
 
 ## 48. head
+
+Этот фрагмент возвращает заголовок - `head` списка.
+
+```javascript
+const head = arr => arr[0];
+
+head([1, 2, 3]); // 1
+```
+
+---
+
+## 49. hide
+
+Этот фрагмент можно использовать, чтобы скрыть все указанные элементы.
+
+```javascript
+const hide = (...el) => [...el].forEach(e => (e.style.display = "none"));
+
+hide(document.querySelectorAll("img")); // Hides all <img> elements on the page
+```
+
+---
+
+## 50. httpsRedirect
+
+Этот фрагмент можно использовать для перенаправления с HTTP на HTTPS в определенном домене.
+
+```javascript
+const httpsRedirect = () => {
+  if (location.protocol !== "https:")
+    location.replace("https://" + location.href.split("//")[1]);
+};
+
+httpsRedirect(); // If you are on http://mydomain.com, you are redirected to https://mydomain.com
+```
+
+---
+
+## 51. indexOfAll
