@@ -247,3 +247,51 @@ isAfterDate(new Date(2010, 10, 21), new Date(2010, 10, 20)); // true
 ---
 
 ## 60. isAnagram
+
+Этот фрагмент можно использовать для проверки того, является ли конкретная строка анаграммой с другой строкой.
+
+```javascript
+const isAnagram = (str1, str2) => {
+  const normalize = str =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]/gi, "")
+      .split("")
+      .sort()
+      .join("");
+  return normalize(str1) === normalize(str2);
+};
+
+isAnagram("iceman", "cinema"); // true
+```
+
+---
+
+## 61. isArrayLike
+
+Этот фрагмент можно использовать для проверки того, является ли предоставленный аргумент итеративным, как массив.
+
+```javascript
+const isArrayLike = obj =>
+  obj != null && typeof obj[Symbol.iterator] === "function";
+
+isArrayLike(document.querySelectorAll(".className")); // true
+isArrayLike("abc"); // true
+isArrayLike(null); // false
+```
+
+---
+
+## 62. isBeforeDate
+
+Этот фрагмент можно использовать, чтобы проверить, предшествует ли дата другой дате.
+
+```javascript
+const isBeforeDate = (dateA, dateB) => dateA < dateB;
+
+isBeforeDate(new Date(2010, 10, 20), new Date(2010, 10, 21)); // true
+```
+
+---
+
+## 63. isBoolean
