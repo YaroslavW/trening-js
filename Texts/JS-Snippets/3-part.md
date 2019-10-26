@@ -295,3 +295,16 @@ isBeforeDate(new Date(2010, 10, 20), new Date(2010, 10, 21)); // true
 ---
 
 ## 63. isBoolean
+
+Этот фрагмент можно использовать для проверки, является ли аргумент логическим.
+
+```javascript
+const isBoolean = val => typeof val === "boolean";
+
+isBoolean(null); // false
+isBoolean(false); // true
+```
+
+---
+
+Это третья часть этих коротких фрагментов. Осталось еще три части.
