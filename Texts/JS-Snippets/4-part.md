@@ -7,3 +7,42 @@
 ---
 
 ## 64. isBrowser
+
+Этот фрагмент можно использовать для определения, является ли текущая среда выполнения браузером. Это полезно для избежания ошибок при запуске интерфейсных модулей на сервере (узел).
+
+```javascript
+const isBrowser = () => ![typeof window, typeof document].includes("undefined");
+
+isBrowser(); // true (browser)
+isBrowser(); // false (Node)
+```
+
+---
+
+## 65. isBrowserTabFocused
+
+Этот фрагмент можно использовать для определения того, фокусируется ли вкладка браузера.
+
+```javascript
+const isBrowserTabFocused = () => !document.hidden;
+
+isBrowserTabFocused(); // true
+```
+
+---
+
+## 66. isLowerCase
+
+Этот фрагмент можно использовать для определения того, представленна ли строка в нижнем регистре.
+
+```javascript
+const isLowerCase = str => str === str.toLowerCase();
+
+isLowerCase("abc"); // true
+isLowerCase("a3@$"); // true
+isLowerCase("Ab4"); // false
+```
+
+---
+
+## 67. isNil
