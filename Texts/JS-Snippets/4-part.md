@@ -46,3 +46,43 @@ isLowerCase("Ab4"); // false
 ---
 
 ## 67. isNil
+
+Этот фрагмент можно использовать для проверки, является ли значение пустым - `null` или неопределенным - `undefined`.
+
+```javascript
+const isNil = val => val === undefined || val === null;
+
+isNil(null); // true
+isNil(undefined); // true
+```
+
+---
+
+## 68. isNull
+
+Этот фрагмент можно использовать для проверки, является ли значение `null`.
+
+```javascript
+const isNull = val => val === null;
+
+isNull(null); // true
+```
+
+---
+
+## 69. isNumber
+
+Этот фрагмент можно использовать для проверки, является ли предоставленное значение числом.
+
+```javascript
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+isNumber("1"); // false
+isNumber(1); // true
+```
+
+---
+
+## 70. isObject
