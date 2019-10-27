@@ -86,3 +86,51 @@ isNumber(1); // true
 ---
 
 ## 70. isObject
+
+Этот фрагмент можно использовать для проверки, является ли предоставленное значение объектом. Он использует конструктор Object для создания обертки объекта для данного значения.
+
+Если это уже объект, будет возвращен тип объекта, соответствующий данному значению. В противном случае будет возвращен новый объект.
+
+```javascript
+const isObject = obj => obj === Object(obj);
+
+isObject([1, 2, 3, 4]); // true
+isObject([]); // true
+isObject(["Hello!"]); // true
+isObject({ a: 1 }); // true
+isObject({}); // true
+isObject(true); // false
+```
+
+---
+
+## 71. isObjectLike
+
+Этот фрагмент может быть использован для проверки, если значение не является нулевым - `null` и что его `typeof` является «объектом».
+
+```javascript
+const isObjectLike = val => val !== null && typeof val === "object";
+
+isObjectLike({}); // true
+isObjectLike([1, 2, 3]); // true
+isObjectLike(x => x); // false
+isObjectLike(null); // false
+```
+
+---
+
+## 72. isPlainObject
+
+Этот фрагмент проверяет, является ли значение объектом, созданным конструктором Object.
+
+```javascript
+const isPlainObject = val =>
+  !!val && typeof val === "object" && val.constructor === Object;
+
+isPlainObject({ a: 1 }); // true
+isPlainObject(new Map()); // false
+```
+
+---
+
+## 73. isPromiseLike
