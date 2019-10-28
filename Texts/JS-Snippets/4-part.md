@@ -218,3 +218,52 @@ isLowerCase("aB4"); // false
 ---
 
 ## 79. isValidJSON
+
+Этот фрагмент можно использовать, чтобы проверить, является ли строка валидным JSON.
+
+```javascript
+const isValidJSON = str => {
+  try {
+    JSON.parse(str);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
+isValidJSON('{"name":"Adam","age":20}'); // true
+isValidJSON('{"name":"Adam",age:"20"}'); // false
+isValidJSON(null); // true
+```
+
+---
+
+## 80. last
+
+Этот фрагмент возвращает последний элемент массива.
+
+```javascript
+const last = arr => arr[arr.length - 1];
+
+last([1, 2, 3]); // 3
+```
+
+---
+
+## 81. matches
+
+Этот фрагмент сравнивает два объекта, чтобы определить, содержит ли первый объект те же значения свойств, что и второй.
+
+```javascript
+const matches = (obj, source) =>
+  Object.keys(source).every(
+    key => obj.hasOwnProperty(key) && obj[key] === source[key]
+  );
+
+matches({ age: 25, hair: "long", beard: true }, { hair: "long", beard: true }); // true
+matches({ hair: "long", beard: true }, { age: 25, hair: "long", beard: true }); // false
+```
+
+---
+
+## 82. maxDate
