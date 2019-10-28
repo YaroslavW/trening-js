@@ -134,3 +134,49 @@ isPlainObject(new Map()); // false
 ---
 
 ## 73. isPromiseLike
+
+Этот фрагмент проверяет, выглядит ли объект как `Promise`.
+
+```javascript
+const isPromiseLike = obj =>
+  obj !== null &&
+  (typeof obj === "object" || typeof obj === "function") &&
+  typeof obj.then === "function";
+
+isPromiseLike({
+  then: function() {
+    return "";
+  }
+}); // true
+isPromiseLike(null); // false
+isPromiseLike({}); // false
+```
+
+---
+
+## 74. isSameDate
+
+Этот фрагмент можно использовать для проверки совпадения двух дат.
+
+```javascript
+const isSameDate = (dateA, dateB) =>
+  dateA.toISOString() === dateB.toISOString();
+
+isSameDate(new Date(2010, 10, 20), new Date(2010, 10, 20)); // true
+```
+
+---
+
+## 75. isString
+
+Этот фрагмент можно использовать для проверки того, является ли аргумент строкой.
+
+```javascript
+const isString = val => typeof val === "string";
+
+isString("10"); // true
+```
+
+---
+
+## 76. isSymbol
