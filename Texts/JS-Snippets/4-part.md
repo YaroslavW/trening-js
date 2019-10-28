@@ -180,3 +180,41 @@ isString("10"); // true
 ---
 
 ## 76. isSymbol
+
+Этот фрагмент можно использовать для проверки того, является ли аргумент символом.
+
+```javascript
+const isSymbol = val => typeof val === "symbol";
+
+isSymbol(Symbol("x")); // true
+```
+
+---
+
+## 77. isUndefined
+
+Этот фрагмент можно использовать для проверки, является ли значение неопределенным - `undefuned`.
+
+```javascript
+const isUndefined = val => val === undefined;
+
+isUndefined(undefined); // true
+```
+
+---
+
+## 78. isUpperCase
+
+Этот фрагмент можно использовать для проверки того, является ли строка заглавной.
+
+```javascript
+const isUpperCase = str => str === str.toUpperCase();
+
+isUpperCase("ABC"); // true
+isLowerCase("A3@$"); // true
+isLowerCase("aB4"); // false
+```
+
+---
+
+## 79. isValidJSON
