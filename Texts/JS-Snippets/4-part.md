@@ -267,3 +267,52 @@ matches({ hair: "long", beard: true }, { age: 25, hair: "long", beard: true }); 
 ---
 
 ## 82. maxDate
+
+Этот фрагмент может быть использован для получения последней даты.
+
+```javascript
+const maxDate = (...dates) => new Date(Math.max.apply(null, ...dates));
+
+const array = [
+  new Date(2017, 4, 13),
+  new Date(2018, 2, 12),
+  new Date(2016, 0, 10),
+  new Date(2016, 0, 9)
+];
+maxDate(array); // 2018-03-11T22:00:00.000Z
+```
+
+---
+
+## 83. maxN
+
+Этот фрагмент возвращает `n` самых больших элементов из списка. Если `n` больше или равно длине списка, он вернет исходный список (отсортированный в порядке убывания).
+
+```javascript
+const maxN = (arr, n = 1) => [...arr].sort((a, b) => b - a).slice(0, n);
+
+maxN([1, 2, 3]); // [3]
+maxN([1, 2, 3], 2); // [3,2]
+```
+
+---
+
+## 84. minDate
+
+Этот фрагмент может быть использован для получения самой ранней даты.
+
+```javascript
+const minDate = (...dates) => new Date(Math.min.apply(null, ...dates));
+
+const array = [
+  new Date(2017, 4, 13),
+  new Date(2018, 2, 12),
+  new Date(2016, 0, 10),
+  new Date(2016, 0, 9)
+];
+minDate(array); // 2016-01-08T22:00:00.000Z
+```
+
+---
+
+Это четвертая часть этих коротких фрагментов. Осталось еще две части.
