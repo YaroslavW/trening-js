@@ -127,3 +127,46 @@ randomNumberInRange(2, 10); // 6.0211363285087005
 ---
 
 ## 94. readFileLines
+
+Этот фрагмент можно использовать для чтения файла, получив массив строк из файла.
+
+```javascript
+const fs = require("fs");
+const readFileLines = filename =>
+  fs
+    .readFileSync(filename)
+    .toString("UTF8")
+    .split("\n");
+
+let arr = readFileLines("test.txt");
+console.log(arr); // ['line1', 'line2', 'line3']
+```
+
+---
+
+## 95. Redirect to a URL
+
+Этот фрагмент можно использовать для перенаправления на указанный URL-адрес.
+
+```javascript
+const redirect = (url, asLink = true) =>
+  asLink ? (window.location.href = url) : window.location.replace(url);
+
+redirect("https://google.com");
+```
+
+---
+
+## 96. reverse
+
+Этот фрагмент может быть использован для разворота строки.
+
+```javascript
+const reverseString = str => [...str].reverse().join("");
+
+reverseString("foobar"); // 'raboof'
+```
+
+---
+
+## 97. round
