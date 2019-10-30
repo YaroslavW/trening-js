@@ -44,3 +44,45 @@ nodeListToArray(document.childNodes); // [ <!DOCTYPE html>, html ]
 ---
 
 ## 88. pad
+
+Этот фрагмент можно использовать для дополнения строки с обеих сторон указанным символом, если она короче указанной длины.
+
+```javascript
+const pad = (str, length, char = " ") =>
+  str.padStart((str.length + length) / 2, char).padEnd(length, char);
+
+pad("cat", 8); // '  cat   '
+pad(String(42), 6, "0"); // '004200'
+pad("foobar", 3); // 'foobar'
+```
+
+---
+
+## 89. radsToDegrees
+
+Этот фрагмент можно использовать для преобразования угла в радианах в градусы.
+
+```javascript
+const radsToDegrees = rad => (rad * 180.0) / Math.PI;
+
+radsToDegrees(Math.PI / 2); // 90
+```
+
+---
+
+## 90. Random Hexadecimal Color Code
+
+Этот фрагмент можно использовать для генерации случайного шестнадцатеричного цветового кода.
+
+```javascript
+const randomHexColorCode = () => {
+  let n = (Math.random() * 0xfffff * 1000000).toString(16);
+  return "#" + n.slice(0, 6);
+};
+
+randomHexColorCode(); // "#e34155"
+```
+
+---
+
+## 91. randomIntArrayInRange
