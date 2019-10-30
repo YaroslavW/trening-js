@@ -45,7 +45,7 @@ nodeListToArray(document.childNodes); // [ <!DOCTYPE html>, html ]
 
 ## 88. pad
 
-Этот фрагмент можно использовать для дополнения строки с обеих сторон указанным символом, если она короче указанной длины.
+Этот фрагмент можно использовать для дополнения - `pad` строки с обеих сторон указанным символом, если она короче указанной длины.
 
 ```javascript
 const pad = (str, length, char = " ") =>
@@ -86,3 +86,44 @@ randomHexColorCode(); // "#e34155"
 ---
 
 ## 91. randomIntArrayInRange
+
+Этот фрагмент можно использовать для генерации массива с `n` случайными целыми числами в указанном диапазоне.
+
+```javascript
+const randomIntArrayInRange = (min, max, n = 1) =>
+  Array.from(
+    { length: n },
+    () => Math.floor(Math.random() * (max - min + 1)) + min
+  );
+
+randomIntArrayInRange(12, 35, 10); // [ 34, 14, 27, 17, 30, 27, 20, 26, 21, 14 ]
+```
+
+---
+
+## 92. randomIntegerInRange
+
+Этот фрагмент можно использовать для генерации случайного целого числа в указанном диапазоне.
+
+```javascript
+const randomIntegerInRange = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
+
+randomIntegerInRange(0, 5); // 3
+```
+
+---
+
+## 93. randomNumberInRange
+
+Этот фрагмент можно использовать для возврата случайного числа в указанном диапазоне.
+
+```javascript
+const randomNumberInRange = (min, max) => Math.random() * (max - min) + min;
+
+randomNumberInRange(2, 10); // 6.0211363285087005
+```
+
+---
+
+## 94. readFileLines
