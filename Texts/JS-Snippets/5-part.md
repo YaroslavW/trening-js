@@ -262,3 +262,42 @@ serializeCookie("foo", "bar"); // 'foo=bar'
 ---
 
 ## 103. setStyle
+
+Этот фрагмент можно использовать для установки значения правила CSS для определенного элемента.
+
+```javascript
+const setStyle = (el, ruleName, val) => (el.style[ruleName] = val);
+
+setStyle(document.querySelector("p"), "font-size", "20px");
+// Первый элемент <p> на странице будет иметь размер шрифта 20 пикселей
+```
+
+---
+
+## 104. shallowClone
+
+Этот фрагмент можно использовать для создания мелкого клона объекта.
+
+```javascript
+const shallowClone = obj => Object.assign({}, obj);
+
+const a = { x: true, y: 1 };
+const b = shallowClone(a); // a !== b
+```
+
+---
+
+## 105. show
+
+Этот фрагмент можно использовать для отображения всех указанных элементов.
+
+```javascript
+const show = (...el) => [...el].forEach(e => (e.style.display = ""));
+
+show(...document.querySelectorAll("img"));
+// Показывает все элементы <img> на странице
+```
+
+---
+
+## 106. shuffle
