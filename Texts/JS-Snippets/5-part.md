@@ -211,3 +211,54 @@ sample([3, 7, 9, 11]); // 9
 ---
 
 ## 100. sampleSize
+
+Этот фрагмент можно использовать для получения n случайных элементов из уникальных позиций массива вплоть до размера массива. Элементы в массиве перемешиваются с использованием [алгоритма Фишера-Йейтса](https://github.com/30-seconds/30-seconds-of-code#shuffle).
+
+```javascript
+const sampleSize = ([...arr], n = 1) => {
+  let m = arr.length;
+  while (m) {
+    const i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr.slice(0, n);
+};
+
+sampleSize([1, 2, 3], 2); // [3,1]
+sampleSize([1, 2, 3], 4); // [2,3,1]
+```
+
+---
+
+## 101. scrollToTop
+
+Этот фрагмент можно использовать для плавной прокрутки к верхней части текущей страницы.
+
+```javascript
+const scrollToTop = () => {
+  const c = document.documentElement.scrollTop || document.body.scrollTop;
+  if (c > 0) {
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, c - c / 8);
+  }
+};
+
+scrollToTop();
+```
+
+---
+
+## 102. serializeCookie
+
+Этот фрагмент можно использовать для сериализации пары имя-значение cookie в строку заголовка Set-Cookie.
+
+```javascript
+const serializeCookie = (name, val) =>
+  `${encodeURIComponent(name)}=${encodeURIComponent(val)}`;
+
+serializeCookie("foo", "bar"); // 'foo=bar'
+```
+
+---
+
+## 103. setStyle
