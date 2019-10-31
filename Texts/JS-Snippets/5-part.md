@@ -170,3 +170,44 @@ reverseString("foobar"); // 'raboof'
 ---
 
 ## 97. round
+
+Этот фрагмент можно использовать для округления числа до указанного числа цифр.
+
+```javascript
+const round = (n, decimals = 0) =>
+  Number(`${Math.round(`${n}e${decimals}`)}e-${decimals}`);
+
+round(1.005, 2); // 1.01
+```
+
+---
+
+## 98. runPromisesInSeries
+
+Этот фрагмент можно использовать для последовательного выполнения массива обещаний `promises`.
+
+```javascript
+const runPromisesInSeries = ps =>
+  ps.reduce((p, next) => p.then(next), Promise.resolve());
+const delay = d => new Promise(r => setTimeout(r, d));
+
+runPromisesInSeries([() => delay(1000), () => delay(2000)]);
+// Выполняет каждое обещание последовательно,
+//  на выполнение которого уходит в общей сложности 3 секунды
+```
+
+---
+
+## 99. sample
+
+Этот фрагмент можно использовать для получения случайного числа из массива.
+
+```javascript
+const sample = arr => arr[Math.floor(Math.random() * arr.length)];
+
+sample([3, 7, 9, 11]); // 9
+```
+
+---
+
+## 100. sampleSize
