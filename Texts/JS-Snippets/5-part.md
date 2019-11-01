@@ -301,3 +301,23 @@ show(...document.querySelectorAll("img"));
 ---
 
 ## 106. shuffle
+
+Этот фрагмент можно использовать для случайного упорядочения элементов массива с использованием [алгоритма Фишера-Йейтса](https://github.com/30-seconds/30-seconds-of-code#shuffle).
+
+```javascript
+const shuffle = ([...arr]) => {
+  let m = arr.length;
+  while (m) {
+    const i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr;
+};
+
+const foo = [1, 2, 3];
+shuffle(foo); // [2, 3, 1], foo = [1, 2, 3]
+```
+
+---
+
+Это пятая часть этих коротких фрагментов. Осталось еще одна часть.
