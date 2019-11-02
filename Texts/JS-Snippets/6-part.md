@@ -127,3 +127,50 @@ take([1, 2, 3], 0); // []
 ---
 
 ## 116. takeRight
+
+Этот фрагмент можно использовать для получения массива с `n` элементами, удаленными с конца.
+
+```javascript
+const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);
+
+takeRight([1, 2, 3], 2); // [ 2, 3 ]
+takeRight([1, 2, 3]); // [3]
+```
+
+---
+
+## 117. timeTaken
+
+Этот фрагмент можно использовать, чтобы узнать время, необходимое для выполнения функции.
+
+```javascript
+const timeTaken = callback => {
+  console.time("timeTaken");
+  const r = callback();
+  console.timeEnd("timeTaken");
+  return r;
+};
+
+timeTaken(() => Math.pow(2, 10)); // 1024, (logged): timeTaken: 0.02099609375ms
+```
+
+---
+
+## 118. times
+
+Этот фрагмент может быть использован для итерации обратного вызова `n` раз.
+
+```javascript
+const times = (n, fn, context = undefined) => {
+  let i = 0;
+  while (fn.call(context, i) !== false && ++i < n) {}
+};
+
+var output = "";
+times(5, i => (output += i));
+console.log(output); // 01234
+```
+
+---
+
+## 119. toCurrency
