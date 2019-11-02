@@ -51,3 +51,40 @@ smoothScroll(".fooBar"); // плавно прокручивается до пе�
 ---
 
 ## 110. sortCharactersInString
+
+Этот фрагмент можно использовать для сортировки символов в строке по алфавиту.
+
+```javascript
+const sortCharactersInString = str =>
+  [...str].sort((a, b) => a.localeCompare(b)).join("");
+
+sortCharactersInString("cabbage"); // 'aabbceg'
+```
+
+---
+
+## 111. splitLines
+
+Этот фрагмент можно использовать для разбиения многострочной строки на массив строк.
+
+```javascript
+const splitLines = str => str.split(/\r?\n/);
+
+splitLines("This\nis a\nmultiline\nstring.\n"); // ['This', 'is a', 'multiline', 'string.' , '']
+```
+
+---
+
+## 112. stripHTMLTags
+
+Этот фрагмент можно использовать для удаления тегов HTML / XML из строки.
+
+```javascript
+const stripHTMLTags = str => str.replace(/<[^>]*>/g, "");
+
+stripHTMLTags("<p><em>lorem</em> <strong>ipsum</strong></p>"); // 'lorem ipsum'
+```
+
+---
+
+## 113. sum
