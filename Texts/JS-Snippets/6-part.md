@@ -174,3 +174,53 @@ console.log(output); // 01234
 ---
 
 ## 119. toCurrency
+
+Этот фрагмент можно использовать для форматирования числа как валюты.
+
+```javascript
+const toCurrency = (n, curr, LanguageFormat = undefined) =>
+  Intl.NumberFormat(LanguageFormat, {
+    style: "currency",
+    currency: curr
+  }).format(n);
+
+toCurrency(123456.789, "EUR");
+// €123,456.79  | currency: Euro | currencyLangFormat: Local
+toCurrency(123456.789, "USD", "en-us");
+// $123,456.79  | currency: US Dollar | currencyLangFormat: English (United States)
+toCurrency(123456.789, "USD", "fa");
+// ۱۲۳٬۴۵۶٫۷۹ ؜$ | currency: US Dollar | currencyLangFormat: Farsi
+toCurrency(322342436423.2435, "JPY");
+// ¥322,342,436,423 | currency: Japanese Yen | currencyLangFormat: Local
+toCurrency(322342436423.2435, "JPY", "fi");
+// 322 342 436 423 ¥ | currency: Japanese Yen | currencyLangFormat: Finnish
+```
+
+---
+
+## 120. toDecimalMark
+
+Этот фрагмент использует функцию toLocaleString () для преобразования математического выражения с плавающей запятой в десятичную форму с использованием числа для создания строки, разделенной запятыми.
+
+```javascript
+const toDecimalMark = num => num.toLocaleString("en-US");
+
+toDecimalMark(12305030388.9087); // "12,305,030,388.909"
+```
+
+---
+
+## 121. toggleClass
+
+Этот фрагмент можно использовать для переключения класса для элемента.
+
+```javascript
+const toggleClass = (el, className) => el.classList.toggle(className);
+
+toggleClass(document.querySelector("p.special"), "special");
+// У абзаца больше не будет «специального» класса
+```
+
+---
+
+## 122. tomorrow
