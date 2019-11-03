@@ -270,3 +270,41 @@ union([1, 2, 3], [4, 3, 2]); // [1,2,3,4]
 ---
 
 ## 125. uniqueElements
+
+Этот фрагмент использует ES6 `Set` и оператор `...rest`, чтобы получить каждый элемент только один раз.
+
+```javascript
+const uniqueElements = arr => [...new Set(arr)];
+
+uniqueElements([1, 2, 2, 3, 4, 4, 5]);
+// [1, 2, 3, 4, 5]
+```
+
+---
+
+## 126. validateNumber
+
+Этот фрагмент можно использовать для проверки, является ли значение числом.
+
+```javascript
+const validateNumber = n =>
+  !isNaN(parseFloat(n)) && isFinite(n) && Number(n) == n;
+
+validateNumber("10"); // true
+```
+
+---
+
+## 127. words
+
+Этот фрагмент преобразует строку в массив слов.
+
+```javascript
+const words = (str, pattern = /[^a-zA-Z-]+/) =>
+  str.split(pattern).filter(Boolean);
+
+words("I love javaScript!!"); // ["I", "love", "javaScript"]
+words("python, javaScript & coffee"); // ["python", "javaScript", "coffee"]
+```
+
+---
