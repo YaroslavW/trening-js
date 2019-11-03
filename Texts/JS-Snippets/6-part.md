@@ -308,3 +308,26 @@ words("python, javaScript & coffee"); // ["python", "javaScript", "coffee"]
 ```
 
 ---
+
+## Коротко
+
+Эти фрагменты были взяты из [этого проекта](https://github.com/30-seconds/30_seconds_of_knowledge), в котором вы можете найти больше фрагментов JavaScript, а также фрагментов для других технологий и сред.
+Это был действительно длинный список, но, надеюсь, он поможет вам научиться чему-то, что вы можете сразу начать использовать.
+
+[Первая часть](https://github.com/YaroslavW/trening-js/blob/master/Texts/JS-Snippets/1-part.md)
+
+[Вторая часть](https://github.com/YaroslavW/trening-js/blob/master/Texts/JS-Snippets/2-part.md)
+
+[Третья часть](https://github.com/YaroslavW/trening-js/blob/master/Texts/JS-Snippets/3-part.md)
+
+[Четвертая часть](https://github.com/YaroslavW/trening-js/blob/master/Texts/JS-Snippets/4-part.md)
+
+[Пятая часть](https://github.com/YaroslavW/trening-js/blob/master/Texts/JS-Snippets/5-part.md)
+
+[Шестая часть](https://github.com/YaroslavW/trening-js/blob/master/Texts/JS-Snippets/6-part.md)
+
+---
+
+Оригинал статьи автора - [Fatos Morina](https://medium.com/better-programming/127-helpful-javascript-snippets-you-can-learn-in-30-seconds-or-less-part-6-of-6-862a6403d334)
+
+Автор перевода: [Yaroslav Kolesnikov](http://abcinblog.blogspot.com/)
