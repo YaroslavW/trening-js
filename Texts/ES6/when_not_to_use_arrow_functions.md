@@ -38,3 +38,31 @@ console.log(person.points); // 24
 ---
 
 ## 2. Callback Functions with Dynamic Context
+
+Функция обратного вызова с динамическим контентом.
+
+```js
+const button = document.getElementById("myButton");
+button.addEventListener("click", () => {
+  console.log(this); // 'this' here is window
+  this.innerHTML = "Clicked Button"; // 'this' here is window, not button
+});
+```
+
+Когда вы нажимаете кнопку `myButton`, она на самом деле не работает.
+
+Почему? потому что `this` не связан с кнопкой, но вместо этого связан с ее родительской областью, которая в этом случае является `window`.
+
+Вместо этого вы должны использовать обычную функцию:
+
+```javascript
+const button = document.getElementById("myButton");
+button.addEventListener("click", function() {
+  console.log(this); // button
+  this.innerHTML = "Clicked Button"; // 'this' here is button
+});
+```
+
+---
+
+## 3. Prototype Methods
