@@ -104,3 +104,35 @@ console.log(me.info());
 ---
 
 ## 4. arguments Object
+
+```js
+const logArgument = () => {
+  console.log(arguments[0]);
+};
+logArgument("Hi!"); // ReferenceError: arguments is not defined
+```
+
+Это на самом деле не сработает.
+
+Почему? поскольку функции стрелок автоматически не связывают свои собственные значения аргументов - `arguments` и поэтому нет ссылки на `arguments` во внешней области logArgument, и компилятор выдает ошибку ссылки - `reference error`.
+
+Вместо этого вы должны использовать обычную функцию:
+
+```js
+const logArgument = function() {
+  console.log(arguments[0]);
+};
+logArgument("Hi!"); // Hi!
+```
+
+---
+
+## Заключение
+
+Функции стрелок потрясающие, но они не подходят для всех ситуаций. Есть места, где они не только помогут, но и доставят вам неприятности.
+
+**Функции стрелок не заменяют обычные функции.**
+
+Оригинал публикации [Bunlong](https://dev.to/bunlong/when-not-to-use-arrow-functions-4knc?fbclid=IwAR2R-93nINU_IJoLOqgiUqF4VF3uh9gbEQgxjbpy-3ewY-SBJyd_LgY7a3o)
+
+Автор перевода [Yaroslav Kolesnikov](http://abcinblog.blogspot.com/)
