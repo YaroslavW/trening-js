@@ -66,3 +66,41 @@ button.addEventListener("click", function() {
 ---
 
 ## 3. Prototype Methods
+
+```js
+class Person {
+  constructor(points) {
+    this.points = points;
+  }
+}
+Person.prototype.info = () => {
+  console.log(this); // 'this' here is window
+  return `Points: ${this.points}`; // // 'this' here is window, not Person
+};
+const me = new Person(24);
+console.log(me.info());
+```
+
+Когда вы делаете `console.log(me.info ())`, он на самом деле не работает.
+
+Почему? Почему? потому что `this` не связан с `Person`, но вместо этого связан с его родительской областью, которая в этом случае является `window`.
+
+Вместо этого вы должны использовать обычную функцию:
+
+```js
+class Person {
+  constructor(points) {
+    this.points = points;
+  }
+}
+Person.prototype.info = function() {
+  console.log(this); // Person
+  return `Points: ${this.points}`; // // 'this' here is Person
+};
+const me = new Person(24);
+console.log(me.info());
+```
+
+---
+
+## 4. arguments Object
