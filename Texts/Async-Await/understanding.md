@@ -76,3 +76,101 @@ async function asyncFunc() {
 ## Error handling
 
 Обработка ошибок
+Как мы обрабатываем ошибки? У нас есть несколько вариантов, давайте рассмотрим их:
+
+### `Try..catch`
+
+Это наиболее распространенный способ обработки ошибок при использовании `async-await`, старого доброго `try-catch`. Все, что вам нужно сделать, это инкапсулировать ваш код в блок `try` и обрабатывать любые ошибки, возникающие в перехвате - `catch`.
+
+```js
+async function asyncFunc() {
+  try {
+    // fetch data from a url endpoint
+    const data = await axios.get("/some_url_endpoint");
+    return data;
+  } catch (error) {
+    console.log("error", error);
+    // appropriately handle the error
+  }
+}
+```
+
+Если при извлечении данных из нашей конечной точки (endpoint) возникает ошибка, выполнение передается в блок `catch`, и мы можем обработать любую ошибку, которая была выдана. Если у нас есть несколько ожидающих `await`-строк, блок `catch` перехватывает ошибки, возникающие во всех строках.
+
+```js
+async function asyncFunc() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get("/some_url_endpoint");
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+```
+
+### `If` not `try..catch`
+
+В качестве альтернативы мы можем добавить `.catch ()` к обещанию, созданному асинхронной функцией. Напомним: помните, что асинхронная `async`- функция возвращает обещание. Если возникает ошибка, то она возвращает отклоненное обещание ( [rejected promise](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject) ). Так что при вызове функции мы можем сделать это:
+
+```js
+asyncFunc().catch(error => {
+  // handle error appropriately
+});
+```
+
+## Fun facts
+
+### Асинхронизация методов класса
+
+Методы класса могут быть асинхронными - `async`.
+
+```js
+class Example {
+  async asyncMethod() {
+    const data = await axios.get("/some_url_endpoint");
+    return data;
+  }
+}
+```
+
+Для вызова метода мы бы сделали:
+
+```js
+  const exampleClass = new Example();
+  exampleClass.asyncMethod().then(//do whatever you want with the result)
+```
+
+### В `await` можно использовать `.then`
+
+Мы можем добавить `.then ()` в `await`
+
+```js
+async function asyncFunc() {
+  // fetch data from a url endpoint
+  const data = await axios.get("/some_url_endpoint")
+    .then((result) => return result.names)
+
+  return data;
+}
+```
+
+### Await <> Promise.all
+
+Если у нас есть несколько обещаний, мы можем использовать `Promise.all` с `await`.
+
+```js
+async function asyncFunc() {
+  const response = Promise.all([
+    axios.get("/some_url_endpoint"),
+    axios.get("/some_url_endpoint")
+  ]);
+  ...
+}
+```
+
+---
+
+## Заключение
