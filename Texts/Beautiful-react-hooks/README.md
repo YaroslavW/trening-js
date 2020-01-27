@@ -88,4 +88,10 @@ $ yarn add beautiful-react-hooks
 3. убедитесь, что вы добавили документацию для своего пользовательского хука (_вы можете использовать [HOOK_DOCUMENTATION_TEMPLATE] (./ HOOK_DOCUMENTATION_TEMPLATE.md) для документирования своего пользовательского хука_).
 4. убедитесь, что вы обновили файл `index.d.ts` с вашими типами хуков.
 
-## При содействии:
+### При содействии:
+
+- [React](https://reactjs.org/)
+- [Mocha](https://mochajs.org/)
+- [Chai](https://www.chaijs.com/)
+- [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
+- [@testing-library/react-hooks](https://react-hooks-testing-library.com/)
