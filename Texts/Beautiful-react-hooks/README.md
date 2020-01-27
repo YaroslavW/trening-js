@@ -95,3 +95,21 @@ $ yarn add beautiful-react-hooks
 - [Chai](https://www.chaijs.com/)
 - [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
 - [@testing-library/react-hooks](https://react-hooks-testing-library.com/)
+
+### Спонсорство
+
+Эта библиотека предоставлена и спонсируется:
+
+<div>
+  <p>
+    <a href="https://beautifulinteractions.com/">
+      <img src="https://beautifulinteractions.com/img/logo-colorful.svg" alt="Beautiful interactions" width="140px" />
+    </a>
+  </p>
+</div>
+
+В рамках нашего обязательства по поддержке и содействии опенсорс сообщества.
+
+---
+
+Значок сделан [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)
