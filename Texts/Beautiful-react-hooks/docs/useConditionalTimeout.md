@@ -40,3 +40,42 @@ const ConditionalDelayedContentComponent = () => {
 
 <ConditionalDelayedContentComponent />;
 ```
+
+### State & clear метод:
+
+Хук возвращает состояние тайм-аута (логическое - булевое значение, очищено / не очищено - `cleared/not cleared`) и метод для его возможного сброса.
+
+```jsx harmony
+import { useState } from "react";
+import { Button, Paragraph } from "beautiful-react-ui";
+import { useConditionalTimeout } from "beautiful-react-hooks";
+
+const ConditionalDelayedContentComponent = () => {
+  const [condition, setCondition] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+  const [isCleared, clearTimeoutRef] = useConditionalTimeout(
+    () => {
+      setShowContent(true);
+    },
+    5000,
+    condition
+  );
+
+  return (
+    <DisplayDemo>
+      <Paragraph>
+        Content will show after 5 second starting from the following button
+        click
+      </Paragraph>
+      <Button color="primary" icon="clock" onClick={() => setCondition(true)}>
+        Start a 5 seconds timeout
+      </Button>
+      {showContent && <div style={{ fontSize: "3rem" }}>🕰</div>}
+      {!isCleared && <Button onClick={clearTimeoutRef}>Cancel timeout</Button>}
+      {isCleared && <Paragraph>Cleared</Paragraph>}
+    </DisplayDemo>
+  );
+};
+
+<ConditionalDelayedContentComponent />;
+```
