@@ -79,3 +79,41 @@ const ConditionalDelayedContentComponent = () => {
 
 <ConditionalDelayedContentComponent />;
 ```
+
+### Параметры:
+
+`use Conditional Timeout` может принять объект, предоставленный в качестве возможного параметра.
+
+**по умолчанию**: `true`
+
+```jsx harmony
+import { useState } from "react";
+import { Button } from "beautiful-react-ui";
+import { useConditionalTimeout } from "beautiful-react-hooks";
+
+const ConditionalDelayedContentComponent = () => {
+  const [condition, setCondition] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+  const options = { cancelOnUnmount: false };
+
+  useConditionalTimeout(
+    () => {
+      setShowContent(true);
+    },
+    5000,
+    condition,
+    options
+  );
+
+  return (
+    <DisplayDemo>
+      <Button color="primary" icon="clock" onClick={() => setCondition(true)}>
+        Start a 5 seconds timeout
+      </Button>
+      {showContent && <div style={{ fontSize: "3rem" }}>🕰</div>}
+    </DisplayDemo>
+  );
+};
+
+<ConditionalDelayedContentComponent />;
+```
