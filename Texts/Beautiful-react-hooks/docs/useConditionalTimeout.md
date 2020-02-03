@@ -117,3 +117,48 @@ const ConditionalDelayedContentComponent = () => {
 
 <ConditionalDelayedContentComponent />;
 ```
+
+#### cancelOnConditionChange:
+
+Определяет, следует ли сбрасывать время ожидания при изменении условия.
+
+В этом примере ничего не произойдет, потому что при нажатии на кнопку, 2 экземпляра `useConditionalTimeout` будет выполнен, и один из них изменит условие.
+
+**default**: `true`
+
+```jsx harmony
+import { useState } from "react";
+import { Button } from "beautiful-react-ui";
+import { useConditionalTimeout } from "beautiful-react-hooks";
+
+const ConditionalDelayedContentComponent = () => {
+  const [condition, setCondition] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+
+  useConditionalTimeout(
+    () => {
+      setShowContent(true);
+    },
+    5000,
+    condition
+  );
+  useConditionalTimeout(
+    () => {
+      setCondition(false);
+    },
+    2000,
+    condition
+  );
+
+  return (
+    <DisplayDemo>
+      <Button color="primary" icon="clock" onClick={() => setCondition(true)}>
+        Start a 5 seconds timeout
+      </Button>
+      {showContent && <div style={{ fontSize: "3rem" }}>🕰</div>}
+    </DisplayDemo>
+  );
+};
+
+<ConditionalDelayedContentComponent />;
+```
