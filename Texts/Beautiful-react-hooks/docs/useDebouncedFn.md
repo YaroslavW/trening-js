@@ -52,3 +52,45 @@ const DebouncedFnComponent = () => {
 ```
 
 ### Параметры
+
+Поскольку `useDebounceFn` использует [lodash.throttle](https://www.npmjs.com/package/lodash.throttle)
+под капотом вы можете определить несколько параметров для настройки его поведения.
+
+```jsx harmony
+import { useState } from "react";
+import { Paragraph } from "beautiful-react-ui";
+import { useWindowResize, useDebouncedFn } from "beautiful-react-hooks";
+
+const DebouncedFnComponent = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  const options = {
+    leading: false,
+    trailing: true
+  };
+
+  // there's no need to use `useCallback` since the returned function
+  // is already memoized
+  const onWindowResizeHandler = useDebouncedFn(
+    () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    },
+    500,
+    options
+  );
+
+  useWindowResize(onWindowResizeHandler);
+
+  return (
+    <DisplayDemo>
+      <Paragraph>window width: {width}</Paragraph>
+      <Paragraph>window height: {height}</Paragraph>
+    </DisplayDemo>
+  );
+};
+
+<DebouncedFnComponent />;
+```
+
+### Зависимости
