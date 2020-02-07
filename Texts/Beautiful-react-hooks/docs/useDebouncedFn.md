@@ -131,3 +131,7 @@ const DebouncedFnComponent = props => {
 
 <DebouncedFnComponent foo="bar" />;
 ```
+#### ✅ Совет
+Для глубокого понимания различий между `throttle` и` debounce`, что они из себя представляют и когда использовать эти функции
+пожалуйста, прочитайте "[Разбор и регулирование, объясненные через примеры](https://css-tricks.com/debouncing-throttling-explained-examples/)"
+[Дэвид Корбахо](https://twitter.com/dcorbacho)
