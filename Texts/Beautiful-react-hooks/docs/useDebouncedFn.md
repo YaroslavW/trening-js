@@ -94,3 +94,40 @@ const DebouncedFnComponent = () => {
 ```
 
 ### Зависимости
+
+Поскольку `useDebounceFn` использует [useCallback](https://reactjs.org/docs/hooks-reference.html#usecallback)
+под капотом вы можете определить зависимости обратного вызова.
+
+```jsx harmony
+import { useState } from "react";
+import { Paragraph } from "beautiful-react-ui";
+import { useWindowResize, useDebouncedFn } from "beautiful-react-hooks";
+
+const DebouncedFnComponent = props => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+
+  // there's no need to use `useCallback` since the returned function
+  // is already memoized
+  const onWindowResizeHandler = useDebouncedFn(
+    () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    },
+    500,
+    null,
+    [props.foo]
+  );
+
+  useWindowResize(onWindowResizeHandler);
+
+  return (
+    <DisplayDemo>
+      <Paragraph>window width: {width}</Paragraph>
+      <Paragraph>window height: {height}</Paragraph>
+    </DisplayDemo>
+  );
+};
+
+<DebouncedFnComponent foo="bar" />;
+```
