@@ -39,3 +39,36 @@ const MyComponent = () => {
 
 <MyComponent />;
 ```
+
+### Перетащите изображение:
+
+```jsx harmony
+import { useRef } from "react";
+import { useDrag } from "beautiful-react-hooks";
+
+const MyComponent = () => {
+  const ref = useRef();
+  const isDragged = useDrag(ref, {
+    dragImage: "https://beautifulinteractions.com/img/logo-colorful.svg",
+    dragImageXOffset: 5,
+    dragImageYOffset: 5
+  });
+
+  return (
+    <DisplayDemo>
+      <div
+        ref={ref}
+        style={{
+          padding: "20px 0",
+          background: isDragged ? "#BE496E" : "#1D6C8B"
+        }}
+      >
+        Draggable item...
+        {isDragged && <span>is being dragged</span>}
+      </div>
+    </DisplayDemo>
+  );
+};
+
+<MyComponent />;
+```
