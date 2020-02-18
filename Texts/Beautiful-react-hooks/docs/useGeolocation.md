@@ -11,3 +11,31 @@
 - заботится о добавлении слушателей событий геолокации
 - заботится о чистке слушателя, когда компонент размонтируется (component will unmount)
 - позволяют выполнять абстракции на событиях, связанных с геолокацией
+
+### Основное использование
+
+```jsx harmony
+import { useGeolocation } from "beautiful-react-hooks";
+
+const PositionReporter = () => {
+  const [geoState, { onChange }] = useGeolocation();
+
+  onChange(() => {
+    console.log("Position changed...");
+  });
+
+  return (
+    <DisplayDemo>
+      The current position is:
+      {geoState.isRetrieving && <p>Retrieving position...</p>}
+      {geoState.isSupported &&
+        geoState.position && [
+          <p key={0}>Lat: {geoState.position.coords.latitude}</p>,
+          <p key={1}>Lng: {geoState.position.coords.longitude}</p>
+        ]}
+    </DisplayDemo>
+  );
+};
+
+<PositionReporter />;
+```
