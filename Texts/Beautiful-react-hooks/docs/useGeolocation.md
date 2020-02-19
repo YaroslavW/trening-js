@@ -39,3 +39,41 @@ const PositionReporter = () => {
 
 <PositionReporter />;
 ```
+
+### Параметры:
+
+Перед использованием, пожалуйста, прочитайте о [geolocation options](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions)
+
+```jsx harmony
+import { useGeolocation } from "beautiful-react-hooks";
+
+const PositionReporter = () => {
+  const [geoState, { onChange }] = useGeolocation({
+    enableHighAccuracy: true,
+    timeout: 0xffffffff,
+    maximumAge: 0
+  });
+
+  onChange(() => {
+    console.log("Position changed...");
+  });
+
+  return (
+    <DisplayDemo>
+      The current position is:
+      {geoState.isRetrieving && <p>Retrieving position...</p>}
+      {geoState.isSupported &&
+        geoState.position && [
+          <p key={0}>Lat: {geoState.position.coords.latitude}</p>,
+          <p key={1}>Lng: {geoState.position.coords.longitude}</p>
+        ]}
+    </DisplayDemo>
+  );
+};
+
+<PositionReporter />;
+```
+
+### Овладение хуками
+
+#### ✅ Когда использовать
