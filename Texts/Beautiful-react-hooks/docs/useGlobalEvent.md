@@ -32,3 +32,27 @@ const TestComponent = () => {
 
 <TestComponent />;
 ```
+
+### Параметры:
+
+Поскольку `useGlobalEvent` использует [addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+под капотом можно указать характеристики слушателя, передав объект параметров в качестве второго параметра.
+
+```jsx harmony
+import { useState } from "react";
+import { useGlobalEvent } from "beautiful-react-hooks";
+
+const TestComponent = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const options = { capture: true, passive: true, once: true };
+  const onWindowResize = useGlobalEvent("resize", options);
+
+  onWindowResize(event => {
+    setWindowWidth(window.innerWidth);
+  });
+
+  return <DisplayDemo>Current window width: {windowWidth}</DisplayDemo>;
+};
+
+<TestComponent />;
+```
