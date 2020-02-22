@@ -15,3 +15,27 @@
 - позволяют легко получить доступ к [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
 - заботится о чистке слушателя, когда компонент размонтируется (component will unmount)
 - позволяют выполнять абстракции на событиях, связанных с геолокацией
+
+### Основное использование
+
+```jsx harmony
+import { useGeolocationState } from "beautiful-react-hooks";
+
+const PositionReporter = () => {
+  const { isSupported, isRetrieving, position } = useGeolocationState();
+
+  return (
+    <DisplayDemo>
+      The current position is:
+      {isRetrieving && <p>Retrieving position...</p>}
+      {isSupported &&
+        position && [
+          <p key={0}>Lat: {position.coords.latitude}</p>,
+          <p key={1}>Lng: {position.coords.longitude}</p>
+        ]}
+    </DisplayDemo>
+  );
+};
+
+<PositionReporter />;
+```
