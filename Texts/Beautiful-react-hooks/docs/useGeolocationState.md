@@ -39,3 +39,33 @@ const PositionReporter = () => {
 
 <PositionReporter />;
 ```
+
+### Параметры:
+
+Перед использованием, пожалуйста, прочитайте о [geolocation options](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions)
+
+```jsx harmony
+import { useGeolocationState } from "beautiful-react-hooks";
+
+const PositionReporter = () => {
+  const { isSupported, isRetrieving, position } = useGeolocationState({
+    enableHighAccuracy: true,
+    timeout: 0xffffffff,
+    maximumAge: 0
+  });
+
+  return (
+    <DisplayDemo>
+      The current high accuracy position is:
+      {isRetrieving && <p>Retrieving position...</p>}
+      {isSupported &&
+        position && [
+          <p key={0}>Lat: {position.coords.latitude}</p>,
+          <p key={1}>Lng: {position.coords.longitude}</p>
+        ]}
+    </DisplayDemo>
+  );
+};
+
+<PositionReporter />;
+```
