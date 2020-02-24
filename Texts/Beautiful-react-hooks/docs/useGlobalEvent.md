@@ -56,3 +56,24 @@ const TestComponent = () => {
 
 <TestComponent />;
 ```
+
+### Определение обратного вызова:
+
+Третий параметр позволяет определить обратный вызов, избегая использования возвращаемого установщика обработчика (handler setter).
+
+```jsx harmony
+import { useState } from "react";
+import { useGlobalEvent } from "beautiful-react-hooks";
+
+const TestComponent = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useGlobalEvent("resize", null, event => {
+    setWindowWidth(window.innerWidth);
+  });
+
+  return <DisplayDemo>Current window width: {windowWidth}</DisplayDemo>;
+};
+
+<TestComponent />;
+```
