@@ -11,3 +11,24 @@
 - возвращает метод, который может отменить установленный интервал (вызвать повторную визуализацию компонента)
 
 ### Основное использование
+```jsx harmony
+import { useState } from 'react'; 
+import { useInterval } from 'beautiful-react-hooks'; 
+
+const DelayedContentComponent = () => {
+   const [seconds, setSeconds] = useState(0);
+   
+   // repeat the function each 1000ms
+   useInterval(() => {
+     setSeconds(1 + seconds);
+   }, 1000);
+   
+   return (
+     <DisplayDemo>
+       <p>Rendering since {seconds} seconds</p>
+     </DisplayDemo>
+   );
+};
+
+<DelayedContentComponent />
+```
