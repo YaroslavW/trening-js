@@ -61,3 +61,35 @@ const DelayedContentComponent = () => {
 
 <DelayedContentComponent />;
 ```
+
+### Параметры:
+
+`useInterval` может принять объект параметров, предоставленный в качестве возможного параметра.
+
+#### cancelOnUnmount:
+
+Определяет, следует ли очистить тайм-аут при размонтировании (unmount).
+
+**default**: `true`
+
+```jsx harmony
+import { useState } from "react";
+import { useInterval } from "beautiful-react-hooks";
+
+const DelayedContentComponent = () => {
+  const [seconds, setSeconds] = useState(0);
+  const options = { cancelOnUnmount: false };
+
+  useInterval(() => setSeconds(1 + seconds), 1000, options);
+
+  return (
+    <DisplayDemo>
+      <p>
+        Content rendering since {seconds} but will not be cleared on unmount
+      </p>
+    </DisplayDemo>
+  );
+};
+
+<DelayedContentComponent />;
+```
