@@ -62,3 +62,18 @@ const ComponentDidMount = () => {
 
 <ComponentDidMount />;
 ```
+
+#### ✅ Совет:
+
+При использовании компонента функции React вам не следует думать об этом с точки зрения «жизненного цикла».
+
+Хук `useLifecycle` действительно предназначен как ярлык для`useEffect (onMount, [])`и
+`useEffect (() => () => willUnmount, [])`.
+
+Чтобы глубже понять `useEffect`, что это такое и как его следует правильно использовать, пожалуйста, прочитайте
+[A complete guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)"
+by [Dan Abramov](https://twitter.com/dan_abramov)
+
+### Овладение хуками
+
+#### ✅ Когда использовать
