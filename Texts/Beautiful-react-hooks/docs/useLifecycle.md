@@ -34,3 +34,31 @@ const LifeCycleComponent = () => {
 
 <LifeCycleComponent />;
 ```
+
+### Синтаксис обратного вызова
+
+если параметры не предоставлены, возвращаемый объект установщиков обработчиков (handler setters) может быть использован для
+установки обработчиков `useDidMount` и`useWillUnmount`, при условии, что они немедленно вызываются.
+
+**Обратите внимание**: возвращаемые установщики обработчиков (handler setters) предназначены для изменения значения только ссылки обратного вызова, они не
+причина повторного рендеринга компонента также не должна вызываться асинхронно.
+
+```jsx harmony
+import { useLifecycle } from "beautiful-react-hooks";
+
+const ComponentDidMount = () => {
+  const { onDidMount, onWillUnmount } = useLifecycle();
+
+  onDidMount(() => {
+    console.log("Component did mount");
+  });
+
+  onWillUnmount(() => {
+    console.log("Component will unmount");
+  });
+
+  return <DisplayDemo>Check the javascript console</DisplayDemo>;
+};
+
+<ComponentDidMount />;
+```
