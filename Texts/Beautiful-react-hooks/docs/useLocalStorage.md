@@ -7,3 +7,32 @@
 - Быстрый и альтернативный способ чтения / хранения данных.
 
 ### Основное использование
+
+```jsx harmony
+import React, { useCallback } from "react";
+import { Pill, Paragraph, Icon } from "beautiful-react-ui";
+import { useLocalStorage } from "beautiful-react-hooks";
+
+const NotificationBadgeExample = ({ notifications }) => {
+  const [notificationCount, setNotificationCount] = useLocalStorage(
+    "demo-notification-count",
+    notifications
+  );
+
+  const clearNotifications = useCallback(() => {
+    setNotificationCount(0);
+  }, [notificationCount]);
+
+  return (
+    <DisplayDemo>
+      <Paragraph>Click on the badge to clear from the local storage</Paragraph>
+      <Pill color="primary" onClick={clearNotifications}>
+        <Icon name="envelope" />
+        You've got {notificationCount} new messages
+      </Pill>
+    </DisplayDemo>
+  );
+};
+
+<NotificationBadgeExample notifications={100} />;
+```
