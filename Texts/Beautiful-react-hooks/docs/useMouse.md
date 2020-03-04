@@ -12,6 +12,39 @@
 - заботится о чистке слушателя, когда компонент размонтируется
 - позволяют выполнять абстракции на событиях, связанных с мышью
 
+### Основное использование
+
+Предоставьте ссылку DOM в качестве первого параметра для `useMouse`
+
+```jsx harmony
+import { useRef, useState } from "react";
+import { useMouse } from "beautiful-react-hooks";
+
+const MouseReporter = () => {
+  const ref = useRef();
+  const [showCoords, setShowCoords] = useState(false);
+  const [position, { onMouseEnter, onMouseLeave }] = useMouse(ref);
+
+  onMouseEnter(() => setShowCoords(true));
+  onMouseLeave(() => setShowCoords(false));
+
+  return (
+    <DisplayDemo>
+      <div ref={ref}>
+        Move mouse over me to get its current coordinates:
+        {showCoords && (
+          <p>
+            {position.clientX}, {position.clientY}
+          </p>
+        )}
+      </div>
+    </DisplayDemo>
+  );
+};
+
+<MouseReporter />;
+```
+
 ### Овладение хуками
 
 #### ✅ Когда использовать
