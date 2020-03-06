@@ -16,3 +16,42 @@
 - позволяют выполнять абстракции на событиях, связанных с мышью
 
 ### Основное использование
+
+Предоставьте ссылку DOM в качестве первого параметра для `useMouseEvents`
+
+```jsx harmony
+import { useRef, useState } from "react";
+import { useMouseEvents } from "beautiful-react-hooks";
+
+const MyComponent = () => {
+  const [coordinates, setCoordinates] = useState();
+  const ref = useRef();
+  const { onMouseMove, onMouseLeave } = useMouseEvents(ref);
+
+  onMouseMove(event => {
+    const nextCoords = [event.clientX, event.clientY];
+    setCoordinates(nextCoords);
+  });
+
+  onMouseLeave(() => {
+    setCoordinates(undefined);
+  });
+
+  return (
+    <DisplayDemo>
+      <div ref={ref}>
+        Move mouse over me to get its current coordinates.
+        {coordinates && (
+          <p>
+            Coordinates x:{coordinates[0]} y:{coordinates[1]}
+          </p>
+        )}
+      </div>
+    </DisplayDemo>
+  );
+};
+
+<MyComponent />;
+```
+
+### Глобальные события
