@@ -55,3 +55,35 @@ const MyComponent = () => {
 ```
 
 ### Глобальные события
+
+Не используйте аргументы для `useMouseEvents`
+
+```jsx harmony
+import { useState } from "react";
+import { useMouseEvents } from "beautiful-react-hooks";
+
+const MyComponent = () => {
+  const [coordinates, setCoordinates] = useState([0, 0]);
+  const { onMouseMove } = useMouseEvents();
+
+  onMouseMove(event => {
+    const nextCoords = [event.clientX, event.clientY];
+    setCoordinates(nextCoords);
+  });
+
+  return (
+    <DisplayDemo>
+      The current mouse coordinates are:
+      <p>
+        x:{coordinates[0]} y:{coordinates[1]}
+      </p>
+    </DisplayDemo>
+  );
+};
+
+<MyComponent />;
+```
+
+### Овладение хуками
+
+#### ✅ Когда использовать
