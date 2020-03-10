@@ -12,3 +12,24 @@
 - заботится о чистке слушателя, когда компонент размонтируется
 
 ### Основное использование
+Предоставьте ссылку DOM в качестве первого параметра для `useMouseState`
+
+```jsx harmony
+import { useMouseState } from 'beautiful-react-hooks'; 
+
+const MouseReporter = () => {
+  const { clientX, clientY } = useMouseState(); 
+  
+  return (
+   <DisplayDemo>
+     The current mouse coordinates are:
+     {clientX}, {clientY}
+   </DisplayDemo>
+  );
+};
+
+<MouseReporter />
+```
+### Овладение хуками
+
+#### ✅ Когда использовать
