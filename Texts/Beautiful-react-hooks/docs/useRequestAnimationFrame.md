@@ -41,3 +41,33 @@ const AnimationExample = () => {
 ```
 
 ### Параметры:
+
+Объект параметров может использоваться как второй аргумент для управления анимацией.
+
+**Обратите внимание**: options.finishAt = -1 приведет к бесконечной анимации
+
+```jsx harmony
+import { useRef } from "react";
+import { Alert } from "beautiful-react-ui";
+import { useRequestAnimationFrame } from "beautiful-react-hooks";
+
+const AnimationExample = () => {
+  const ref = useRef();
+  const options = { increment: 0.5, startAt: 0, finishAt: -1 };
+
+  useRequestAnimationFrame((progress, next) => {
+    ref.current.style.transform = `rotate(${progress}deg)`;
+    next();
+  }, options);
+
+  return (
+    <DisplayDemo>
+      <div ref={ref}>
+        <Alert color="primary">Animating content</Alert>
+      </div>
+    </DisplayDemo>
+  );
+};
+
+<AnimationExample />;
+```
