@@ -71,3 +71,35 @@ const AnimationExample = () => {
 
 <AnimationExample />;
 ```
+
+### onFinish callback
+
+Хук возвращает функцию, которая может установить обратный вызов после завершения анимации:
+
+```jsx harmony
+import { useRef, useState } from "react";
+import { Alert, Paragraph } from "beautiful-react-ui";
+import { useRequestAnimationFrame } from "beautiful-react-hooks";
+
+const AnimationExample = () => {
+  const ref = useRef();
+  const [isFinished, setIsFinished] = useState(false);
+  const onFinish = useRequestAnimationFrame((progress, next) => {
+    ref.current.style.transform = `translateX(${progress}px)`;
+    next();
+  });
+
+  onFinish(() => setIsFinished(true));
+
+  return (
+    <DisplayDemo>
+      <div ref={ref}>
+        <Alert color="primary">Animating content</Alert>
+      </div>
+      {isFinished && <Paragraph>Animation completed!</Paragraph>}
+    </DisplayDemo>
+  );
+};
+
+<AnimationExample />;
+```
