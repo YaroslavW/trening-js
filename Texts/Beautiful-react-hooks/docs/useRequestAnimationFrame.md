@@ -14,3 +14,30 @@
 - Простое управление функцией requestAnimationFrame в компоненте React.
 
 ### Основное использование
+
+```jsx harmony
+import { useRef } from "react";
+import { Alert } from "beautiful-react-ui";
+import { useRequestAnimationFrame } from "beautiful-react-hooks";
+
+const AnimationExample = () => {
+  const ref = useRef();
+
+  useRequestAnimationFrame((progress, next) => {
+    ref.current.style.transform = `translateX(${progress}px)`;
+    next();
+  });
+
+  return (
+    <DisplayDemo>
+      <div ref={ref}>
+        <Alert color="primary">Animating content</Alert>
+      </div>
+    </DisplayDemo>
+  );
+};
+
+<AnimationExample />;
+```
+
+### Параметры:
