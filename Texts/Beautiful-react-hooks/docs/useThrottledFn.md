@@ -44,3 +44,46 @@ const ThrottledFnComponent = () => {
 
 <ThrottledFnComponent />;
 ```
+
+### Параметры:
+
+Поскольку `useThrottleFn` использует [lodash.throttle](https://www.npmjs.com/package/lodash.throttle)
+под капотом вы можете определить несколько параметров для настройки его поведения.
+
+```jsx harmony
+import { useState } from "react";
+import { useWindowResize, useThrottledFn } from "beautiful-react-hooks";
+
+const ThrottledFnComponent = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  const options = {
+    leading: false,
+    trailing: true
+  };
+
+  // there's no need to use `useCallback` since the returned function
+  // is already memoized
+  const onWindowResizeHandler = useThrottledFn(
+    () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    },
+    500,
+    options
+  );
+
+  useWindowResize(onWindowResizeHandler);
+
+  return (
+    <DisplayDemo>
+      <p>window width: {width}</p>
+      <p>window height: {height}</p>
+    </DisplayDemo>
+  );
+};
+
+<ThrottledFnComponent />;
+```
+
+## Зависимости:
