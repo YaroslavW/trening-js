@@ -11,3 +11,36 @@
 - когда мы прикрепляем слушателей к событию DOM.
 
 ### Основное использование
+
+```jsx harmony
+import { useEffect, useState } from "react";
+import { useWindowResize, useThrottledFn } from "beautiful-react-hooks";
+
+const ThrottledFnComponent = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+
+  // there's no need to use `useCallback` since the returned function
+  // is already memoized
+  const onWindowResizeHandler = useThrottledFn(() => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }, 250);
+
+  useWindowResize(onWindowResizeHandler);
+  useEffect(() => {
+    // do something
+    // don't forget to cancel debounced
+    return () => onWindowResizeHandler.cancel(); // or .flush()
+  });
+
+  return (
+    <DisplayDemo>
+      <p>window width: {width}</p>
+      <p>window height: {height}</p>
+    </DisplayDemo>
+  );
+};
+
+<ThrottledFnComponent />;
+```
