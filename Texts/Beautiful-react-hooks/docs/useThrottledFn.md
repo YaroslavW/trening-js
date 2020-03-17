@@ -87,3 +87,41 @@ const ThrottledFnComponent = () => {
 ```
 
 ## Зависимости:
+
+Поскольку `useThrottleFn` использует [useCallback](https://reactjs.org/docs/hooks-reference.html#usecallback)
+под капотом вы можете определить зависимости обратного вызова.
+
+```jsx harmony
+import { useState } from "react";
+import { useWindowResize, useThrottledFn } from "beautiful-react-hooks";
+
+const ThrottledFnComponent = props => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+
+  // there's no need to use `useCallback` since the returned function
+  // is already memoized
+  const onWindowResizeHandler = useThrottledFn(
+    () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    },
+    500,
+    null,
+    [props.foo]
+  );
+
+  useWindowResize(onWindowResizeHandler);
+
+  return (
+    <DisplayDemo>
+      <p>window width: {width}</p>
+      <p>window height: {height}</p>
+    </DisplayDemo>
+  );
+};
+
+<ThrottledFnComponent foo="bar" />;
+```
+
+#### Совет:
