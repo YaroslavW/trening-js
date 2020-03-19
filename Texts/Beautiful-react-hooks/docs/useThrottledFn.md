@@ -125,3 +125,11 @@ const ThrottledFnComponent = props => {
 ```
 
 #### Совет:
+
+Для глубокого понимания различий между `throttle` и`debounce`, что они из себя представляют и когда использовать эти функции
+пожалуйста, прочитайте "[Debouncing and Throttling Explained Through Examples](https://css-tricks.com/debouncing-throttling-explained-examples/)"
+by [David Corbacho](https://twitter.com/dcorbacho)
+
+### Овладение хуками
+
+#### ✅ Когда использовать
