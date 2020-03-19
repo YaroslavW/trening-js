@@ -33,3 +33,34 @@ const DelayedContentComponent = () => {
 
 <DelayedContentComponent />;
 ```
+
+### State & clear method:
+
+Хук возвращает состояние тайм-аута (логическое значение, очищено / не очищено) и метод для его возможного сброса.
+
+**Примечание:** программная очистка таймаута вызовет повторную визуализацию компонента.
+
+```jsx harmony
+import { useState } from "react";
+import { useTimeout } from "beautiful-react-hooks";
+
+const DelayedContentComponent = () => {
+  const [showContent, setShowContent] = useState(false);
+  const [isCleared, clearTimeoutRef] = useTimeout(() => {
+    setShowContent(true);
+  }, 5000);
+
+  return (
+    <DisplayDemo>
+      <p>Content will show in 5 seconds...</p>
+      {showContent && <div style={{ fontSize: "3rem" }}>🕰</div>}
+      {!isCleared && (
+        <button onClick={clearTimeoutRef}>Press here to cancel timeout</button>
+      )}
+      {isCleared && <p>Cleared</p>}
+    </DisplayDemo>
+  );
+};
+
+(<DelayedContentComponent />)``;
+```
