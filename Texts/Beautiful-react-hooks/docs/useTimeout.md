@@ -10,3 +10,26 @@
 - возвращает метод, который может отменить установленное время ожидания (вызвать повторную визуализацию компонента - component re-render)
 
 ### Основное использование
+
+```jsx harmony
+import { useState } from "react";
+import { useTimeout } from "beautiful-react-hooks";
+
+const DelayedContentComponent = () => {
+  const [showContent, setShowContent] = useState(false);
+
+  // delay the function by 2000ms
+  useTimeout(() => {
+    setShowContent(true);
+  }, 2000);
+
+  return (
+    <DisplayDemo>
+      <p>Content will show in 2 seconds...</p>
+      {showContent && <div style={{ fontSize: "3rem" }}>🕰</div>}
+    </DisplayDemo>
+  );
+};
+
+<DelayedContentComponent />;
+```
