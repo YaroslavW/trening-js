@@ -64,3 +64,9 @@ const DelayedContentComponent = () => {
 
 (<DelayedContentComponent />)``;
 ```
+
+### Параметры:
+
+`useTimeout` может принять объект параметров, предоставленный в качестве возможного параметра.
+
+#### cancelOnUnmount:
