@@ -70,3 +70,32 @@ const DelayedContentComponent = () => {
 `useTimeout` может принять объект параметров, предоставленный в качестве возможного параметра.
 
 #### cancelOnUnmount:
+
+Определяет, следует ли очистить тайм-аут при размонтировании.
+
+**default**: `true`
+
+```jsx harmony
+import { useState } from "react";
+import { useTimeout } from "beautiful-react-hooks";
+
+const DelayedContentComponent = () => {
+  const [showContent, setShowContent] = useState(false);
+  const options = { cancelOnUnmount: false };
+
+  useTimeout(() => setShowContent(true), 3000, options);
+
+  return (
+    <DisplayDemo>
+      <p>Content will show in 3 seconds but not be cleared on unmount</p>
+      {showContent && <div style={{ fontSize: "3rem" }}>🕰</div>}
+    </DisplayDemo>
+  );
+};
+
+<DelayedContentComponent />;
+```
+
+### Овладение хуками
+
+#### ✅ Когда использовать
