@@ -38,3 +38,4 @@ const ViewportSpyComponent = () => {
 Этот хук может использоваться для выполнения анимации, когда компонент / элемент входит или выходит из области просмотра.
 Для глубокого понимания [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver)
 пожалуйста, прочтите [Использование Intersection Observer API для запуска анимации и переходов](https://alligator.io/js/intersection-observer)
+
