@@ -67,5 +67,39 @@ const WindowSizeReporter = () => {
 
 <WindowSizeReporter />;
 ```
+
 #### ✅ Совет:
 
+Если вы используете функцию `setState` в обратном вызове`useWindowResize`, вы, вероятно, захотите оптимизировать свой компонент и его
+производительность, предотвращая слишком много бесполезных рендеров, пожалуйста, примите во внимание использование
+[UseThrottledFn](useThrottledFn.md).
+
+```jsx harmony
+import { useState } from "react";
+import { useWindowResize, useThrottledFn } from "beautiful-react-hooks";
+
+const WindowSizeReporter = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+
+  useWindowResize(
+    useThrottledFn(event => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    })
+  );
+
+  return (
+    <DisplayDemo>
+      <p>window width: {width}</p>
+      <p>window height: {height}</p>
+    </DisplayDemo>
+  );
+};
+
+<WindowSizeReporter />;
+```
+
+### Овладение хуками
+
+#### ✅ Когда использовать
