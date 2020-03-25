@@ -10,3 +10,24 @@
 - заботится об удалении слушателя, когда компонент будет размонтирован (component will unmount).
 
 ### Основное использование
+
+```jsx harmony
+import { useState } from "react";
+import { useWindowScroll } from "beautiful-react-hooks";
+
+const WindowScrollReporter = () => {
+  const [scrollY, setScrollY] = useState(window.scrollY);
+
+  useWindowScroll(event => {
+    setScrollY(window.scrollY);
+  });
+
+  return (
+    <DisplayDemo>
+      <p>window y-scroll: {scrollY}</p>
+    </DisplayDemo>
+  );
+};
+
+<WindowScrollReporter />;
+```
