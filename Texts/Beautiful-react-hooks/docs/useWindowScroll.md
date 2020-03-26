@@ -39,3 +39,25 @@ const WindowScrollReporter = () => {
 
 **Обратите внимание**: возвращаемый установщик обработчика (handler setter)предназначен только для изменения значения ссылки обратного вызова, он не
 причина повторного рендеринга компонента также не должна вызываться асинхронно.
+
+```jsx harmony
+import { useState } from "react";
+import { useWindowScroll } from "beautiful-react-hooks";
+
+const WindowScrollReporter = () => {
+  const [scrollY, setScrollY] = useState(window.scrollY);
+  const onScroll = useWindowScroll();
+
+  onScroll(() => {
+    setScrollY(window.scrollY);
+  });
+
+  return (
+    <DisplayDemo>
+      <p>window y-scroll: {scrollY}</p>
+    </DisplayDemo>
+  );
+};
+
+<WindowScrollReporter />;
+```
