@@ -61,7 +61,31 @@ const WindowScrollReporter = () => {
 
 <WindowScrollReporter />;
 ```
-#### ✅ Совет:
-Если вы используете функцию `setState` в обратном вызове` useWindowScroll`, вы, вероятно, захотите оптимизировать производительность своего компонента, предотвращая слишком много бесполезных рендеров, пожалуйста, примите во внимание использование
-[UseThrottledFn] (useThrottledFn.md).
 
+#### ✅ Совет:
+
+Если вы используете функцию `setState` в обратном вызове`useWindowScroll`, вы, вероятно, захотите оптимизировать производительность своего компонента, предотвращая слишком много бесполезных рендеров, пожалуйста, примите во внимание использование
+[UseThrottledFn](useThrottledFn.md).
+
+```jsx harmony
+import { useState } from "react";
+import { useWindowScroll, useThrottledFn } from "beautiful-react-hooks";
+
+const WindowScrollReporter = () => {
+  const [scrollY, setScrollY] = useState(window.scrollY);
+
+  useWindowScroll(
+    useThrottledFn(event => {
+      setScrollY(window.scrollY);
+    })
+  );
+
+  return (
+    <DisplayDemo>
+      <p>window y-scroll: {scrollY}</p>
+    </DisplayDemo>
+  );
+};
+
+<WindowScrollReporter />;
+```
