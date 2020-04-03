@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulating DOM elements</title>
+  </head>
+  <body>
+    <section>
+      <button onclick="foo()">Click Me</button>
+    </section>
+
+    <script>
+      const foo = () => {
+        const section = document.querySelector("section");
+        const text = document.createElement("p");
+        text.textContent = "You Clicked Me";
+        text.align = "center";
+        section.appendChild(text);
+      };
+    </script>
+  </body>
+</html>
