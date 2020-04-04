@@ -17,3 +17,5 @@ function fib(num) {
 }
 
 console.log(fib(6));
+// [1, 1, 2, 3, 5, 8, 13];
+// 13
