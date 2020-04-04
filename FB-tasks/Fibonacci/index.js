@@ -2,7 +2,7 @@
 function fib(num) {
   let a = 1,
     b = 0,
-    arr = [],
+    // arr = [],
     temp;
 
   while (num >= 0) {
@@ -10,9 +10,10 @@ function fib(num) {
     a = a + b;
     b = temp;
     num--;
-    arr.push(b);
+    // arr.push(b);
   }
-  return arr;
+  // return arr;
+  return b;
 }
 
 console.log(fib(6));
