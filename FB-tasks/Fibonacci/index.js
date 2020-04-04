@@ -1,0 +1,18 @@
+// Fibonacci
+function fib(num) {
+  let a = 1,
+    b = 0,
+    arr = [],
+    temp;
+
+  while (num >= 0) {
+    temp = a;
+    a = a + b;
+    b = temp;
+    num--;
+    arr.push(b);
+  }
+  return arr;
+}
+
+console.log(fib(6));
