@@ -4,3 +4,4 @@ function fib(num) {
 }
 
 console.log(fib(6));
+// 13
