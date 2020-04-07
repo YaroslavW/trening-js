@@ -1,0 +1,18 @@
+{
+  "name": "mocha-test",
+  "version": "1.0.0",
+  "description": "mocha-testing",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^7.1.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Yaroslav (https://yaroslavw.github.io/)",
+  "license": "ISC"
+}
