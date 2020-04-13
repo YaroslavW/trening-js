@@ -13,8 +13,18 @@ var simpleArray = [
   },
 ];
 
+// simpleArray.sort(function (val_1, val_2) {
+//   if (val_1.key < val_2.key) {
+//     return -1;
+//   } else {
+//     return 1;
+//   }
+// });
+// 12 Hello
+// 13 World
+// 14 Something
 simpleArray.sort(function (val_1, val_2) {
-  if (val_1.key < val_2.key) {
+  if (val_1.key > val_2.key) {
     return -1;
   } else {
     return 1;
@@ -24,6 +34,6 @@ simpleArray.sort(function (val_1, val_2) {
 let result = simpleArray.forEach((res) =>
   console.log(res.key + " " + res.value)
 );
-// 12 Hello
-// 13 World
 // 14 Something
+// 13 World
+// 12 Hello
