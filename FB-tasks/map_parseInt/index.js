@@ -11,7 +11,7 @@ console.log(result);
 // parseInt(10,0) - Third argument (array) is ignored 
 // parseInt(10,0) - 0 = false 
 // and therefore, the function parseInt('10') considers that the second 
-//argument was not  passed and by default uses - 10 -> parseInt('10',10) = 10;
+// argument was not  passed and by default uses - 10 -> parseInt('10',10) = 10;
 
 //  2 - iteration
 // value - 11, index = 1; array =["10", "11", "12"]
