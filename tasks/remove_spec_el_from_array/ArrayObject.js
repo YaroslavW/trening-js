@@ -16,3 +16,9 @@ console.log(testArrayObject);
 //   { name: "Jsgrip", public: "22k+", daily_visitor: 5000 },
 //   { name: "jsgrip.com", public: "100k+", daily_visitor: 10000 },
 // ];
+
+// ===============>>> with LODASH <<<===========
+testArrayObject = _.select(testArrayObject, function (data) {
+  return testArrayObject.daily_visitor > 5000;
+});
+console.log(testArrayObject);
