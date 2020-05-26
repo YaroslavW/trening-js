@@ -15,3 +15,6 @@ const arr_3 = arr.filter((x) => x);
 console.log(arr_3);
 // [1, 2, 3]
 
+// ==========>>> Lodash <<<==================
+//const arr_4 = _.compact(arr)
+// [1, 2, 3]
