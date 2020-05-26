@@ -9,3 +9,9 @@ console.log(arr_1);
 const arr_2 = arr.filter((x) => !!x);
 console.log(arr_2);
 // [1, 2, 3]
+
+// =========>>> x => x  <<<=====================
+const arr_3 = arr.filter((x) => x);
+console.log(arr_3);
+// [1, 2, 3]
+
