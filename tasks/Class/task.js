@@ -9,3 +9,4 @@ Dog.bark = function () {
 const fido = new Dog('fido');
 fido.bark();
 // Почему собака по кличке fido не лает?
+// TypeError: fido.bark is not a function
