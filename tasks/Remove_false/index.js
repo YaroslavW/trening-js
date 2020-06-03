@@ -8,3 +8,8 @@ console.log(res_1);
 let res_2 = arr.filter((x) => !!x);
 console.log(res_2);
 // [1, 2, 3];
+
+// x => x
+let res_3 = arr.filter((x) => x);
+console.log(res_3);
+// [1, 2, 3];
