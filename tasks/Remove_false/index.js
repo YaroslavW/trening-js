@@ -12,4 +12,9 @@ console.log(res_2);
 // x => x
 let res_3 = arr.filter((x) => x);
 console.log(res_3);
-// [1, 2, 3];
+// [1, 2, 3]
+
+// Lodash
+
+_.compact(arr);
+// [1, 2, 3]
