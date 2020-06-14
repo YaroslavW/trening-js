@@ -8,3 +8,5 @@ if (a === 100) {
 // not
 // if (test[0] === 100)
 // yes
+// [...test];
+// NOT
