@@ -9,3 +9,6 @@ for( let [data] of arr){
 // e;
 // j;
 // s;
+
+//  [data] is only get first element from array elements
+// Like "Javascript everywhere" first character is J
