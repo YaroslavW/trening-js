@@ -22,3 +22,7 @@ const check = () => {
   console.log(`elAge = ${window.elAge}`);
   console.log(`elMoney = ${window.elMoney}`);
 };
+// age = [object HTMLSpanElement]
+// money = [object HTMLSpanElement]
+// elAge = undefined
+// elMoney = undefined
