@@ -1,4 +1,4 @@
-const recursion = str => {
+const recursion = (str) => {
   if (str.length > 1) {
     return recursion(str.slice(1));
   }
@@ -7,3 +7,4 @@ const recursion = str => {
 
 console.log(recursion("We Love JS"));
 // S
+str = "Sveta";
