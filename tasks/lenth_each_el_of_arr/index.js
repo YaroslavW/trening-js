@@ -18,3 +18,10 @@ console.log(lengths);
 //   10, 5, 2, 4,
 //    7, 7, 7, 6
 // ]
+
+console.log(elements.map(element => element.length));
+
+// [
+//   10, 5, 2, 4,
+//    7, 7, 7, 6
+// ]
