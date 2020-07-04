@@ -16,14 +16,29 @@ JavaScript - один из самых популярных языков, кот�
 
 ## 1 All
 
+_Проверить массив на соответсвие определнным параметрам._
+
 Этот фрагмент возвращает `true`, если функция предиката возвращает `true` для всех элементов в коллекции, и `false` в противном случае. Вы можете опустить второй аргумент `fn`, если хотите использовать `Boolean` в качестве значения по умолчанию.
 
 ```javascript
 const all = (arr, fn = Boolean) => arr.every(fn);
 
-all([4, 2, 3], x => x > 1); // true
+all([4, 2, 3], (x) => x > 1); // true
 all([1, 2, 3]); // true
 ```
+
+Метод `every()` проверяет, удовлетворяют ли все элементы массива условию, заданному в передаваемой функции.
+
+Функции-предикаты (или функции-вопросы) отвечают на какой-то вопрос и всегда (без исключений!) возвращают либо `true` либо `false`. Проще говоря - Предикат это выражение, отвечающее на вопрос «да» или «нет» с помощью типа `bool`.
+
+Предикаты во всех языках принято именовать особым образом для простоты анализа. В JavaScript предикаты, как правило, начинаются с префикса `is`, `has` или `can`, но не ограничены этими словами. Примеры:
+
+- `isInfant` — «младенец ли?»
+- `hasChildren` — «есть ли дети?»
+- `isEmpty` — «пустой ли?»
+- `hasErrors` — «есть ли ошибки?»
+
+Функция может считаться предикатом только если она возвращает `bool`.
 
 ---
 
@@ -32,7 +47,7 @@ all([1, 2, 3]); // true
 Этот фрагмент проверяет, все ли элементы массива равны.
 
 ```javascript
-const allEqual = arr => arr.every(val => val === arr[0]);
+const allEqual = (arr) => arr.every((val) => val === arr[0]);
 
 allEqual([1, 2, 3, 4, 5, 6]); // false
 allEqual([1, 1, 1, 1]); // true
@@ -59,10 +74,19 @@ approximatelyEqual(Math.PI / 2.0, 1.5708); // true
 
 ```javascript
 const arrayToCSV = (arr, delimiter = ",") =>
-  arr.map(v => v.map(x => `"${x}"`).join(delimiter)).join("\n");
+  arr.map((v) => v.map((x) => `"${x}"`).join(delimiter)).join("\n");
 
-arrayToCSV([["a", "b"], ["c", "d"]]); // '"a","b"\n"c","d"'
-arrayToCSV([["a", "b"], ["c", "d"]], ";"); // '"a";"b"\n"c";"d"'
+arrayToCSV([
+  ["a", "b"],
+  ["c", "d"],
+]); // '"a","b"\n"c","d"'
+arrayToCSV(
+  [
+    ["a", "b"],
+    ["c", "d"],
+  ],
+  ";"
+); // '"a";"b"\n"c";"d"'
 ```
 
 ---
@@ -73,9 +97,9 @@ arrayToCSV([["a", "b"], ["c", "d"]], ";"); // '"a";"b"\n"c";"d"'
 
 ```javascript
 const arrayToHtmlList = (arr, listID) =>
-  (el => (
+  ((el) => (
     (el = document.querySelector("#" + listID)),
-    (el.innerHTML += arr.map(item => `<li>${item}</li>`).join(""))
+    (el.innerHTML += arr.map((item) => `<li>${item}</li>`).join(""))
   ))();
 
 arrayToHtmlList(["item 1", "item 2"], "myListID");
@@ -95,7 +119,7 @@ const attempt = (fn, ...args) => {
     return e instanceof Error ? e : new Error(e);
   }
 };
-var elements = attempt(function(selector) {
+var elements = attempt(function (selector) {
   return document.querySelectorAll(selector);
 }, ">_>");
 if (elements instanceof Error) elements = []; // elements = []
@@ -123,10 +147,10 @@ average(1, 2, 3); // 2
 ```javascript
 const averageBy = (arr, fn) =>
   arr
-    .map(typeof fn === "function" ? fn : val => val[fn])
+    .map(typeof fn === "function" ? fn : (val) => val[fn])
     .reduce((acc, val) => acc + val, 0) / arr.length;
 
-averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], o => o.n); // 5
+averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], (o) => o.n); // 5
 averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], "n"); // 5
 ```
 
@@ -142,7 +166,7 @@ averageBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], "n"); // 5
 const bifurcate = (arr, filter) =>
   arr.reduce((acc, val, i) => (acc[filter[i] ? 0 : 1].push(val), acc), [
     [],
-    []
+    [],
   ]);
 bifurcate(["beep", "boop", "foo", "bar"], [true, true, false, true]);
 // [ ['beep', 'boop', 'bar'], ['foo'] ]
@@ -160,10 +184,10 @@ bifurcate(["beep", "boop", "foo", "bar"], [true, true, false, true]);
 const bifurcateBy = (arr, fn) =>
   arr.reduce((acc, val, i) => (acc[fn(val, i) ? 0 : 1].push(val), acc), [
     [],
-    []
+    [],
   ]);
 
-bifurcateBy(["beep", "boop", "foo", "bar"], x => x[0] === "b");
+bifurcateBy(["beep", "boop", "foo", "bar"], (x) => x[0] === "b");
 // [ ['beep', 'boop', 'bar'], ['foo'] ]
 ```
 
@@ -189,7 +213,7 @@ bottomVisible(); // true
 Этот фрагмент возвращает длину строки в байтах.
 
 ```javascript
-const byteSize = str => new Blob([str]).size;
+const byteSize = (str) => new Blob([str]).size;
 
 byteSize("😀"); // 4
 byteSize("Hello World"); // 11
@@ -215,8 +239,8 @@ capitalize("fooBar", true); // 'Foobar'
 Этот фрагмент делает заглавными первые буквы каждого слова в данной строке.
 
 ```javascript
-const capitalizeEveryWord = str =>
-  str.replace(/\b[a-z]/g, char => char.toUpperCase());
+const capitalizeEveryWord = (str) =>
+  str.replace(/\b[a-z]/g, (char) => char.toUpperCase());
 
 capitalizeEveryWord("hello world!"); // 'Hello World!'
 ```
@@ -228,7 +252,7 @@ capitalizeEveryWord("hello world!"); // 'Hello World!'
 Этот фрагмент преобразует не массив значений в массив.
 
 ```javascript
-const castArray = val => (Array.isArray(val) ? val : [val]);
+const castArray = (val) => (Array.isArray(val) ? val : [val]);
 
 castArray("foo"); // ['foo']
 castArray([1]); // [1]
@@ -241,7 +265,7 @@ castArray([1]); // [1]
 Этот фрагмент удаляет ложные значения из массива.
 
 ```javascript
-const compact = arr => arr.filter(Boolean);
+const compact = (arr) => arr.filter(Boolean);
 
 compact([0, 1, false, 2, "", 3, "a", "e" * 23, NaN, "s", 34]);
 // [ 1, 2, 3, 'a', 's', 34 ]
@@ -267,7 +291,7 @@ countOccurrences([1, 1, 2, 1, 2, 3], 1); // 3
 
 ```javascript
 const fs = require("fs");
-const createDirIfNotExists = dir =>
+const createDirIfNotExists = (dir) =>
   !fs.existsSync(dir) ? fs.mkdirSync(dir) : undefined;
 createDirIfNotExists("test");
 // creates the directory 'test', if it doesn't exist
@@ -292,7 +316,7 @@ currentURL(); // 'https://medium.com/@fatosmorina'
 Этот фрагмент получает день года от объекта `Date`.
 
 ```javascript
-const dayOfYear = date =>
+const dayOfYear = (date) =>
   Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
 
 dayOfYear(new Date()); // 272
