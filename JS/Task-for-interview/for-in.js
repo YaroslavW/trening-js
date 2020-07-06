@@ -6,3 +6,8 @@ for (var a in myBrowser) {
   console.log(myBrowser[a]); // Выдаст значения свойств
 }
 
+// or
+
+for (let i in myBrowser) {
+  console.log(`Object myBrowser has property ${myBrowser[i]} with key = ${i}`);
+}
