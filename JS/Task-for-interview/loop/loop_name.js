@@ -17,7 +17,7 @@ const names = [
 function sayHello(arr) {
   for (let i = 0; i <= arr.length; i++) {
     // console.log(String(arr[i]).charAt(0));
-    // String(arr[i]).charAt(0) == "и" && String(arr[i]).charAt(0) == "И"
+    // String(arr[i]).charAt(0) == "и" || String(arr[i]).charAt(0) == "И"
     //   ? console.log(`Пока, ${arr[i]}`)
     //   : console.log(`Привет, ${arr[i]}`);
     if (String(arr[i]).charAt(0) === "И" || String(arr[i]).charAt(0) == "и") {
