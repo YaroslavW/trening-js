@@ -19,3 +19,13 @@ console.log(ans_1);
 const ans_2 = str_2.search(a_1) === -1 ? "no" : " yes";
 console.log(ans_2);
 // no
+
+// constructor
+
+const b = new RegExp("John");
+
+const str_b = "John Wells";
+const str_b_1 = "Jaims Bimm";
+
+console.log(str_b.search(b) === -1 ? "John" : "Bimm");
+console.log(str_b_1.search(b) === -1 ? "John" : "Bimm");
