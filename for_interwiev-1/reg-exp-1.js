@@ -27,5 +27,5 @@ const b = new RegExp("John");
 const str_b = "John Wells";
 const str_b_1 = "Jaims Bimm";
 
-console.log(str_b.search(b) === -1 ? "John" : "Bimm");
-console.log(str_b_1.search(b) === -1 ? "John" : "Bimm");
+console.log(str_b.search(b) === -1 ? "John" : "Bimm"); //Bimm
+console.log(str_b_1.search(b) === -1 ? "John" : "Bimm"); //John
