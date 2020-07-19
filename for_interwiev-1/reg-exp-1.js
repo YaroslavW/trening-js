@@ -15,6 +15,7 @@ const str_2 = "Kolesnikov Jaroslav";
 
 const ans_1 = str_1.search(a_1) === -1 ? "No" : "Yes";
 console.log(ans_1);
-// No
+// Yes
 const ans_2 = str_2.search(a_1) === -1 ? "no" : " yes";
 console.log(ans_2);
+// no
