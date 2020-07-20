@@ -12,8 +12,13 @@ inner.style.height = "inherit";
 inner.style.background = "blue";
 
 // debugger;
-let width = 0;
-setInterval(() => {
-  width++;
-  console.log(width);
-}, 30);
+function initProgress() {
+  let width = 0;
+  let interval = setInterval(() => {
+    if (width === 100) clearInterval(interval);
+    inner.style.width = `${width}%`;
+    width++;
+    // console.log(width);
+  }, 30);
+}
+initProgress();
