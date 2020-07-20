@@ -7,3 +7,6 @@ inner.style.height = "inherit";
 inner.style.background = "blue";
 
 // debugger;
+setInterval(() => {
+  console.log();
+}, 1000);
