@@ -21,4 +21,6 @@ function initProgress() {
     // console.log(width);
   }, 30);
 }
-initProgress();
+// initProgress();
+const btn = document.querySelector("button");
+btn.addEventListener("click", initProgress);
