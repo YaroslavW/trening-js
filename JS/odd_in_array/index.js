@@ -10,3 +10,8 @@ function odd() {
 }
 odd(array);
 
+const odd_1 = [];
+array.map((val) => (val % 2 !== 0 ? odd_1.push(val) : false));
+console.log(odd_1);
+// [ 1, 3, 5, 7, 9 ]
+
