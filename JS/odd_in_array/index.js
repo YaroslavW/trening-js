@@ -15,3 +15,6 @@ array.map((val) => (val % 2 !== 0 ? odd_1.push(val) : false));
 console.log(odd_1);
 // [ 1, 3, 5, 7, 9 ]
 
+const odd_2 = array.filter((x) => x % 2 !== 0);
+console.log(odd_2);
+// [ 1, 3, 5, 7, 9 ]
