@@ -29,3 +29,5 @@ function doSomething() {
 
 const promise = doSomething();
 promise.then(success, failure);
+// Готово!
+// Завершено с ошибкой -  Ошибка
