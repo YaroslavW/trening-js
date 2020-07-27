@@ -21,3 +21,4 @@ const doPromise = () => {
 
 const promise1 = doPromise();
 promise1.then(suc, fail);
+// Hura Hurraaa
