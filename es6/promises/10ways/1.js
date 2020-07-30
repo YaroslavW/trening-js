@@ -8,3 +8,7 @@ prom.then(() => {
   console.log("third");
 });
 console.log("fourth");
+// first
+// second
+// fourth
+// third
