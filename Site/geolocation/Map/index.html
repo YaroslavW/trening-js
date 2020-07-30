@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Geolocation Demo</h1>
+
+      <form id="geocoding_form" class="form-horizontal">
+        <div class="form-group">
+          <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <button type="button" class="find-me btn btn-info btn-block">
+              Find My Location
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <p class="no-browser-support">
+        Sorry, the Geolocation API isn't supported in Your browser.
+      </p>
+      <p class="coordinates">
+        Latitude: <b class="latitude">42</b> Longitude:
+        <b class="longitude">32</b>
+      </p>
+
+      <div class="map-overlay">
+        <div id="map"></div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWyCb1Xq7gDRWSWRnOAVF3VsBz9TQW-og.js"></script> -->
+    <script src="gmaps.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+<!-- https://jsfiddle.net/yq5v2w8f/1/ -->
+<!-- https://tutorialzine.com/2016/06/quick-tip-detecting-your-location-with-javascript -->
