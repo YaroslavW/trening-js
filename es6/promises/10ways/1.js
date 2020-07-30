@@ -12,3 +12,5 @@ console.log("fourth");
 // second
 // fourth
 // third
+
+// Promise executes synchronously, promise.then executes asynchronously
