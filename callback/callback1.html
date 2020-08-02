@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="btn-prompt">Go to Greeting!</button>
+    <script>
+      // window.onload = () => {
+
+      // };
+      function hello(name) {
+        alert(`Hello  ${name}`);
+      }
+      // function userInput(callback) {
+      //   const name = prompt(`Please, enter your name...`);
+      //   callback(name);
+      // }
+      document
+        .querySelector(".btn-prompt")
+        .addEventListener("click", function (hello) {
+          const name = prompt(`Enter your name..`);
+          alert(`hello ${name}`)
+        });
+    </script>
+  </body>
+</html>
