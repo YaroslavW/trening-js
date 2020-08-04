@@ -9,3 +9,5 @@ function factorial(n) {
   }
   return result;
 }
+
+var factorial = (n) => (n > 0 ? n * factorial(n - 1) : 1);
