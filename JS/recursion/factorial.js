@@ -29,3 +29,13 @@ function factorialize(num) {
   return result;
 }
 factorialize(5);
+
+
+function factorialize1(num) {
+  if (num === 0 || num === 1) return 1;
+  for (var i = num - 1; i >= 1; i--) {
+    num *= i;
+  }
+  return num;
+}
+factorialize1(5);
