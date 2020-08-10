@@ -1,11 +1,13 @@
 const arr = [20, 5, 100, 1, 4, 22, 34, 987, 58, 43, 12];
 
 const sort = (array) => {
+  let sortArr = [];
   for (let i of array) {
-    setTimeout(() => console.log(i), i);
+    setTimeout(() => sortArr.push[i], i);
+    console.log(sortArr);
   }
 };
-
+// []
 sort(arr);
 // 1;
 // 4;
