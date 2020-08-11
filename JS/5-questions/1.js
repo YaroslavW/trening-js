@@ -7,3 +7,8 @@ console.log(palindrome("Anna"));
 console.log(palindrome("John"));
 console.log(palindrome("carac"));
 console.log(palindrome("car"));
+
+// true;
+// false;
+// true;
+// false;
