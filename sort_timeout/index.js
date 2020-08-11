@@ -4,8 +4,8 @@ const sort = (array) => {
   let sortArr = [];
   for (let i of array) {
     setTimeout(() => sortArr.push[i], i);
-    console.log(sortArr);
   }
+  console.log(sortArr);
 };
 // []
 sort(arr);
