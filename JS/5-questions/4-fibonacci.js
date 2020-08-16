@@ -16,3 +16,12 @@ const fibonacci = (num) => {
   // return the last value in the result array
   return result[num];
 };
+
+const fibonacci_rec = (num) => {
+  // if num is either 0 or 1 return num
+  if (num < 2) {
+    return num;
+  }
+  // recursion here
+  return fibonacci_rec(num - 1) + fibonacci(num - 2);
+};
