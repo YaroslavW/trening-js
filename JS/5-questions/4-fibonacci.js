@@ -17,6 +17,7 @@ const fibonacci = (num) => {
   return result[num];
 };
 
+// =====================================>>> Shorter solution <<<========
 const fibonacci_rec = (num) => {
   // if num is either 0 or 1 return num
   if (num < 2) {
