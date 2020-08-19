@@ -12,6 +12,7 @@ const findVowels = (str) => {
   return count;
 };
 
+// Short solution
 const findVowels_short = (str) => {
   const matched = str.match(/[aeiou]/gi);
   return matched ? matches.length : 0;
