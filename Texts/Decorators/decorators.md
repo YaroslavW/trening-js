@@ -20,3 +20,29 @@
 
 
 ## Примеры
+Несколько примеров того, как реализовать и использовать декораторы в этом предложении:
+
+### `@logged`
+Декоратор `@logged` записывает консольное сообщение при запуске и завершении метода. Многие другие популярные декораторы также захотят обернуть функцию, например, `@deprecated`, `@debounce`, `@memoize` и т. д.
+
+Использование:
+
+```js
+import { logged } from "./logged.mjs";
+
+class C {
+  @logged
+  m(arg) {
+    this.#x = arg;
+  }
+
+  @logged
+  set #x(value) { }
+}
+
+new C().m(1);
+// starting m with arguments 1
+// starting set #x with arguments 1
+// ending set #x
+// ending m
+```
