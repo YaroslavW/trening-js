@@ -98,20 +98,35 @@ x_setter = logged(x_setter, {kind: "setter", isStatic: false});
 Этот "desugars" относится к предложению статического блока класса - [class static block proposal](), которое предоставляет статическую конструкцию `static { }` для использования внутри тела класса, работающего в лексической области видимости класса. Также возможно "desugars" с точки зрения одноразовых статических частных полей, но это беспорядочно и запутанно. Однако предложение декораторов не зависит от статических блоков класса; это просто пояснительный прием.
 
 ### `@defineElement`
+
 Пользовательские элементы HTML - [HTML Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) позволяют определить собственный элемент HTML. Элементы регистрируются с помощью `customElements.define`. Используя декораторы, регистрация может происходить заранее:
 
 ```js
 import { defineElement } from "./defineElement.mjs";
 
-@defineElement('my-class')
-class MyClass extends HTMLElement { }
+@defineElement("my-class")
+class MyClass extends HTMLElement {}
 ```
+
 Классы можно декорировать так же, как методы и средства доступа. Класс отображается в опции значения - `value`.
 
 ```js
 // defineElement.mjs
 export function defineElement(name, options) {
-  return klass => { customElements.define(name, klass, options); return klass; }
+  return (klass) => {
+    customElements.define(name, klass, options);
+    return klass;
+  };
 }
 ```
 
+Декоратор принимает аргументы на месте своего использования, поэтому он реализован как функция, возвращающая другую функцию. Вы можете думать об этом как о «фабрике декораторов»: после применения аргументов он дает вам еще один декоратор.
+
+Этот декоратор можно также "десахаризировать" (desugared):
+
+```js
+class MyClass extends HTMLElement {}
+MyClass = defineElement("my-class")(MyClass, { kind: "class" });
+```
+
+#### Декораторы, добавляющие метаданные
