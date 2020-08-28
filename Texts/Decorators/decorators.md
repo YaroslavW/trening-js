@@ -229,3 +229,25 @@ Object.defineProperty(Element.prototype, "counter", {get, set});
 ```
 
 #### Ограниченный доступ к приватным полям и методам
+
+Иногда определенному коду вне класса может потребоваться доступ к закрытым полям и методам. Например, два класса могут «взаимодействовать», или тестовый код в другом файле должен попасть внутрь класса.
+
+Декораторы могут сделать это возможным, предоставив кому-либо доступ к закрытому полю или методу. Это может быть инкапсулировано в «закрытый ключ» ("private key") - объект, содержащий эти ссылки, который будет использоваться только для тех, кому это необходимо.
+
+```js
+import { PrivateKey } from "./private-key.mjs";
+
+let key = new PrivateKey();
+
+export class Box {
+  @key.show #contents;
+}
+
+export function setBox(box, contents) {
+  return key.set(box, contents);
+}
+
+export function getBox(box) {
+  return key.get(box);
+}
+```
