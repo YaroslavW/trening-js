@@ -207,3 +207,25 @@ export function tracked({ get, set }) {
   };
 }
 ```
+
+Этот пример показывает грубую "десахаризацию" (desugared) следующим образом:
+
+```js
+let initialize, get, set;
+
+class Element {
+  #counter = initialize(0);
+  get counter() { return this.#counter; }
+  set counter(v) { this.#counter = v; }
+
+  increment() { this.counter++; }
+
+  render() { console.log(counter); }
+}
+
+{ get, set } = Object.getOwnPropertyDescriptor(Element.prototype, "counter");
+{ get, set, initialize } = tracked({get, set}, { kind: "field", name: "counter", isStatic: false })
+Object.defineProperty(Element.prototype, "counter", {get, set});
+```
+
+#### Ограниченный доступ к приватным полям и методам
