@@ -251,3 +251,45 @@ export function getBox(box) {
   return key.get(box);
 }
 ```
+
+Обратите внимание, что это своего рода взлом, и его можно было бы улучшить с помощью таких конструкций, как ссылки на частные имена с помощью [`private.name`](https://gist.github.com/littledan/ab73ff08f98f33088a0072ad202445b1) и более широкой области частных имен с помощью [`private / with`](https://gist.github.com/littledan/5451d6426a8ed65c0f3c2822c51314d1). Но это показывает, что это предложение декоратора «естественно» раскрывает существующие вещи полезным способом.
+
+```js
+// private-key.mjs
+export class PrivateKey {
+  #get;
+  #set;
+
+  show({ get, set }) {
+    assert(this.#get === undefined && this.#set === undefined);
+    this.#get = get;
+    this.#set = set;
+    return { get, set };
+  }
+  get(obj) {
+    return this.#get(obj);
+  }
+  set(obj, value) {
+    return this.#set(obj, value);
+  }
+}
+```
+
+Этот пример можно грубо "обессахаривать" (desugared) следующим образом:
+
+```js
+let initialize, get, set;
+export class Box {
+  #_contents = initialize(undefined);
+  get #contents() { return get.call(this); }
+  set #contents(v) { set.call(this, v); }
+
+  static {
+    get = function() { return this.#_contents; },
+    set = function(v) { this.#_contents = v; }
+  }
+}
+({get, set, initialize} = key.show({get, set}, {kind: "field", isStatic: false}));
+```
+
+### `@deprecated`
