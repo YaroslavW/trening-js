@@ -350,3 +350,62 @@ export function deprecated(element, { kind }) {
 - Декоратор `@bound`, который выполняет эквивалент `this.method = this.method.bind (this)` в конструкторе. Эта идиома отвечает цели Джордана Харбанда - быть более дружелюбной к monkey-patching, чем популярная идиома использования стрелочной функции в инициализаторе поля.
 
 Мы рассматриваем несколько возможных вариантов того, как использовать этот тип идиомы.
+
+### Вариант A. Конструкторы Mixin, обращающиеся к метаданным.
+Эти декораторы могут быть созданы с помощью комбинации метаданных и миксина, который выполняет действия инициализации в своем конструкторе.
+
+#### @on with a mixin
+```js
+class MyElement extends WithActions(HTMLElement) {
+  @on('click') clickHandler() { }
+}
+```
+Этот декоратор можно определить следующим образом:
+
+```js
+const handler = Symbol("handler");
+function on(eventName)
+  return (method, context) => {
+    context.metadata = {[handler]: eventName};
+    return method;
+  }
+}
+
+class MetadataLookupCache {
+  #map = new WeakMap();
+  #name;
+  constructor(name) { this.#name = name; }
+  get(newTarget) {
+    let data = this.#map.get(newTarget);
+    if (data === undefined) {
+      data = [];
+      let klass = newTarget;
+      while (klass !== null && !(this.#name in klass)) {
+        for (const [name, {[this.#name]: eventName}]
+             of Object.entries(klass[Symbol.metadata].instance.methods)) {
+          if (eventName !== undefined) {
+            data.push({name, eventName});
+          }
+        }
+        klass = klass.__proto__;
+      }
+      this.#map.set(newTarget, data)
+    }
+    return data;
+  }
+}
+
+let handlersMap = new MetadataLookupCache(handler);
+
+function WithActions(superclass) {
+  return class C extends superclass {
+    constructor(...args) {
+      super(...args);
+      let handlers = handlersMap.get(new.target, C);
+      for (const {name, eventName} of handlers) {
+        this.addEventListener(eventName, this[name].bind(this));
+      }
+    }
+  }
+}
+```
