@@ -293,26 +293,28 @@ export class Box {
 ```
 
 ### `@deprecated`
+
 Декоратор `@deprecated` выводит предупреждения при использовании устаревшего поля, метода или средства доступа. В качестве примера использования:
 
 ```js
-import { deprecated } from "./deprecated.mjs"
+import { deprecated } from "./deprecated.mjs";
 
 export class MyClass {
   @deprecated field;
 
-  @deprecated method() { }
+  @deprecated method() {}
 
-  otherMethod() { }
+  otherMethod() {}
 }
 ```
+
 Чтобы `deprecated` - нерекомендуемые элементы могли работать с различными типами элементов класса, поле `kind` объекта контекста позволяет декораторам видеть, какой тип синтаксической конструкции они не рекомендуют. Этот метод также позволяет выдавать ошибку, когда декоратор используется в контексте, где он не может применяться - например, весь класс не может быть помечен как устаревший, поскольку нет способа перехватить его доступ.
 
 ```js
 // deprecated.mjs
 
 function wrapDeprecated(fn) {
-  let name = fn.name
+  let name = fn.name;
   function method(...args) {
     console.warn(`call to deprecated code ${name}`);
     return fn.call(this, ...args);
@@ -321,21 +323,30 @@ function wrapDeprecated(fn) {
   return method;
 }
 
-export function deprecated(element, {kind}) {
+export function deprecated(element, { kind }) {
   switch (kind) {
-    case 'method':
-    case 'getter':
-    case 'setter':
+    case "method":
+    case "getter":
+    case "setter":
       return wrapDecorated(element);
-    case 'field': {
+    case "field": {
       let { get, set } = element;
       return { get: wrapDeprecated(get), set: wrapDeprecated(set) };
     }
-    default: // includes 'class'
+    default:
+      // includes 'class'
       throw new Error(`Unsupported @deprecated target ${kind}`);
   }
 }
 ```
+
 Обессахаривание (desugaring) здесь аналогично приведенным выше примерам, которые показывают использование `kind`.
 
-## Декораторы методов, требующие инициализации
+## Методы деораторов, требующие инициализации.
+
+Некоторые методы декораторов основаны на выполнении кода при создании экземпляра класса. Например:
+
+- Декоратор `@on('event')` для методов в классах, расширяющих HTMLElement, который регистрирует этот метод как прослушиватель событий в конструкторе.
+- Декоратор `@bound`, который выполняет эквивалент `this.method = this.method.bind (this)` в конструкторе. Эта идиома отвечает цели Джордана Харбанда - быть более дружелюбной к monkey-patching, чем популярная идиома использования стрелочной функции в инициализаторе поля.
+
+Мы рассматриваем несколько возможных вариантов того, как использовать этот тип идиомы.
