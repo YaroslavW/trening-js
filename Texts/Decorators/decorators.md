@@ -354,7 +354,7 @@ export function deprecated(element, { kind }) {
 ### Вариант A. Конструкторы Mixin, обращающиеся к метаданным.
 Эти декораторы могут быть созданы с помощью комбинации метаданных и миксина, который выполняет действия инициализации в своем конструкторе.
 
-#### @on with a mixin
+#### `@on` with a mixin
 ```js
 class MyElement extends WithActions(HTMLElement) {
   @on('click') clickHandler() { }
@@ -409,3 +409,42 @@ function WithActions(superclass) {
   }
 }
 ```
+#### `@bound` with a mixin.
+`@bound` может использоваться с суперклассом mixin следующим образом:
+
+```js
+class C extends WithBoundMethod(Object) {
+  #x = 1;
+  @bound method() { return this.#x; }
+}
+
+let c = new C;
+let m = c.method;
+m();  // 1, not TypeError
+```
+
+Этот декоратор можно определить как:
+
+```js
+const boundName = Symbol("boundName");
+function bound(method, context) {
+  context.metadata = {[boundName]: true};
+  return method;
+}
+let boundMap = new MetadataLookupCache(boundName);
+
+function WithBoundMethods(superclass) {
+  return class C extends superclass {
+    constructor(...args) {
+      super(...args);
+      let names = boundMap.get(new.target, C);
+      for (const {name} of names) {
+        this[name] = this[name].bind(this);
+      }
+    }
+  }
+}
+```
+Обратите внимание на общее использование `MetadataLookupCache` в обоих примерах; это или последующее предложение следует рассмотреть возможность добавления стандартной библиотеки для обработки метаданных для этой цели.
+
+### Вариант Б. Контекстное ключевое слово `init` для методов.
