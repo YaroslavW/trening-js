@@ -502,3 +502,25 @@ class MyElement extends HTMLElement {
 ```
 
 #### `@bound` with `init`
+Ключевое слово `init` для методов также можно использовать для создания декоратора `@bound`, который используется следующим образом:
+
+```js
+class C {
+  #x = 1;
+  @bound init method() { return this.#x; }
+}
+
+let c = new C;
+let m = c.method;
+m();  // 1, not TypeError
+```
+
+Декоратор `@bound` может быть реализован следующим образом:
+
+```js
+function bound(method, {kind, name}) {
+  assert(kind === "init-method");
+  return {method, initialize() { this[name] = this[name].bind(this); }};
+}
+```
+
