@@ -352,14 +352,17 @@ export function deprecated(element, { kind }) {
 Мы рассматриваем несколько возможных вариантов того, как использовать этот тип идиомы.
 
 ### Вариант A. Конструкторы Mixin, обращающиеся к метаданным.
+
 Эти декораторы могут быть созданы с помощью комбинации метаданных и миксина, который выполняет действия инициализации в своем конструкторе.
 
 #### `@on` with a mixin
+
 ```js
 class MyElement extends WithActions(HTMLElement) {
-  @on('click') clickHandler() { }
+  @on("click") clickHandler() {}
 }
 ```
+
 Этот декоратор можно определить следующим образом:
 
 ```js
@@ -409,18 +412,22 @@ function WithActions(superclass) {
   }
 }
 ```
+
 #### `@bound` with a mixin.
+
 `@bound` может использоваться с суперклассом mixin следующим образом:
 
 ```js
 class C extends WithBoundMethod(Object) {
   #x = 1;
-  @bound method() { return this.#x; }
+  @bound method() {
+    return this.#x;
+  }
 }
 
-let c = new C;
+let c = new C();
 let m = c.method;
-m();  // 1, not TypeError
+m(); // 1, not TypeError
 ```
 
 Этот декоратор можно определить как:
@@ -428,7 +435,7 @@ m();  // 1, not TypeError
 ```js
 const boundName = Symbol("boundName");
 function bound(method, context) {
-  context.metadata = {[boundName]: true};
+  context.metadata = { [boundName]: true };
   return method;
 }
 let boundMap = new MetadataLookupCache(boundName);
@@ -438,19 +445,22 @@ function WithBoundMethods(superclass) {
     constructor(...args) {
       super(...args);
       let names = boundMap.get(new.target, C);
-      for (const {name} of names) {
+      for (const { name } of names) {
         this[name] = this[name].bind(this);
       }
     }
-  }
+  };
 }
 ```
+
 Обратите внимание на общее использование `MetadataLookupCache` в обоих примерах; это или последующее предложение следует рассмотреть возможность добавления стандартной библиотеки для обработки метаданных для этой цели.
 
 ### Вариант Б. Контекстное ключевое слово `init` для методов.
+
 Если требовать суперкласс / миксин для случаев, требующих действия инициализации, неприемлемо, ключевое слово `init` в объявлении метода изменяет метод на «метод инициализации». Это ключевое слово позволяет декораторам добавлять действия инициализации, запускаемые при выполнении конструктора.
 
 #### `@on` with `init`
+
 Использование:
 
 ```js
@@ -458,13 +468,37 @@ class MyElement extends HTMLElement {
   @on('click') init clickHandler() { }
 }
 ```
+
 «Метод инициализации» (метод, объявленный с помощью `init`) вызывается аналогично декоратору метода, но ожидается, что он вернет пару {метод, инициализация} - `{method, initialize}`, где инициализация вызывается с этим значением, являющимся новым экземпляром, без аргументов и ничего не вернув.
 
 ```js
 function on(eventName) {
   return (method, context) => {
     assert(context.kind === "init-method");
-    return {method, initialize() { this.addEventListener(eventName, method); }};
-  }
+    return {
+      method,
+      initialize() {
+        this.addEventListener(eventName, method);
+      },
+    };
+  };
 }
 ```
+
+'Обесахаривание' (desugared) определения класса будет примерно таким:
+
+```js
+let initialize;
+class MyElement extends HTMLElement {
+  clickHandler() { }
+  constructor(...args) {
+    super(...args);
+    initialize.call(this);
+  }
+}
+{method: MyElement.prototype.clickHandler, initialize} =
+  on('click')(MyElement.prototype.clickHandler,
+            {kind: "init-method", isStatic: false, name: "clickHandler"});
+```
+
+#### `@bound` with `init`
