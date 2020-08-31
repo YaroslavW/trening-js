@@ -524,3 +524,8 @@ function bound(method, {kind, name}) {
 }
 ```
 
+### Возможные расширения.
+О декораторах дальнейших построек можно узнать на [EXTENSIONS.md](https://github.com/tc39/proposal-decorators/blob/simplified/EXTENSIONS.md).
+
+
+## Синтаксис.
