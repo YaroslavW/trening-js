@@ -824,5 +824,6 @@ Babel 7 поддерживает предложение декораторов, 
 
 Мы работаем над улучшением взаимодействия внутри TC39 и с более широким сообществом JavaScript, чтобы проблемы подобного рода можно было исправить в будущем.
 
+<hr>
 
-[tc39/proposal-decorators](https://github.com/tc39/proposal-decorators/tree/simplified) перевел [Ярослав Колесников](https://github.com/YaroslavW)
+<small>[tc39/proposal-decorators](https://github.com/tc39/proposal-decorators/tree/simplified) перевел [Ярослав Колесников](https://github.com/YaroslavW)</small>
