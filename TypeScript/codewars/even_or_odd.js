@@ -7,7 +7,8 @@ function even_or_odd(n) {
   // } else {
   //   return "Odd";
   // }
-  return n % 2 === 0 ? "Even" : "Odd";
+  // return n % 2 === 0 ? 'Even':'Odd'
+  return ["Even", "Odd"][n % 2];
 }
 exports.even_or_odd = even_or_odd;
 console.log(even_or_odd(55));
