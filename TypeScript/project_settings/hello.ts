@@ -1,2 +1,2 @@
-// console.log("Hello TypeScript");
-console.log('Hello Yaroslav');
+console.log("Hello TypeScript");
+console.log("Hello Yaroslav");
