@@ -16,3 +16,31 @@ const street =
 console.log(street); // undefined
 
 console.log(data.user?.address?.street); // undefined
+
+
+// test
+import test from "ava";
+
+const valid = {
+  user: {
+    address: {
+      street: "main street",
+    },
+  },
+};
+
+function getAddress(data) {
+  return data?.user?.address?.street;
+}
+
+test("Optional Chaining returns real values", (t) => {
+  const result = getAddress(valid);
+  t.is(result, "main street");
+});
+
+// 
+test("Optional chaining returns undefined for nullish properties.", (t) => {
+  t.is(getAddress(), undefined);
+  t.is(getAddress(null), undefined);
+  t.is(getAddress({}), undefined);
+});
