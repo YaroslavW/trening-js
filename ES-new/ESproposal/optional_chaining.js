@@ -14,3 +14,5 @@ console.log(data.user.address.street); // Uncaught TypeError: Cannot read proper
 const street =
   data && data.user && data.user.address && data.user.address.street;
 console.log(street); // undefined
+
+console.log(data.user?.address?.street); // undefined
