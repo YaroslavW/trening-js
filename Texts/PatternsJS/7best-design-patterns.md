@@ -64,3 +64,48 @@ var yourCar= object.create(myCar);
 console.log (yourCar.name);]
 ```
 
+
+**3. Module Design Pattern**
+В шаблоне проектирования модуля есть улучшение по сравнению с шаблоном-прототипом. В шаблоне модуля задаются различные типы модификаторов (как частные, так и общедоступные). Вы можете создавать аналогичные функции или свойства без конфликтов. Существует возможность публичного переименования функций. Пугающей частью этого является невозможность переопределить созданные функции извне.
+
+_Например_
+
+```js
+function AnimalContainter () {
+
+const container = [];
+
+function addAnimal (name) {
+container.push(name);
+}
+
+function getAllAnimals() {
+return container;
+}
+
+function removeAnimal(name) {
+const index = container.indexOf(name);
+if(index < 1) {
+throw new Error('Animal not found in container');
+}
+container.splice(index, 1)
+}
+
+return {
+add: addAnimal,
+get: getAllAnimals,
+remove: removeAnimal
+}
+}
+
+const container = AnimalContainter();
+container.add('Hen');
+container.add('Goat');
+container.add('Sheep');
+
+console.log(container.get()) //Array(3) ["Hen", "Goat", "Sheep"]
+container.remove('Sheep')
+console.log(container.get()); //Array(2) ["Hen", "Goat"]
+```
+
+**4. Singleton Pattern**
