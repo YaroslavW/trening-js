@@ -109,3 +109,41 @@ console.log(container.get()); //Array(2) ["Hen", "Goat"]
 ```
 
 **4. Singleton Pattern**
+Это важно в сценарии, когда необходимо создать только один экземпляр, например, соединение с базой данных. Создать экземпляр можно только тогда, когда соединение закрыто или вы обязательно закрываете открытый экземпляр перед открытием нового. Этот шаблон также называют строгим шаблоном, одним из недостатков, связанных с этим шаблоном, является его устрашающий опыт тестирования из-за наличия скрытых зависимостей объектов, которые нелегко выделить для тестирования.
+
+_Пример_
+
+```js
+function DatabaseConnection () {
+
+let databaseInstance = null;
+
+// tracks the number of instances created at a certain time
+let count = 0;
+
+function init() {
+console.log(`Opening database #${count + 1}`);
+//now perform operation
+}
+function createIntance() {
+if(databaseInstance == null) {
+databaseInstance = init();
+}
+return databaseInstance;
+}
+function closeIntance() {
+console.log('closing database');
+databaseInstance = null;
+}
+return {
+open: createIntance,
+close: closeIntance
+}
+}
+
+const database = DatabseConnection();
+database.open(); //Open database #1
+database.open(); //Open database #1
+database.open(); //Open database #1
+database.close(); //close database
+```
