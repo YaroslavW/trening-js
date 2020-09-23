@@ -39,3 +39,28 @@ const object = new ConstructorObject();
 
 При этом новое ключевое слово выше сообщает JavaScript, что объект `aconstructorObjects` должен действовать как конструктор. Наследование - это то, что этот шаблон проектирования не поддерживает. Узнать подробности
 можно [здесь](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#constructorpatternjavascript)
+
+
+**## 2. Prototype Pattern**
+Паттерн прототипа основан на наследовании прототипов, при котором объекты создаются, чтобы действовать как прототипы для других объектов. На самом деле прототипы действуют как проект для каждого созданного конструктора объекта.
+
+_Пример_
+
+```js
+var myCat= {
+name:"Ford Escort",
+brake:function(){
+console.log("Stop! I am applying brakes");
+}
+Panic : function (){
+console.log ( "wait. how do you stop thuis thing?")
+}
+}
+// use objec create to instansiate a new car
+// используем объект create для создания экземпляра новой машины
+var yourCar= object.create(myCar);
+//You can now see that one is a prototype of the other
+// Теперь вы можете видеть, что один является прототипом другого.
+console.log (yourCar.name);]
+```
+
