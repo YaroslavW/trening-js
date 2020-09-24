@@ -14,7 +14,7 @@
 
 В этой статье я исследую семь лучших и самых популярных шаблонов проектирования JavaScript, большинство из которых, конечно же, подпадут под три категории: создание шаблонов проектирования, структурных шаблонов проектирования и шаблонов поведенческого проектирования. Шаблон похож на следующее изображение; просто чтобы познакомить вас с контекстом.
 
-**1. Шаблон проектирования конструктор.**
+## **1. Шаблон проектирования конструктор.**
 Это специальный метод, который используется для инициализации вновь созданных объектов после выделения памяти. Поскольку JavaScript обычно является объектно-ориентированным, он больше всего работает с объектами, поэтому я намерен углубиться в конструкторы объектов. Есть три способа создания новых объектов в JavaScript:
 
 Ниже приведен один из способов создания шаблона проектирования конструктора.
@@ -31,7 +31,7 @@ var newObject = Object.create(Object.prototype);
 var newObject = newObject();
 ```
 
-**Чтобы получить доступ к свойствам функции, вам необходимо инициализировать объект.**
+**2.Чтобы получить доступ к свойствам функции, вам необходимо инициализировать объект.**
 
 ```js
 const object = new ConstructorObject();
@@ -41,7 +41,7 @@ const object = new ConstructorObject();
 можно [здесь](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#constructorpatternjavascript)
 
 
-**## 2. Prototype Pattern**
+## **2. Prototype Pattern**
 Паттерн прототипа основан на наследовании прототипов, при котором объекты создаются, чтобы действовать как прототипы для других объектов. На самом деле прототипы действуют как проект для каждого созданного конструктора объекта.
 
 _Пример_
@@ -65,7 +65,7 @@ console.log (yourCar.name);]
 ```
 
 
-**3. Module Design Pattern**
+## **3. Module Design Pattern**
 В шаблоне проектирования модуля есть улучшение по сравнению с шаблоном-прототипом. В шаблоне модуля задаются различные типы модификаторов (как частные, так и общедоступные). Вы можете создавать аналогичные функции или свойства без конфликтов. Существует возможность публичного переименования функций. Пугающей частью этого является невозможность переопределить созданные функции извне.
 
 _Например_
@@ -108,7 +108,7 @@ container.remove('Sheep')
 console.log(container.get()); //Array(2) ["Hen", "Goat"]
 ```
 
-**4. Singleton Pattern**
+## **4. Singleton Pattern**
 Это важно в сценарии, когда необходимо создать только один экземпляр, например, соединение с базой данных. Создать экземпляр можно только тогда, когда соединение закрыто или вы обязательно закрываете открытый экземпляр перед открытием нового. Этот шаблон также называют строгим шаблоном, одним из недостатков, связанных с этим шаблоном, является его устрашающий опыт тестирования из-за наличия скрытых зависимостей объектов, которые нелегко выделить для тестирования.
 
 _Пример_
@@ -147,3 +147,66 @@ database.open(); //Open database #1
 database.open(); //Open database #1
 database.close(); //close database
 ```
+
+## **5. Factory Pattern.**
+Это творчество, связанное с созданием объектов без конструктора. Он предоставляет общий интерфейс для создания объектов, где мы можем указать тип создаваемых фабричных объектов. Поэтому мы указываем только объект, а фабрика создает и возвращает его для использования. Для нас разумно использовать шаблон фабрики, когда настроенный компонент объекта имеет высокий уровень сложности и когда мы хотим легко создавать различные экземпляры объектов в зависимости от среды, в которой мы находимся. Мы также можем использовать шаблон фабрики при работе со многими небольшими объектами, имеющими одинаковые свойства, и при составлении объектов, требующих развязки.
+
+_Пример_
+
+```js
+// Dealer A
+
+DealerA = {};
+
+DealerA.title = function title() {
+return "Dealer A";
+};
+
+DealerA.pay = function pay(amount) {
+console.log(
+`set up configuration using username: ${this.username} and password: ${
+this.password
+}`
+);
+return `Payment for service ${amount} is successful using ${this.title()}`;
+};
+
+//Dealer B
+
+DealerB = {};
+DealerB.title = function title() {
+return "Dealer B";
+};
+
+DealerB.pay = function pay(amount) {
+console.log(
+`set up configuration using username: ${this.username}
+and password: ${this.password}`
+);
+return `Payment for service ${amount} is successful using ${this.title()}`;
+};
+
+//@param {*} DealerOption
+//@param {*} config
+
+function DealerFactory(DealerOption, config = {}) {
+const dealer = Object.create(dealerOption);
+Object.assign(dealer, config);
+return dealer;
+}
+
+const dealerFactory = DealerFactory(DealerA, {
+username: "user",
+password: "pass"
+});
+console.log(dealerFactory.title());
+console.log(dealerFactory.pay(12));
+
+const dealerFactory2 = DealerFactory(DealerB, {
+username: "user2",
+password: "pass2"
+});
+console.log(dealerFactory2.title());
+console.log(dealerFactory2.pay(50));
+```
+
