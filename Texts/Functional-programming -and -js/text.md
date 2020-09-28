@@ -28,6 +28,7 @@ greet("Uzair"); /// Welcome! Uzair
 Вы заметили разницу, что лучше и чище?
 
 ## **Чистые функции**
+
 Другая идея парадигмы функционального программирования - писать чистые функции вместо некоторых управляющих функций, которые выведут вас из функционального контекста.
 
 Чистая функция - еще одна более важная концепция для написания более чистого кода. В основном идея состоит в том, что вы хотите, чтобы ваша функция принимала входные данные и использовала только эту функцию для выполнения любых вычислений и возврата выходных данных, не нужно использовать какие-либо другие переменные вне этой функции или нет необходимости изменять значение этой функции.
@@ -50,15 +51,15 @@ function add (num1, num2) {
 
 ```js
 ///Good Practice
-function greet (name) {
-   return "Welcome! "+ name;      /////PURE FUNCTION because using parameter (input).
+function greet(name) {
+  return "Welcome! " + name; /////PURE FUNCTION because using parameter (input).
 }
 ////OR
-function add (num1, num2) {
-   return num1 + num2 + 1;       /////PURE FUNCTION because using as it is value of parameter;
+function add(num1, num2) {
+  return num1 + num2 + 1; /////PURE FUNCTION because using as it is value of parameter;
 }
 ```
+
 Это мы назвали чисто функциональным подходом.
 
-## **Функции высокого порядка**
-
+## **Функции высшего порядка - High Order Functions**
