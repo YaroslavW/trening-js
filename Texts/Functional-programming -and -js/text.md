@@ -63,3 +63,36 @@ function add(num1, num2) {
 Это мы назвали чисто функциональным подходом.
 
 ## **Функции высшего порядка - High Order Functions**
+Теперь поговорим о функциях высшего порядка. Какие они такие? Как следует из названия, они имеют высокий порядок, что означает, что они принимают функции как на входе, или они также могут возвращать на вывод функцию. Смущенны?
+
+Не волнуйтесь, давайте перейдем к коду.
+
+```js
+const fullName = (firstname) => {
+    return (secondname) => {
+         return firstname + " " + secondname;
+    }
+}
+const name = fullName("Uzair"); // fullName return a function now named as name.
+const fullOne = name("Bangee"); ///calling named function return firstname + " " + secondname
+console.log(fullOne); ///Uzair Bangee
+```
+
+Это функция высокого порядка, из которой мы возвращаем другую функцию. Если вам сложно понять приведенный выше фрагмент кода. Кстати, вы знакомы с этой функцией? Да, верно? Это стрелочная функция Es6. Мне они нравятся по сравнению с простыми функциями Es5.
+
+Давайте посмотрим на другой пример, который принимает входные данные как функцию.
+
+```js
+const fullName = (name, fname, lname) => {    ///Here name refers to function
+  return name(fname, lname);
+}
+function echoName(fname, secondname){  
+  return fname + " " + secondname;
+}
+///echoName is the function we will pass in the parameter
+const name = fullName(echoName, "Uzair", "Bangee");
+console.log(name); ///Uzair Bangee
+```
+Это случайный пример функции, которая принимает входные данные. Эти функции часто называют функциями обратного вызова - `Callback Functions`. Это обширная тема, я не буду вдаваться в нее.
+
+## **Не повторяйте цикл for**
