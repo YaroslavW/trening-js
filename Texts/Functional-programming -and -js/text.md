@@ -116,4 +116,4 @@ console.log(fullname)
 
 На сегодня все. Продолжайте практиковать до следующего раза.
 
-<small>оригинал [Uzair Bangee](https://medium.com/@uzairbangee/why-functional-programming-with-javascript-recipes-to-achieve-this-programming-paradigm-a5a8c8b14aae)</small>
+<small>оригинал [Uzair Bangee](https://medium.com/@uzairbangee/why-functional-programming-with-javascript-recipes-to-achieve-this-programming-paradigm-a5a8c8b14aae)</small> перевел [Yaroslav Kolesnikov](https://github.com/YaroslavW)
