@@ -30,3 +30,12 @@ React - одна из [самых популярных библиотек JavaSc
 Если вы любите приключения, вы также можете извлечь приложение и глубже понять, как код React транслируется для его запуска в браузере. Но если вы новичок, вам пока не стоит беспокоиться о том, как создать приложение React с нуля.
 
 ### JSX
+Вы должны начать с самых основных концепций React, которые создают компоненты с использованием JSX. Вы редко увидите реальное приложение, написанное без него. Ознакомьтесь со следующими темами:
+
+* [Rendering an element using JSX](https://reactjs.org/docs/rendering-elements.html)
+
+* [Embedding JavaScript expressions](https://reactjs.org/docs/introducing-jsx.html#embedding-expressions-in-jsx)
+
+* [Specifying element attributes](https://reactjs.org/docs/introducing-jsx.html#specifying-attributes-with-jsx)
+
+* [Programmatically updating an element and seeing it change in the browser](https://reactjs.org/docs/rendering-elements.html#updating-the-rendered-element)
